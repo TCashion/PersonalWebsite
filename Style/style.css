@@ -15,6 +15,11 @@ body {
     margin-right: auto; 
 }
 
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
 .row {
     display: flex;
 }
@@ -116,14 +121,17 @@ nav .col {
     padding-bottom: 10%;
 }
 
-.banner button {
+button {
     color: #DCE6EC;
     background-color: #6B8796;
     border: none;
-    margin-top: 10px;
     font-weight: 600;
     padding: 0 48px;
     height: 48px;
+}
+
+.tagline button {
+    margin-top: 10px;
 }
 
 .tagline {
@@ -156,6 +164,17 @@ nav .col {
     width: 60%;
     margin-left: 20%;
     margin-right: 20%;
-    margin-top: 96px;
-    margin-bottom: 96px;
+    padding-top: 96px;
+    padding-bottom: 96px;
+}
+
+.emailcapture {
+    height: 330px;
+    text-align: center;
+}
+
+input {
+    height: 48px;
+    padding: 0;
+    border: 0;
 }
