@@ -34,7 +34,7 @@ p {
     flex-basis: 8.33333333%;
 }
 
-.col-3 {
+.col-4 {
     flex-basis: 33.3333%;
 }
 
@@ -51,9 +51,8 @@ p {
 }
 
 #srcbutton {
-    text-align: right;
-    justify-content: right;
     position: absolute;
+    margin-right: 5%;
 }
 
 h1, h2, h3{
@@ -145,8 +144,8 @@ button {
 }
 
 .tagline .col-6:first-child {
-    margin-top: 368px;
-    margin-bottom: 368px;
+    height: 5%;
+    margin-top: 30%;
 }
 
 .mission {
@@ -173,8 +172,43 @@ button {
     text-align: center;
 }
 
+.emailcapture h2 {
+    padding-top: 80px;
+}
+
 input {
     height: 48px;
-    padding: 0;
+    padding: 0 16px;
     border: 0;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 1.2;
+    width: 30%;
+}
+
+.footer {
+    height: 130px; 
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.footer h1 {
+    float: left;
+}
+
+.footer .col:nth-child(2) {
+    text-align: center;
+}
+
+.social {
+    text-align: right;
+    height: 28px;
+}
+
+.socialimgs {
+    height: 100%;
+}
+
+.footer .row {
+    margin-top: 75px;
 }
