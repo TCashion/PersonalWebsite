@@ -134,13 +134,13 @@ button {
 }
 
 .tagline {
-    height: 800px;
+    height: 100%;
     margin-top: 75px;
     margin-bottom: 75px;
 }
 
 .tagline img {
-    height: 100%;
+    width: 100%;
 }
 
 .tagline .col-6:first-child {
@@ -186,17 +186,17 @@ input {
     width: 30%;
 }
 
-.footer {
+footer {
     height: 130px; 
     margin-left: 5%;
     margin-right: 5%;
 }
 
-.footer h1 {
-    float: left;
+footer h1 {
+    text-align: left;
 }
 
-.footer .col:nth-child(2) {
+footer .col:nth-child(2) {
     text-align: center;
 }
 
@@ -212,3 +212,14 @@ input {
 .footer .row {
     margin-top: 75px;
 }
+
+
+
+/* *************************************
+ABOUT ME STYLING
+**************************************** */
+
+.aboutme img {
+    height: 100%;
+}
+/* need to crop to fit */
