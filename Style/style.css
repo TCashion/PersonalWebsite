@@ -50,9 +50,8 @@ p {
     padding: 10px;
 }
 
-#srcbutton {
-    position: absolute;
-    margin-right: 5%;
+#nameBanner {
+    padding-left: 40px;
 }
 
 h1, h2, h3{
@@ -220,6 +219,20 @@ ABOUT ME STYLING
 **************************************** */
 
 .aboutme img {
-    height: 100%;
+    max-width: 100%;
+    /* height: 100%; */
 }
-/* need to crop to fit */
+
+.aboutme .row .col-6:last-child {
+    font-family: 'Open Sans', sans-serif;
+    text-align: left; 
+    padding-left: 10rem;
+    margin-top: 30px;
+    line-height: 1.75rem;
+    line-height: 28px;
+}
+
+.aboutme .row .col-6:last-child  h2 {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
