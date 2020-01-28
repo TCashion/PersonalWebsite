@@ -2,6 +2,10 @@
 /* Text color #DCE6EC */
 /* flexbox format used */
 
+:root {
+    font-size: 16px;
+}
+
 body {
     background-color: #1B1D1F;
     color: #DCE6EC;
@@ -220,7 +224,7 @@ ABOUT ME STYLING
 
 .aboutme img {
     max-width: 100%;
-    /* height: 100%; */
+    height: 50vh;
 }
 
 .aboutme .row .col-6:last-child {
@@ -228,8 +232,7 @@ ABOUT ME STYLING
     text-align: left; 
     padding-left: 10rem;
     margin-top: 30px;
-    line-height: 1.75rem;
-    line-height: 28px;
+    line-height: 1.75rem;    
 }
 
 .aboutme .row .col-6:last-child  h2 {
