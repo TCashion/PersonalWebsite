@@ -2,8 +2,8 @@
 /* Text color #DCE6EC */
 /* flexbox format used */
 
-:root {
-    font-size: 16px;
+html {
+    font-size: 10px;
 }
 
 body {
@@ -21,7 +21,8 @@ body {
 
 p {
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 1.5;
 }
 
 .row {
@@ -96,7 +97,7 @@ nav .col {
     margin-left: 33.333333333%;
     margin-right: 33.3333333333%;
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
+    font-size: 1.4rem;
 }
 
 .banner {
@@ -109,18 +110,14 @@ nav .col {
 }
 
 .banner h2 {
-    font-size: 40px;
+    font-size: 4rem;
     text-align: left;
     margin-bottom: 20px;
 }
 
 .banner .col-6 {
-    margin: 125px 0px 125px 125px;
-    margin-left: 8%;
-    padding-top: 10%;
-    padding-right: 5%;
-    padding-left: 5%;
-    padding-bottom: 10%;
+    margin: auto 0;
+    padding-left: 13%;
 }
 
 button {
@@ -137,9 +134,7 @@ button {
 }
 
 .tagline {
-    height: 100%;
-    margin-top: 75px;
-    margin-bottom: 75px;
+    margin: 75px 0;
 }
 
 .tagline img {
@@ -148,7 +143,7 @@ button {
 
 .tagline .col-6:first-child {
     height: 5%;
-    margin-top: 30%;
+    margin: auto 0 auto 13%;
 }
 
 .mission {
@@ -158,16 +153,14 @@ button {
     background-size: cover; 
     background-position: center;
     height: 282px;
+    display: flex;
 }
 
 .mission h2 {
-    font-size: 40px;
-    height: 90px;
+    font-size: 4rem;
     width: 60%;
-    margin-left: 20%;
-    margin-right: 20%;
-    padding-top: 96px;
-    padding-bottom: 96px;
+    margin: auto auto;
+    padding: 0;
 }
 
 .emailcapture {
@@ -224,18 +217,32 @@ ABOUT ME STYLING
 
 .aboutme img {
     max-width: 100%;
-    height: 50vh;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .aboutme .row .col-6:last-child {
     font-family: 'Open Sans', sans-serif;
-    text-align: left; 
-    padding-left: 10rem;
-    margin-top: 30px;
-    line-height: 1.75rem;    
+    margin: auto 0;
 }
 
 .aboutme .row .col-6:last-child  h2 {
     text-align: left;
-    margin-bottom: 1.5rem;
+    margin: 15px 0;
+}
+
+
+
+/* *************************************
+Media Queries
+**************************************** */
+
+@media (max-width: 768px) {
+    a {
+        display: inline;
+    }
+    
+    .row {
+        display: block; 
+    }
 }
