@@ -248,6 +248,15 @@ ABOUT ME STYLING
     margin: 15px 0;
 }
 
+/* *************************************
+PORTFOLIO STYLING
+**************************************** */
+
+.portfolio h3 {
+    text-decoration: underline;
+    font-weight: normal; 
+    text-align: center;
+}
 
 
 /* *************************************
