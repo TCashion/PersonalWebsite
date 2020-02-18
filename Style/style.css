@@ -122,19 +122,19 @@ nav .col {
 
 
 
-.tagline button {
+.blog-line button {
     margin-top: 10px;
 }
 
-.tagline {
+.blog-line {
     margin: 75px 0;
 }
 
-.tagline img {
+.blog-line img {
     width: 100%;
 }
 
-.tagline .col-6:first-child {
+.blog-line .col-6:first-child {
     height: 5%;
     margin: auto 0 auto 13%;
 }

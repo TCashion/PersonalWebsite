@@ -79,4 +79,12 @@ $(document).ready(function() {
     $("#footerDiv").append(footerTemplate);
     // *********** END FOOTER *************
     // ************************************
+
+    $("#email-capture").on("submit", function(event) {
+        event.preventDefault();
+        
+    });
+
+
+
 });
