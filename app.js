@@ -27,13 +27,17 @@ $(document).ready(function() {
                                     <a href="../PersonalWebsite/index.html">Home</a>
                                 </div>
                                 <div class="col">
-                                    <a href="../PersonalWebsite/about.html">About</a>
+                                    <a href="../PersonalWebsite/portfolio.html">Portfolio</a>
                                 </div>
                                 <div class="col">
                                     <a href="../PersonalWebsite/blog.html">Blog</a>
                                 </div>
-                                <div class="col">
+                                <!-- COMMENTED OUT UNTIL READY
+                                 <div class="col">
                                     <a href="../PersonalWebsite/gallery.html">Gallery</a>
+                                </div> -->
+                                <div class="col">
+                                    <a href="../PersonalWebsite/about.html">About</a>
                                 </div>
                             </div>
                         </nav>

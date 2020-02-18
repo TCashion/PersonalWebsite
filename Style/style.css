@@ -120,14 +120,7 @@ nav .col {
     padding-left: 13%;
 }
 
-button {
-    color: #DCE6EC;
-    background-color: #6B8796;
-    border: none;
-    font-weight: 600;
-    padding: 0 48px;
-    height: 48px;
-}
+
 
 .tagline button {
     margin-top: 10px;
@@ -183,9 +176,9 @@ input {
 }
 
 footer {
-    height: 130px; 
-    margin-left: 5%;
-    margin-right: 5%;
+    height: auto; 
+    margin: auto 20px;
+    padding: 50px 0;
 }
 
 footer h1 {
@@ -209,6 +202,22 @@ footer .col:nth-child(2) {
     margin-top: 75px;
 }
 
+/* *************************************
+COMMON ELEMENTS
+**************************************** */
+
+button {
+    color: #DCE6EC;
+    background-color: #6B8796;
+    border: none;
+    font-weight: 600;
+    padding: 0 48px;
+    height: 48px;
+}
+
+.round-img {
+    border-radius: 100%;
+}
 
 
 /* *************************************
@@ -221,12 +230,20 @@ ABOUT ME STYLING
     box-sizing: border-box;
 }
 
-.aboutme .row .col-6:last-child {
+.aboutme .row {
+    margin-bottom: 20px;
+}
+
+.aboutme .col-6 {
+    padding: 0 15px;
+}
+
+.aboutme .col-6:last-child {
     font-family: 'Open Sans', sans-serif;
     margin: auto 0;
 }
 
-.aboutme .row .col-6:last-child  h2 {
+.aboutme .col-6:last-child  h2 {
     text-align: left;
     margin: 15px 0;
 }
