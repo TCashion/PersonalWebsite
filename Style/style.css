@@ -253,7 +253,6 @@ button {
     margin: 0 auto;
 }
 
-
 /* *************************************
 ABOUT ME STYLING
 **************************************** */
@@ -312,6 +311,10 @@ BLOG STYLING
 
 .blog-preview .col-4 {
     margin: auto 0;
+}
+
+.blog-preview .col-8 {
+    padding: 0 60px;
 }
 
 .post-preview {
