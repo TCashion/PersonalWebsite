@@ -39,13 +39,26 @@ p {
     flex-basis: 8.33333333%;
 }
 
+.col-3 {
+    flex-basis: 25%;
+}
+
 .col-4 {
-    flex-basis: 33.3333%;
+    flex-basis: 33.3334%;
 }
 
 .col-6 {
     flex-basis: 50%;
 }
+
+.col-8 {
+    flex-basis: 66.66666667%;
+}
+
+.col-9 {
+    flex-basis: 75%;
+}
+
 .col-11 {
     flex-basis: 91.666666%
 }
@@ -63,8 +76,7 @@ h1, h2, h3{
     font-size: 28px;
     font-weight: 700;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    margin: auto 0;
 }
 
 h3 {
@@ -112,31 +124,37 @@ nav .col {
 .banner h2 {
     font-size: 4rem;
     text-align: left;
+}
+
+.banner h2, .banner button {
     margin-bottom: 20px;
 }
 
 .banner .col-6 {
     margin: auto 0;
-    padding-left: 13%;
-}
-
-
-
-.blog-line button {
-    margin-top: 10px;
+    padding: 0 50px 0 125px;
 }
 
 .blog-line {
     margin: 75px 0;
 }
 
+.blog-line p {
+    margin: 20px 0;
+}
+
 .blog-line img {
     width: 100%;
+}
+
+.blog-line button {
+    margin-left: 10px;
 }
 
 .blog-line .col-6:first-child {
     height: 5%;
     margin: auto 0 auto 13%;
+    padding-right: 50px;
 }
 
 .mission {
@@ -213,10 +231,20 @@ button {
     font-weight: 600;
     padding: 0 48px;
     height: 48px;
+    margin: auto 0;
 }
 
 .round-img {
     border-radius: 100%;
+}
+
+.image-cropper {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
 }
 
 
@@ -256,6 +284,37 @@ PORTFOLIO STYLING
     text-decoration: underline;
     font-weight: normal; 
     text-align: center;
+}
+
+/* *************************************
+BLOG STYLING
+**************************************** */
+
+.blog-preview {
+    height: 300px;
+    box-sizing: border-box;
+}
+
+.preview-img {
+    height: 100%; 
+    width: 100%;
+    /* border-radius: 100%; */
+    margin: 0 auto;
+    /* margin-left: -25%; */
+    display: inline; 
+}
+
+.blog-preview .col-4 {
+    margin: auto 0;
+}
+
+.post-preview {
+    margin: auto 0;
+}
+
+.post-preview h2, .post-preview p {
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 
