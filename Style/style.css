@@ -234,8 +234,8 @@ button {
     margin: auto 0;
 }
 
-.round-img {
-    border-radius: 100%;
+.divider {
+    border-bottom: rgb(90, 90, 90) 1px solid; 
 }
 
 .image-cropper {
@@ -247,15 +247,24 @@ button {
     margin: 0 auto;
 }
 
+.round-img {
+    height: auto; 
+    width: 100%;
+    margin: 0 auto;
+}
+
 
 /* *************************************
 ABOUT ME STYLING
 **************************************** */
 
-.aboutme img {
-    max-width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
+.aboutme .image-cropper {
+    width: 500px;
+    height: 500px;
+}
+
+.aboutme .round-img {
+    margin-top: -15%;
 }
 
 .aboutme .row {
@@ -273,7 +282,7 @@ ABOUT ME STYLING
 
 .aboutme .col-6:last-child  h2 {
     text-align: left;
-    margin: 15px 0;
+    margin-bottom: 20px;
 }
 
 /* *************************************
@@ -295,13 +304,10 @@ BLOG STYLING
     box-sizing: border-box;
 }
 
-.preview-img {
+.blog-preview .round-img {
     height: 100%; 
     width: 100%;
-    /* border-radius: 100%; */
     margin: 0 auto;
-    /* margin-left: -25%; */
-    display: inline; 
 }
 
 .blog-preview .col-4 {
