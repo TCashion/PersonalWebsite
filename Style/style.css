@@ -226,6 +226,7 @@ button {
     padding: 0 48px;
     height: 48px;
     margin: auto 0;
+    cursor: pointer;
 }
 
 .divider {
@@ -249,6 +250,10 @@ p, li {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.4rem;
     line-height: 1.5;
+}
+
+.page-title {
+    padding: 20px 0;
 }
 
 .round-img {
@@ -306,8 +311,10 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
 **************************************** */
 
 .blog-preview {
-    height: 300px;
+    height: auto;
+    min-height: 300px;
     box-sizing: border-box;
+    padding: 20px 0;
 }
 
 .blog-preview .round-img {
