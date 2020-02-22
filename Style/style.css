@@ -351,7 +351,7 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
     margin: auto 0;
 }
 
-.post-preview h2, .post-preview h3, .post-preview p {
+.post-preview h2, .post-preview h3, .post-preview p, .blog-preview button {
     text-align: left;
     margin-bottom: 20px;
     text-decoration: none;
