@@ -116,7 +116,30 @@ $(document).ready(function() {
         </footer>
     `;
     
+    var footerTemplateNested = `
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col col-4">
+                        <h1>Travis G. Cashion</h1>
+                    </div>
+                    <div class="col col-4">
+                        &copy; 2020
+                        <p>Web design & formatting by Travis Cashion</p>
+                    </div>
+                    <div class="col col-4 social" >
+                        <img class="socialimgs" src="../images/email.png">
+                        <img class="socialimgs" src="../images/instagram.png">
+                        <img class="socialimgs" src="../images/medium.png">
+                        <img class="socialimgs" src="../images/facebook.png">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    `;
+
     $("#footerDiv").append(footerTemplate);
+    $("#footerDiv-nested").append(footerTemplateNested);
     // *********** END FOOTER *************
     // ************************************
 
