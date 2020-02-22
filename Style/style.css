@@ -238,15 +238,6 @@ button {
     border-bottom: rgb(90, 90, 90) 1px solid; 
 }
 
-.image-cropper {
-    width: 250px;
-    height: 250px;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50%;
-    margin: 0 auto;
-}
-
 ul {
     list-style: disc inside;
 }
@@ -261,11 +252,31 @@ p, li {
     padding: 20px 0;
 }
 
+.image-cropper {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+/* for vertically-oriented images */
 .round-img {
     height: auto; 
     width: 100%;
     margin: 0 auto;
 }
+
+/* for horizontally-oriented images */
+.round-img-horiz {
+    height: 100%; 
+    width: auto;
+    margin: 0 auto;
+    margin-left: -25%;
+}
+
+
 
 
 
