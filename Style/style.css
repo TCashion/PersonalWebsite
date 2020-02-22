@@ -365,7 +365,16 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
 .block-img {
     display: block;
     margin: 10px auto;
+}
 
+.inline-left {
+    float: left;
+    padding-right: 20px;
+}
+
+.inline-right {
+    float: right;
+    padding-left: 20px;
 }
 
 /* *************************************
