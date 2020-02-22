@@ -357,6 +357,15 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
     text-decoration: none;
 }
 
+.prose {
+    padding: 15px 0;
+}
+
+/* for images that take up entire width of container in between prose, i.e. not inline. */
+.block-img {
+    display: block;
+    margin: 0 auto;
+}
 
 /* *************************************
 Media Queries
