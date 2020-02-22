@@ -370,11 +370,22 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
 .inline-left {
     float: left;
     padding-right: 20px;
+    max-width: 400px; 
 }
 
 .inline-right {
     float: right;
     padding-left: 20px;
+    max-width: 400px; 
+}
+
+.img-ribbon {
+    text-align: center;
+}
+
+.img-ribbon img {
+    max-height: 400px;
+    padding: 20px; 
 }
 
 /* *************************************
