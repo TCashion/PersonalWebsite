@@ -361,6 +361,7 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
     padding: 15px 0;
 }
 
+/* image classes for blog posts to fit with prose */
 /* for images that take up entire width of container in between prose, i.e. not inline. */
 .block-img {
     display: block;
@@ -387,6 +388,9 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
     max-height: 400px;
     padding: 20px; 
 }
+
+
+
 
 /* *************************************
 Media Queries
