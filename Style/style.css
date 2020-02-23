@@ -248,6 +248,10 @@ p, li {
     line-height: 1.5;
 }
 
+.nested-list li {
+    margin-left: 20px; 
+}
+
 .page-title {
     padding: 20px 0;
 }
