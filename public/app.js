@@ -106,10 +106,21 @@ $(document).ready(function() {
                         <p>Web design & formatting by Travis Cashion</p>
                     </div>
                     <div class="col col-4 social" >
+                        <!-- How do I get this to send to gmail?
                         <img class="socialimgs" src="images/email.png">
-                        <img class="socialimgs" src="images/instagram.png">
-                        <img class="socialimgs" src="images/medium.png">
-                        <img class="socialimgs" src="images/facebook.png">
+                        https://-->
+                        <a href="https://www.linkedin.com/in/traviscashion/">
+                            <img class="socialimgs" src="images/linkedin.png">
+                        </a>
+                        <a href="https://www.instagram.com/travis.cashion/">
+                            <img class="socialimgs" src="images/instagram.png">
+                        </a>
+                        <a href="https://medium.com/@cashion.travisg">
+                            <img class="socialimgs" src="images/medium.png">
+                        </a>
+                        <a href="https://www.facebook.com/travcashion">
+                            <img class="socialimgs" src="images/facebook.png">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -128,10 +139,21 @@ $(document).ready(function() {
                         <p>Web design & formatting by Travis Cashion</p>
                     </div>
                     <div class="col col-4 social" >
-                        <img class="socialimgs" src="../images/email.png">
-                        <img class="socialimgs" src="../images/instagram.png">
-                        <img class="socialimgs" src="../images/medium.png">
-                        <img class="socialimgs" src="../images/facebook.png">
+                        <!-- How do I get this to send to gmail?
+                        <img class="socialimgs" src="images/email.png">
+                        https://-->
+                        <a href="https://www.linkedin.com/in/traviscashion/">
+                            <img class="socialimgs" src="images/linkedin.png">
+                        </a>
+                        <a href="https://www.instagram.com/travis.cashion/">
+                            <img class="socialimgs" src="images/instagram.png">
+                        </a>
+                        <a href="https://medium.com/@cashion.travisg">
+                            <img class="socialimgs" src="images/medium.png">
+                        </a>
+                        <a href="https://www.facebook.com/travcashion">
+                            <img class="socialimgs" src="images/facebook.png">
+                        </a>
                     </div>
                 </div>
             </div>
