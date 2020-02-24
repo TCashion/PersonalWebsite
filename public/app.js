@@ -1,8 +1,5 @@
 $(document).ready(function() {
 
-    console.log("SANITY CHECK");
-
-
     // ************************************
     // *********** HEADER *****************
 
@@ -165,9 +162,15 @@ $(document).ready(function() {
     // *********** END FOOTER *************
     // ************************************
 
+
+    // email capture on home/index page
     $("#email-capture").on("submit", function(event) {
         event.preventDefault();
-        
+        var email = $("#email-input").val();
+        db.collection("email-capture").add({
+            email: email
+        });
+        $("#email-input").val("");
     });
 
 
