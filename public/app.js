@@ -24,20 +24,20 @@ $(document).ready(function() {
                         <nav>
                             <div class="row" id="nav-links">
                                 <div class="col">
-                                    <a href="../PersonalWebsite/index.html">Home</a>
+                                    <a href="../index.html">Home</a>
                                 </div>
                                 <div class="col">
-                                    <a href="../PersonalWebsite/portfolio.html">Portfolio</a>
+                                    <a href="../portfolio.html">Portfolio</a>
                                 </div>
                                 <div class="col">
-                                    <a href="../PersonalWebsite/blog.html">Blog</a>
+                                    <a href="../blog.html">Blog</a>
                                 </div>
                                 <!-- COMMENTED OUT UNTIL READY
                                  <div class="col">
-                                    <a href="../PersonalWebsite/gallery.html">Gallery</a>
+                                    <a href="../gallery.html">Gallery</a>
                                 </div> -->
                                 <div class="col">
-                                    <a href="../PersonalWebsite/about.html">About</a>
+                                    <a href="../about.html">About</a>
                                 </div>
                             </div>
                         </nav>
@@ -63,20 +63,20 @@ $(document).ready(function() {
                         <nav>
                             <div class="row" id="nav-links">
                                 <div class="col">
-                                    <a href="../../PersonalWebsite/index.html">Home</a>
+                                    <a href="../../index.html">Home</a>
                                 </div>
                                 <div class="col">
-                                    <a href="../../PersonalWebsite/portfolio.html">Portfolio</a>
+                                    <a href="../../portfolio.html">Portfolio</a>
                                 </div>
                                 <div class="col">
-                                    <a href="../../PersonalWebsite/blog.html">Blog</a>
+                                    <a href="../../blog.html">Blog</a>
                                 </div>
                                 <!-- COMMENTED OUT UNTIL READY
                                  <div class="col">
-                                    <a href="../../PersonalWebsite/gallery.html">Gallery</a>
+                                    <a href="../../gallery.html">Gallery</a>
                                 </div> -->
                                 <div class="col">
-                                    <a href="../../PersonalWebsite/about.html">About</a>
+                                    <a href="../../about.html">About</a>
                                 </div>
                             </div>
                         </nav>
