@@ -316,6 +316,37 @@ ABOUT ME STYLING
 }
 
 /* *************************************
+FILTER STYLING
+**************************************** */
+
+.filter {
+    margin: 15px;
+    /* for future development: */
+    display: none;
+}
+
+.filter h3 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.filter .col-3 {
+    margin: auto 0;
+}
+
+.filter input {
+    height: 15px;
+    width: 15px; 
+    margin: 0;
+}
+
+.filter label {
+    font-size: 1.4rem;
+    margin: 5px;
+}
+
+
+/* *************************************
 PORTFOLIO STYLING
 **************************************** */
 
