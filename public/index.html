@@ -22,34 +22,6 @@
     <!-- link app.js javascript -->
     <script src="app.js"></script>
 
-
-    <!-- *********** INITIALIZE FIREBASE ***************** -->   
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/firebase/7.9.2/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/firebase/7.9.2/firebase-analytics.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/firebase/7.9.2/firebase-firestore.js"></script>
-
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-          apiKey: "AIzaSyAkUuhImlS4rXJTDGwI5vzXvrsNP8_ZTmk",
-          authDomain: "traviscashion-dotcom.firebaseapp.com",
-          databaseURL: "https://traviscashion-dotcom.firebaseio.com",
-          projectId: "traviscashion-dotcom",
-          storageBucket: "traviscashion-dotcom.appspot.com",
-          messagingSenderId: "452210089733",
-          appId: "1:452210089733:web:8b00a14575bf85631ba16c",
-          measurementId: "G-XCSQEK7KN8"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-        const db = firebase.firestore();
-    </script>
-
 </head>
 <body>
     
@@ -134,6 +106,33 @@
 
 
         
+
+    <!-- *********** INITIALIZE FIREBASE ***************** -->   
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/firebase/7.9.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/firebase/7.9.2/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/firebase/7.9.2/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+          apiKey: "AIzaSyAkUuhImlS4rXJTDGwI5vzXvrsNP8_ZTmk",
+          authDomain: "traviscashion-dotcom.firebaseapp.com",
+          databaseURL: "https://traviscashion-dotcom.firebaseio.com",
+          projectId: "traviscashion-dotcom",
+          storageBucket: "traviscashion-dotcom.appspot.com",
+          messagingSenderId: "452210089733",
+          appId: "1:452210089733:web:8b00a14575bf85631ba16c",
+          measurementId: "G-XCSQEK7KN8"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+        const db = firebase.firestore();
+    </script>
     
 
 </body>
