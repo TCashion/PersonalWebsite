@@ -280,9 +280,9 @@ p, li {
     margin-left: -25%;
 }
 
-
-
-
+.hidden {
+    display: none;
+}
 
 /* *************************************
 ABOUT ME STYLING

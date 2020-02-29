@@ -173,6 +173,7 @@ $(document).ready(function() {
         $("#email-input").val("");
     });
 
-
-
+    // alternate photo side on preview
+    $(".blog-preview:odd .col-4:first-child").addClass("hidden");
+    $(".blog-preview:even .col-4:last-child").addClass("hidden");
 });
