@@ -176,4 +176,10 @@ $(document).ready(function() {
     // alternate photo side on preview
     $(".blog-preview:odd .col-4:first-child").addClass("hidden");
     $(".blog-preview:even .col-4:last-child").addClass("hidden");
+
+    // filter function
+    $("#filter-form").on("change", function () {
+        var checked = $("input:checked").attr("id");
+        console.log(checked);
+    });
 });

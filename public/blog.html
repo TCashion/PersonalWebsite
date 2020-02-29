@@ -32,6 +32,9 @@
     </div>
     <!-- *********** END HEADER ************* -->
 
+    <!-- tags are associated with classes on the "blog-preview" row -->
+
+
     <div class="container">
 
         <div class="row page-title">
@@ -46,16 +49,22 @@
                     </div>
                     <div class="col col-9">
                         <div>
-                            <input type="checkbox" id="hunting" name="hunting">
-                            <label for="hunting">Hunting</label> 
-                            <input type="checkbox" id="running" name="running">
-                            <label for="running">Running</label>
+                            <form id="filter-form">
+                                <input type="checkbox" id="hunting" name="hunting">
+                                <label for="hunting">Hunting</label> 
+                                <input type="checkbox" id="nature" name="nature">
+                                <label for="nature">Nature</label>
+                                <input type="checkbox" id="philosophy" name="philosophy">
+                                <label for="philosophy">Philosophy</label>
+                                <input type="checkbox" id="personal-development" name="personal-development">
+                                <label for="personal-development">Personal Development</label>
+                            </form>
                         </div>
                     </div>
         </div>
         <div class="divider"></div>
 
-        <div class="row blog-preview">
+        <div class="row blog-preview nature">
             <div class="row">
                 <div class="col col-4">
                     <div class="image-cropper">
@@ -72,7 +81,7 @@
                     <form method="get" action="blog_pages/ritual.html">
                         <button>Read More</button>
                     </form>
-                    <p>Published January 15, 2020 | Tags: <a href="">Nature</a></p>
+                    <p>Published January 15, 2020 | Tags: <a href=""></a>Nature</a></p>
                 </div>
                 <div class="col col-4">
                     <div class="image-cropper">
@@ -85,7 +94,7 @@
         </div>
         <div class="divider"></div>
 
-        <div class="row blog-preview">
+        <div class="row blog-preview hunting">
             <div class="row">
                 <div class="col col-4">
                     <div class="image-cropper">
@@ -115,7 +124,7 @@
         </div>
         <div class="divider"></div>
 
-        <div class="row blog-preview">
+        <div class="row blog-preview nature">
             <div class="row">
                 <div class="col col-4">
                     <div class="image-cropper">
@@ -145,7 +154,7 @@
         </div>
         <div class="divider"></div>
 
-        <div class="row blog-preview">
+        <div class="row blog-preview hunting nature">
             <div class="row">
                 <div class="col col-4">
                     <div class="image-cropper">
@@ -162,7 +171,7 @@
                     <form method="get" action="blog_pages/hunting_with_my_father.html">
                         <button>Read More</button>
                     </form>
-                    <p>Published July 17, 2019 | Tags: <a href="">Hunting</a>, <a href="">Nature</a>, <a href="">Personal</a></p>
+                    <p>Published July 17, 2019 | Tags: <a href="">Hunting</a>, <a href="">Nature</a></p>
                 </div>
                 <div class="col col-4">
                     <div class="image-cropper">
@@ -175,7 +184,7 @@
         </div>
         <div class="divider"></div>
 
-        <div class="row blog-preview">
+        <div class="row blog-preview philosophy personal-development">
             <div class="row">
                 <div class="col col-4">
                     <div class="image-cropper">
@@ -205,7 +214,7 @@
         </div>
         <div class="divider"></div>
 
-        <div class="row blog-preview">
+        <div class="row blog-preview philosophy personal-development">
             <div class="row">
                 <div class="col col-4">
                     <div class="image-cropper">
@@ -235,7 +244,7 @@
         </div>
         <div class="divider"></div>
 
-        <div class="row blog-preview">
+        <div class="row blog-preview philosophy personal-development">
             <div class="row">
                 <div class="col col-4">
                     <div class="image-cropper">
