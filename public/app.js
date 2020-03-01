@@ -188,10 +188,10 @@ $(document).ready(function() {
             });
             console.log(filterSelected); 
 
-            // STILL WORKING ON THIS
+            // // working on this 
             // for (i = 0; i < filterSelected.length; i++) {
             //     $("div").each( function () { 
-            //         if ($("div").attr("class") === filterSelected[i] ) {
+            //         if ($(this).classList.contains(`${filterSelected[i]}`) ) {
             //             console.log("match");
             //         };
             //     })
