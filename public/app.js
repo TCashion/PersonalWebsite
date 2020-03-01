@@ -187,5 +187,14 @@ $(document).ready(function() {
                 }; 
             });
             console.log(filterSelected); 
+
+            // STILL WORKING ON THIS
+            // for (i = 0; i < filterSelected.length; i++) {
+            //     $("div").each( function () { 
+            //         if ($("div").attr("class") === filterSelected[i] ) {
+            //             console.log("match");
+            //         };
+            //     })
+            // };
         });
 });
