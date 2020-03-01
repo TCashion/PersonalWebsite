@@ -178,8 +178,14 @@ $(document).ready(function() {
     $(".blog-preview:even .col-4:last-child").addClass("hidden");
 
     // filter function
-    $("#filter-form").on("change", function () {
-        var checked = $("input:checked").attr("id");
-        console.log(checked);
-    });
+        $("#filter-form").on("click", function () {
+            var filterSelected = [];  
+            $("input:checkbox").each( function() {  
+                var $this = $(this);
+                if ( $this.is(":checked") ) {
+                    filterSelected.push($this.attr("id"))   
+                }; 
+            });
+            console.log(filterSelected); 
+        });
 });
