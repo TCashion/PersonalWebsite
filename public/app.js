@@ -142,16 +142,16 @@ $(document).ready(function() {
                         <img class="socialimgs" src="images/email.png">
                         https://-->
                         <a href="https://www.linkedin.com/in/traviscashion/">
-                            <img class="socialimgs" src="images/linkedin.png">
+                            <img class="socialimgs" src="../images/linkedin.png">
                         </a>
                         <a href="https://www.instagram.com/travis.cashion/">
-                            <img class="socialimgs" src="images/instagram.png">
+                            <img class="socialimgs" src="../images/instagram.png">
                         </a>
                         <a href="https://medium.com/@cashion.travisg">
-                            <img class="socialimgs" src="images/medium.png">
+                            <img class="socialimgs" src="../images/medium.png">
                         </a>
                         <a href="https://www.facebook.com/travcashion">
-                            <img class="socialimgs" src="images/facebook.png">
+                            <img class="socialimgs" src="../images/facebook.png">
                         </a>
                     </div>
                 </div>
