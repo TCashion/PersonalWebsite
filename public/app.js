@@ -1,3 +1,5 @@
+var filterSelected = [];
+
 $(document).ready(function() {
 
     // ************************************
@@ -178,23 +180,34 @@ $(document).ready(function() {
     $(".blog-preview:even .col-4:last-child").addClass("hidden");
 
     // filter function
-        $("#filter-form").on("click", function () {
-            var filterSelected = [];  
-            $("input:checkbox").each( function() {  
-                var $this = $(this);
-                if ( $this.is(":checked") ) {
-                    filterSelected.push($this.attr("id"))   
-                }; 
-            });
-            console.log(filterSelected); 
-
-            // // working on this 
-            // for (i = 0; i < filterSelected.length; i++) {
-            //     $("div").each( function () { 
-            //         if ($(this).classList.contains(`${filterSelected[i]}`) ) {
-            //             console.log("match");
-            //         };
-            //     })
-            // };
+    // manage the filter Array:
+    $("#filter-form").on("click", function () {
+        $("input:checkbox").each( function() {  
+            var $this = $(this);
+            if ( $this.prop("checked") === true ) {
+                var addFilter = $this.attr("id");
+                if ( filterSelected.includes(addFilter) === false) {
+                    filterSelected.push(addFilter);
+                };
+            } else if ( $this.prop("checked") === false ) {
+                var removeFilter = $this.attr("id");
+                for ( i = 0; i < filterSelected.length ; i++ ) {
+                    if ( filterSelected[i] === removeFilter ) {
+                        filterSelected.pop(filterSelected[i]);
+                    };
+                };
+            }; 
         });
+        console.log(filterSelected); 
+
+        // working on this 
+        // for (i = 0; i < filterSelected.length; i++) {
+        //     $(".blog-preview ").each( function () { 
+        //         console.log($(".blog-preview").attr("class"));
+        //         if ($(".blog-preview").hasClass(`${filterSelected[i]}`) === true) {
+        //             console.log(" match");
+        //         };
+        //     })
+        // };
+    });
 });
