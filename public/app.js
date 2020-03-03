@@ -16,14 +16,17 @@ $(document).ready(function() {
                             <div id="nameBanner" class="col col-12">
                                 <h1>Travis G. Cashion</h1>
                             </div>
+                            <!-- commented out until functionality is built -->
+                            <!--
                             <div>
                                 <img id="srcbutton" src="images/SearchIcon.PNG">
                             </div>
+                            -->
                         </div>
                         <nav>
                             <div class="row" id="nav-links">
                                 <div class="col">
-                                    <a href="../index.html">Home</a>
+                                    <a href="index.html">Home</a>
                                 </div>
                                 <div class="col">
                                     <a href="portfolio.html">Portfolio</a>
@@ -55,9 +58,12 @@ $(document).ready(function() {
                             <div id="nameBanner" class="col col-12">
                                 <h1>Travis G. Cashion</h1>
                             </div>
+                            <!-- commented out until functionality is built -->
+                            <!--
                             <div>
-                                <img id="srcbutton" src="../images/SearchIcon.PNG">
+                                <img id="srcbutton" src="images/SearchIcon.PNG">
                             </div>
+                            -->
                         </div>
                         <nav>
                             <div class="row" id="nav-links">
