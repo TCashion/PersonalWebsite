@@ -121,7 +121,7 @@ nav .col {
     text-align: left;
 }
 
-.banner h2, .banner button {
+.banner h2, .banner p {
     margin-bottom: 20px;
 }
 
@@ -464,18 +464,27 @@ Media Queries
         margin: 8px auto;
     }
 
-    /* blog/portfolio */
-
+    /* home/blog/portfolio */
+    .banner .col-6:first-child {
+        padding: 200px 15px;
+    }
+    
     .blog-preview .col-4:first-child {
         display: block;
         padding-bottom: 30px;
     }
 
-    .blog-preview .col-4:last-child {
+    .blog-preview .col-4:last-child, .banner .col-6:last-child {
         display: none;
     }
 
-    .blog-preview .col-8 h2, .blog-preview .col-8 form button {
+    .blog-line button, .blog-preview button {
+        display: block;
+        text-align: center;
+        margin: 15px auto;
+    }
+
+    .blog-preview .col-8 h2, .blog-preview .col-8 form button, .banner .col-6 h2, .blog-line h3 {
         text-align: center;
     }
 
