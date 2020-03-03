@@ -440,6 +440,7 @@ Media Queries
         display: none;
     }
 
+    /* nav */
     #nav-links .col {
         text-align: left;
         padding: 3px;
@@ -452,5 +453,41 @@ Media Queries
     nav, #nav-links {
         margin: 3px;
     }
-    
+
+    /* footer */
+
+    footer h1, footer p, footer .social {
+        text-align: center;
+    }
+
+    footer .col-4 {
+        margin: 8px auto;
+    }
+
+    /* blog/portfolio */
+
+    .blog-preview .col-4:first-child {
+        display: block;
+        padding-bottom: 30px;
+    }
+
+    .blog-preview .col-4:last-child {
+        display: none;
+    }
+
+    .blog-preview .col-8 h2, .blog-preview .col-8 form button {
+        text-align: center;
+    }
+
+    /* about me */
+    .aboutme .image-cropper {
+        height: 250px;
+        width: 250px;
+        margin-bottom: 30px;
+    }
+
+    .aboutme .col-6:last-child h2 {
+        text-align: center;
+    }
+
 }
