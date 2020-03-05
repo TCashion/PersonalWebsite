@@ -88,18 +88,6 @@ nav a {
     text-decoration: none;
 }
 
-nav .col {
-    text-align: center;
-}
-
-#nav-links .col:first-child {
-    padding-left: 30px;
-}
-
-#nav-links .col:last-child {
-    padding-right: 30px;
-}
-
 #nav-links {
     justify-content: center;
     font-family: 'Open Sans', sans-serif;
@@ -110,6 +98,10 @@ nav .col {
     list-style-type: none;
     display: inline;
     margin: 0 10px;
+}
+
+nav ul {
+    text-align: center;
 }
 
 .banner {
@@ -446,17 +438,17 @@ Media Queries
     }
 
     /* nav */
-    #nav-links .col {
-        text-align: left;
-        padding: 3px;
+
+    nav {
+        margin-bottom: 0;
     }
 
-    #nav-links .col:first-child {
-        padding-left: 3px;
+    .nav-li {
+        font-size: 1.2rem;
     }
 
-    nav, #nav-links {
-        margin: 3px;
+    .vert-divider {
+        display: none;
     }
 
     /* footer */

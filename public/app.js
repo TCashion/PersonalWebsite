@@ -29,19 +29,19 @@ $(document).ready(function() {
                                     <li class="nav-li">
                                         <a href="index.html">Home</a>
                                     </li>
-                                    <li class="nav-li">
+                                    <li class="nav-li vert-divider">
                                         |   
                                     </li>
                                     <li class="nav-li">
                                         <a href="portfolio.html">Portfolio</a>
                                     </li>
-                                    <li class="nav-li">
+                                    <li class="nav-li vert-divider">
                                         |   
                                     </li>
                                     <li class="nav-li">
                                         <a href="blog.html">Blog</a>
                                     </li>
-                                    <li class="nav-li">
+                                    <li class="nav-li vert-divider">
                                         |   
                                     </li>
                                     <!-- COMMENTED OUT UNTIL READY
@@ -82,19 +82,19 @@ $(document).ready(function() {
                                     <li class="nav-li">
                                         <a href="../index.html">Home</a>
                                     </li>
-                                    <li class="nav-li">
+                                    <li class="nav-li vert-divider">
                                         |   
                                     </li>
                                     <li class="nav-li">
                                         <a href="../portfolio.html">Portfolio</a>
                                     </li>
-                                    <li class="nav-li">
+                                    <li class="nav-li vert-divider">
                                         |   
                                     </li>
                                     <li class="nav-li">
                                         <a href="../blog.html">Blog</a>
                                     </li>
-                                    <li class="nav-li">
+                                    <li class="nav-li vert-divider">
                                         |   
                                     </li>
                                     <!-- COMMENTED OUT UNTIL READY
