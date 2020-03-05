@@ -25,22 +25,33 @@ $(document).ready(function() {
                         </div>
                         <nav>
                             <div class="row" id="nav-links">
-                                <div class="col">
-                                    <a href="index.html">Home</a>
-                                </div>
-                                <div class="col">
-                                    <a href="portfolio.html">Portfolio</a>
-                                </div>
-                                <div class="col">
-                                    <a href="blog.html">Blog</a>
-                                </div>
-                                <!-- COMMENTED OUT UNTIL READY
-                                 <div class="col">
-                                    <a href="gallery.html">Gallery</a>
-                                </div> -->
-                                <div class="col">
-                                    <a href="about.html">About</a>
-                                </div>
+                                <ul>
+                                    <li class="nav-li">
+                                        <a href="index.html">Home</a>
+                                    </li>
+                                    <li class="nav-li">
+                                        |   
+                                    </li>
+                                    <li class="nav-li">
+                                        <a href="portfolio.html">Portfolio</a>
+                                    </li>
+                                    <li class="nav-li">
+                                        |   
+                                    </li>
+                                    <li class="nav-li">
+                                        <a href="blog.html">Blog</a>
+                                    </li>
+                                    <li class="nav-li">
+                                        |   
+                                    </li>
+                                    <!-- COMMENTED OUT UNTIL READY
+                                    <li class="nav-li">
+                                        <a href="gallery.html">Gallery</a>
+                                    </li> -->
+                                    <li class="nav-li">
+                                        <a href="about.html">About</a>
+                                    </li>
+                                </ul>
                             </div>
                         </nav>
                     </div>
@@ -67,22 +78,33 @@ $(document).ready(function() {
                         </div>
                         <nav>
                             <div class="row" id="nav-links">
-                                <div class="col">
-                                    <a href="../index.html">Home</a>
-                                </div>
-                                <div class="col">
-                                    <a href="../portfolio.html">Portfolio</a>
-                                </div>
-                                <div class="col">
-                                    <a href="../blog.html">Blog</a>
-                                </div>
-                                <!-- COMMENTED OUT UNTIL READY
-                                 <div class="col">
-                                    <a href="../gallery.html">Gallery</a>
-                                </div> -->
-                                <div class="col">
-                                    <a href="../about.html">About</a>
-                                </div>
+                                <ul>
+                                    <li class="nav-li">
+                                        <a href="../index.html">Home</a>
+                                    </li>
+                                    <li class="nav-li">
+                                        |   
+                                    </li>
+                                    <li class="nav-li">
+                                        <a href="../portfolio.html">Portfolio</a>
+                                    </li>
+                                    <li class="nav-li">
+                                        |   
+                                    </li>
+                                    <li class="nav-li">
+                                        <a href="../blog.html">Blog</a>
+                                    </li>
+                                    <li class="nav-li">
+                                        |   
+                                    </li>
+                                    <!-- COMMENTED OUT UNTIL READY
+                                    <li class="nav-li">
+                                        <a href="../gallery.html">Gallery</a>
+                                    </li> -->
+                                    <li class="nav-li">
+                                        <a href="../about.html">About</a>
+                                    </li>
+                                </ul>
                             </div>
                         </nav>
                     </div>

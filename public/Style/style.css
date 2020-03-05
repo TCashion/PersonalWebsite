@@ -60,7 +60,7 @@ body {
 .col-12 {
     flex-basis: 100%;
     padding: 10px;
-}
+}   
 
 h1, h2, h3, h4{
     font-size: 2.8rem;
@@ -101,10 +101,15 @@ nav .col {
 }
 
 #nav-links {
-    margin-left: 33.333333333%;
-    margin-right: 33.3333333333%;
+    justify-content: center;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.4rem;
+}
+
+.nav-li {
+    list-style-type: none;
+    display: inline;
+    margin: 0 10px;
 }
 
 .banner {
