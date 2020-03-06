@@ -210,17 +210,18 @@ $(document).ready(function() {
     // filter function
     // manage the filter Array:
     $("#filter-form").on("click", function () {
+        var addFilter;
+        var removerFilter;
+
         $("input:checkbox").each( function() {  
             var $this = $(this);
             if ( $this.prop("checked") === true ) {
-                var addFilter = $this.attr("id");
-                console.log("checked: " + addFilter);
+                addFilter = $this.attr("id");
                 if ( filterSelected.includes(addFilter) === false) {
                     filterSelected.push(addFilter);
                 };
             } else if ( $this.prop("checked") === false ) {
                 var removeFilter = $this.attr("id");
-                console.log("unchecked: " + removeFilter)
                 for ( i = 0; i < filterSelected.length ; i++ ) {
                     if ( filterSelected[i] === removeFilter ) {
                         filterSelected.splice(i, 1);
@@ -231,13 +232,15 @@ $(document).ready(function() {
         console.log(filterSelected); 
 
         // working on this 
-        // for (i = 0; i < filterSelected.length; i++) {
-        //     $(".blog-preview ").each( function () { 
-        //         console.log($(".blog-preview").attr("class"));
-        //         if ($(".blog-preview").hasClass(`${filterSelected[i]}`) === true) {
-        //             console.log(" match");
-        //         };
-        //     })
-        // };
+        for ( i = 0; i < filterSelected.length; i++) {
+            $(".blog-preview").each( function () { 
+                if ( $(this).hasClass(`${filterSelected[i]}`) ) {
+                    // console.log("true")
+                    $(this).addClass("flag");
+                } else {
+                    $(this).removeClass("flag");
+                };
+            });
+        };
     });
 });
