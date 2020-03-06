@@ -214,14 +214,16 @@ $(document).ready(function() {
             var $this = $(this);
             if ( $this.prop("checked") === true ) {
                 var addFilter = $this.attr("id");
+                console.log("checked: " + addFilter);
                 if ( filterSelected.includes(addFilter) === false) {
                     filterSelected.push(addFilter);
                 };
             } else if ( $this.prop("checked") === false ) {
                 var removeFilter = $this.attr("id");
+                console.log("unchecked: " + removeFilter)
                 for ( i = 0; i < filterSelected.length ; i++ ) {
                     if ( filterSelected[i] === removeFilter ) {
-                        filterSelected.pop(filterSelected[i]);
+                        filterSelected.splice(i, 1);
                     };
                 };
             }; 
