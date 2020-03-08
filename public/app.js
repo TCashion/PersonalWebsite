@@ -237,13 +237,12 @@ $(document).ready(function() {
                     $(this).removeClass("hidden");
             });
         } else {
+            $(".blog-preview").addClass("hidden");
             for ( i = 0; i < filterSelected.length; i++) {
                 $(".blog-preview").each( function () { 
                     if ( $(this).hasClass(`${filterSelected[i]}`) ) {
                         $(this).removeClass("hidden");
-                    } else {
-                        $(this).addClass("hidden");
-                    };
+                    }; 
                 });
             };
         };
