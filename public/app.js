@@ -232,14 +232,20 @@ $(document).ready(function() {
         console.log(filterSelected); 
 
         // updates the filter classes based on selections 
-        for ( i = 0; i < filterSelected.length; i++) {
-            $(".blog-preview").each( function () { 
-                if ( $(this).hasClass(`${filterSelected[i]}`) ) {
+        if (filterSelected.length === 0) {
+            $(".blog-preview").each( function () {
                     $(this).removeClass("hidden");
-                } else {
-                    $(this).addClass("hidden");
-                };
             });
+        } else {
+            for ( i = 0; i < filterSelected.length; i++) {
+                $(".blog-preview").each( function () { 
+                    if ( $(this).hasClass(`${filterSelected[i]}`) ) {
+                        $(this).removeClass("hidden");
+                    } else {
+                        $(this).addClass("hidden");
+                    };
+                });
+            };
         };
     });
 });
