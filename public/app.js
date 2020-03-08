@@ -231,14 +231,13 @@ $(document).ready(function() {
         });
         console.log(filterSelected); 
 
-        // working on this 
+        // updates the filter classes based on selections 
         for ( i = 0; i < filterSelected.length; i++) {
             $(".blog-preview").each( function () { 
                 if ( $(this).hasClass(`${filterSelected[i]}`) ) {
-                    // console.log("true")
-                    $(this).addClass("flag");
+                    $(this).removeClass("hidden");
                 } else {
-                    $(this).removeClass("flag");
+                    $(this).addClass("hidden");
                 };
             });
         };
