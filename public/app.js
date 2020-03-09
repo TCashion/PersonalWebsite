@@ -207,7 +207,7 @@ $(document).ready(function() {
     $(".blog-preview:odd .col-4:first-child").addClass("hidden");
     $(".blog-preview:even .col-4:last-child").addClass("hidden");
 
-    // filter function
+    // filter function: manages a filter array, compares .blog-preview divs to selections, displays or hides accordingly 
     $("#filter-form").on("click", function () {
         var addFilter;
         var removerFilter;
