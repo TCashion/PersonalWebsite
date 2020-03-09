@@ -212,6 +212,7 @@ $(document).ready(function() {
         var addFilter;
         var removerFilter;
 
+        // manage filter array: 
         $("input:checkbox").each( function() {  
             var $this = $(this);
             if ( $this.prop("checked") === true ) {
