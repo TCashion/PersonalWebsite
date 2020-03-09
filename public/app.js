@@ -208,7 +208,6 @@ $(document).ready(function() {
     $(".blog-preview:even .col-4:last-child").addClass("hidden");
 
     // filter function
-    // manage the filter Array:
     $("#filter-form").on("click", function () {
         var addFilter;
         var removerFilter;
@@ -229,7 +228,6 @@ $(document).ready(function() {
                 };
             }; 
         });
-        console.log(filterSelected); 
 
         // updates the filter classes based on selections 
         if (filterSelected.length === 0) {
