@@ -204,8 +204,12 @@ $(document).ready(function() {
     });
 
     // alternate photo side on preview
-    $(".blog-preview:odd .col-4:first-child").addClass("hidden");
-    $(".blog-preview:even .col-4:last-child").addClass("hidden");
+    function alternatePreviewPhoto() {
+        $(".blog-preview:odd .col-4:first-child").addClass("hidden");
+        $(".blog-preview:even .col-4:last-child").addClass("hidden");
+    };
+    alternatePreviewPhoto();
+    
 
     // filter function: manages a filter array, compares .blog-preview divs to selections, displays or hides accordingly 
     $("#filter-form").on("click", function () {
@@ -247,3 +251,15 @@ $(document).ready(function() {
         };
     });
 });
+
+// psuedocode
+// PROGRAM: override preview photos
+// 
+// MODULE: hide all preview photos
+// END MODULE
+// 
+// MODULE: detect which previews are shown via filter
+// END MODULE 
+// 
+// MODULE: alternate photos of shown previews
+// END MODULE
