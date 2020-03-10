@@ -389,8 +389,22 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
     text-decoration: none;
 }
 
-.prose {
+.prose, .prose-heading {
     padding: 15px 0;
+}
+
+.prose-heading {
+    font-size: 1.4rem;
+    font-family: 'Open Sans', sans-serif;
+    text-decoration: underline;
+}
+
+.bold {
+    font-weight: 1000;
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 /* image classes for blog posts to fit with prose */
