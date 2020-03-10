@@ -437,10 +437,6 @@ Media Queries
         display: block; 
     }
 
-    .filter {
-        display: none;
-    }
-
     /* nav */
 
     nav {
@@ -487,6 +483,16 @@ Media Queries
 
     .blog-preview .col-8 h2, .blog-preview .col-8 form button, .banner .col-6 h2, .blog-line h3 {
         text-align: center;
+    }
+
+    /* filter */
+
+    .filter .col-4 {
+        padding-bottom: 15px;
+    }
+
+    .filter {
+        display: none; 
     }
 
     /* about me */
