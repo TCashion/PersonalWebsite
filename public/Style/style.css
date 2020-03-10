@@ -313,7 +313,8 @@ FILTER STYLING
 **************************************** */
 
 .filter {
-    margin: 15px;
+    padding: 15px;
+    background: linear-gradient(to top, rgb(38,40,42),rgb(38,40,42) 5%,rgb(27,29,31));
 }
 
 .filter h3 {
