@@ -321,8 +321,13 @@ FILTER STYLING
     text-align: center;
 }
 
-.filter .col-3 {
+.filter .col-4 {
     margin: auto 0;
+}
+
+.filter .col-8 {
+    margin: auto 0;
+    text-align: center;
 }
 
 .filter input {
