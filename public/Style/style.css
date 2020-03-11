@@ -1,4 +1,4 @@
-/* BACKGROUND COLOR #1B1D1F */
+/* BACKGROUND COLOR #1B1D1F or rgb(27,29,31) -- March 2020 changed to rgb(25,31,32) */
 /* Text color #DCE6EC */
 /* flexbox format used */
 
@@ -7,7 +7,7 @@ html {
 }
 
 body {
-    background-color: #1B1D1F;
+    background-color: rgb(25,31,32);
     color: #DCE6EC;
     font-family: 'Crimson Text', serif;
 }
@@ -314,7 +314,7 @@ FILTER STYLING
 
 .filter {
     padding: 15px;
-    background: linear-gradient(to top, rgb(38,40,42),rgb(38,40,42) 5%,rgb(27,29,31));
+    background: linear-gradient(to top, rgb(36,42,43), rgb(36,42,43) 5%, rgb(25,31,32)) 
 }
 
 .filter h3 {
