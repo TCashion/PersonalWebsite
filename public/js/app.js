@@ -55,19 +55,20 @@ $(document).ready(function() {
         };
 
 
-        // updates the filter classes based on selections 
+        // updates the filter classes based on selections:
+        // first part of IF statement accounts for no selections 
         if (filterSelected.length === 0) {
             $(".blog-preview").each( function () {
+                    // remove "atlernate-photo" and "hidden" class from all divs
                     $(this).removeClass("hidden");
-                    // RESET:
-                    // remove "atlernate-photo" class from all divs
                     $(this).removeClass("alternate-photo");
                     // remove hidden class from all col-4's (photos)
                     let child = $(this).children().children(".col-4")
                     child.removeClass("hidden"); 
-                    // call alternate photo function
+                    // call function to redistribute classes according to no selection
                     alternatePreviewPhoto();
             });
+        // next part counts for selections made
         } else {
             $(".blog-preview").addClass("hidden");
                 // Add hidden class to all col-4 photos
@@ -75,10 +76,9 @@ $(document).ready(function() {
                 $(".blog-preview").each( function () { 
                     if ( $(this).hasClass(`${filterSelected[i]}`) ) {
                         $(this).removeClass("hidden");
-                        // for non-hidden divs, alternate photos 
-                        // add another class "alternate-photo"
+                        // for non-hidden divs, alternate photos. add another class "alternate-photo"
                         $(this).addClass("alternate-photo");
-                        // call function that alternates photos based on new class
+                        // call function to redistribute classes according to filter selection
                         alternateFilteredPhoto();
                     }; 
                 });
@@ -86,15 +86,3 @@ $(document).ready(function() {
         };
     });
 });
-
-// psuedocode
-// PROGRAM: override preview photos
-// 
-// MODULE: hide all preview photos
-// END MODULE
-// 
-// MODULE: detect which previews are shown via filter
-// END MODULE 
-// 
-// MODULE: alternate photos of shown previews
-// END MODULE
