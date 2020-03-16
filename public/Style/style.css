@@ -505,8 +505,17 @@ Media Queries
         padding-bottom: 15px;
     }
 
-    .filter {
-        display: none; 
+    .sm-hidden {
+        display: none;
+    }
+
+    .filter input {
+        padding-left: 3px;
+    }
+
+    .filter label {
+        font-size: 1.6rem;
+        padding-right: 3px;
     }
 
     /* about me */

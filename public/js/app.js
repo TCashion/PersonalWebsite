@@ -62,20 +62,22 @@ $(document).ready(function() {
                     // remove "atlernate-photo" and "hidden" class from all divs
                     $(this).removeClass("hidden");
                     $(this).removeClass("alternate-photo");
-                    // remove hidden class from all col-4's (photos)
                     let child = $(this).children().children(".col-4")
                     child.removeClass("hidden"); 
                     // call function to redistribute classes according to no selection
                     alternatePreviewPhoto();
             });
-        // next part counts for selections made
+        // next part accounts for selections made
         } else {
+            // add hidden and sm-hidden (for media queries) classes to all previews, to be removed afterward based on selections
             $(".blog-preview").addClass("hidden");
+            $(".blog-preview").addClass("sm-hidden");
                 // Add hidden class to all col-4 photos
             for ( i = 0; i < filterSelected.length; i++) {
                 $(".blog-preview").each( function () { 
                     if ( $(this).hasClass(`${filterSelected[i]}`) ) {
                         $(this).removeClass("hidden");
+                        $(this).removeClass("sm-hidden");
                         // for non-hidden divs, alternate photos. add another class "alternate-photo"
                         $(this).addClass("alternate-photo");
                         // call function to redistribute classes according to filter selection
