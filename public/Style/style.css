@@ -94,7 +94,7 @@ nav a {
     font-size: 1.4rem;
 }
 
-.nav-li {
+.nav-li, .filter-li {
     list-style-type: none;
     display: inline;
     margin: 0 10px;
@@ -509,13 +509,13 @@ Media Queries
         display: none;
     }
 
-    .filter input {
-        padding-left: 3px;
+    .filter-li {
+        margin: 2px;
+        display: inline-block;
     }
 
     .filter label {
         font-size: 1.6rem;
-        padding-right: 3px;
     }
 
     /* about me */
