@@ -61,6 +61,7 @@ $(document).ready(function() {
             $(".blog-preview").each( function () {
                     // remove "atlernate-photo" and "hidden" class from all divs
                     $(this).removeClass("hidden");
+                    $(this).removeClass("sm-hidden"); 
                     $(this).removeClass("alternate-photo");
                     let child = $(this).children().children(".col-4")
                     child.removeClass("hidden"); 
