@@ -342,6 +342,10 @@ FILTER STYLING
     margin: 5px;
 }
 
+#fitness-filter {
+    display: none; 
+}
+
 
 /* *************************************
 PORTFOLIO STYLING
