@@ -227,10 +227,6 @@ button {
     cursor: pointer;
 }
 
-.divider {
-    border-bottom: rgb(90, 90, 90) 1px solid; 
-}
-
 ul {
     list-style: disc inside;
 }
@@ -367,6 +363,10 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
     min-height: 300px;
     box-sizing: border-box;
     padding: 20px 0;
+}
+
+.blog-preview, .filter, .page-title {
+    border-bottom: rgb(90, 90, 90) 1px solid; 
 }
 
 .blog-preview .round-img {
