@@ -3,6 +3,17 @@
 /* button color: #6B8796 */
 /* flexbox format used */
 
+
+/* Experimental pallet */
+/* 
+Main -2:#666B6E
+Main -1: #25323B
+Main: #1F2021    |    rgb(31,32,33)
+Accent: #6B8696
+Font: #DCE6EC
+*/
+
+
 html {
     font-size: 10px;
 }
