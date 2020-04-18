@@ -1,6 +1,4 @@
-var filterSelected = [];
-
-$(document).ready(function() {
+document.addEventListener("DOMContentLoaded", function() {
 
     // email capture on home/index page
     $("#email-capture").on("submit", function(event) {
@@ -21,6 +19,8 @@ $(document).ready(function() {
     
 
     // filter function: manages a filter array, compares .blog-preview divs to selections, displays or hides accordingly 
+    var filterSelected = [];
+    
     $("#filter-form").on("click", function () {
         var addFilter;
         var removerFilter;
