@@ -94,6 +94,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // GAMEBOARD CODE
     // **************
 
+
+    // *** Tic-Tac-Toe: ***
+
     var userTurn = 0;
     var panels = document.querySelectorAll(".panel");
     var playerDisplay = document.querySelector("#player");
@@ -165,6 +168,8 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("TTT-button").addEventListener("click", () => {
         reset(); 
     });
+
+    // *** END Tic-Tac-Toe ***
 
     // **************
     // END GAMEBOARD CODE
