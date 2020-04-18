@@ -9,7 +9,7 @@
 Main -2:#666B6E
 Main -1: #25323B
 Main: #1F2021    |    rgb(31,32,33)
-Accent: #6B8696
+Accent (buttons): #6B8696
 Font: #DCE6EC
 */
 
@@ -19,7 +19,7 @@ html {
 }
 
 body {
-    background-color: rgb(25,31,32);
+    background-color: rgb(31,32,33);
     color: #DCE6EC;
     font-family: 'Crimson Text', serif;
 }
@@ -230,7 +230,7 @@ COMMON ELEMENTS
 
 button {
     color: #DCE6EC;
-    background-color: #6B8796;
+    background-color: #6B8696;
     border: none;
     font-weight: 600;
     padding: 0 48px;
@@ -462,13 +462,22 @@ Gameboard Styles
     margin: 0 auto; 
 }
 
+.gameboard-button {
+    margin: 10px auto; 
+    display: block; 
+}
+
 .panel {
-    border: rgb(90, 90, 90) solid 1px;
+    border: #666B6E solid 1px;
+    border-radius: 5px;
+    margin: 1px;
     background-color: #DCE6EC;
+    text-align: center;
+    padding: 1.5rem 0;
 }
 
 .X, .O {
-    color: #6B8796; 
+    color: #25323B; 
     font-size: 10rem;
     font-weight: 1000;
 }

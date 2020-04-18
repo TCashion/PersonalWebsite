@@ -107,7 +107,6 @@ document.addEventListener("DOMContentLoaded", function() {
         };
     };
 
-
     // determine winner
     var determineWinner = () => {
         if(matrix[0] !== "" && matrix[0] === matrix[1] && matrix[1] === matrix[2]) {
@@ -126,6 +125,19 @@ document.addEventListener("DOMContentLoaded", function() {
             winnerColors(1,4,7);
         } else if (matrix[2] !== "" && matrix[2] === matrix[5] && matrix[5] === matrix[8]) {
             winnerColors(2,5,8);
+        };
+    };
+
+    // reset board
+    const reset = () => {
+        userTurn = 0;
+        matrix = ["","","","","","","","",""];
+        playerDisplay.innerHTML = "Player 1 (X)";
+        for (let i = 0; i < panels.length; i++) {
+            panels[i].innerHTML=""; 
+            panels[i].classList.remove("winner-colors");
+            panels[i].classList.remove("X");
+            panels[i].classList.remove("O");
         };
     };
     
@@ -149,6 +161,10 @@ document.addEventListener("DOMContentLoaded", function() {
             };
         });
     };
+
+    document.getElementById("TTT-button").addEventListener("click", () => {
+        reset(); 
+    });
 
     // **************
     // END GAMEBOARD CODE
