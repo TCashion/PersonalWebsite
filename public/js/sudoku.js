@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             gameBoard = [];
             let panel = {}; 
 
-            let createPanel = (min, max) => {
+            let createObjPanel = (min, max) => {
                 for (let i = min; i <= max; i++) {
                     panel[i - min] = parseInt(document.querySelectorAll(".sudoku-number")[i].innerHTML);
                 };
@@ -23,15 +23,15 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             // create object for corresponding panels
-            createPanel(0, 8);
-            createPanel(9, 17);
-            createPanel(18,26);
-            createPanel(27,35);
-            createPanel(36,44);
-            createPanel(45,53);
-            createPanel(54,62);
-            createPanel(63,71);
-            createPanel(72,80);
+            createObjPanel(0, 8);
+            createObjPanel(9, 17);
+            createObjPanel(18,26);
+            createObjPanel(27,35);
+            createObjPanel(36,44);
+            createObjPanel(45,53);
+            createObjPanel(54,62);
+            createObjPanel(63,71);
+            createObjPanel(72,80);
             console.log(gameBoard);
         };
 
@@ -48,23 +48,20 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         }
 
+        // create numbers in DOM
         for (let p = 0; p < 9; p++) {
             for (let i = 0; i < 9; i++) {
                 let slots = panels[p].querySelectorAll(".sudoku-number");
                 // for second column, remove values that have already been taken
                 if (p === 1) {
-                    // PSUEDOCODE
-                        // create "unavailable" array that consists of values already used in the row
-                        // when random number generates, check if that index value corresponds to a number that's unavailable. 
-                            // if not, populate the number
+                    // create "unavailable" array that consists of values already used in the row
+                    let unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
+                    // when random number generates, check if that index value corresponds to a number that's unavailable. 
+                            
                             // if so, run again until an adequate number is generated
                                 // splice this number from nums array 
-                    // for (let j = 0; j < 3; j++) {
-                    //     let unavailable = [gameboard[p-1][0],gameboard[p-1][1],gameboard[p-1][2]];
-                    //     index = r(available.length)
-                    //     number = available[index];
-                    //     slots[j].innerHTML = number; 
-                    // };
+                        // if not, populate the number
+                        
                 }; 
                 index = r(nums.length)
                 number = nums[index];
