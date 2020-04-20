@@ -52,14 +52,20 @@ document.addEventListener("DOMContentLoaded", () => {
             for (let i = 0; i < 9; i++) {
                 let slots = panels[p].querySelectorAll(".sudoku-number");
                 // for second column, remove values that have already been taken
-                // if (p === 1 || p === 4 || p === 7) {
-                //     for (let j = 0; j < 3; j++) {
-                //         let available = nums.filter(value => gameBoard[p - 1][j].includes(value) !== true);
-                //         index = r(available.length)
-                //         number = available[index];
-                //         slots[j].innerHTML = number; 
-                //     };
-                // }; 
+                if (p === 1) {
+                    // PSUEDOCODE
+                        // create "unavailable" array that consists of values already used in the row
+                        // when random number generates, check if that index value corresponds to a number that's unavailable. 
+                            // if not, populate the number
+                            // if so, run again until an adequate number is generated
+                                // splice this number from nums array 
+                    // for (let j = 0; j < 3; j++) {
+                    //     let unavailable = [gameboard[p-1][0],gameboard[p-1][1],gameboard[p-1][2]];
+                    //     index = r(available.length)
+                    //     number = available[index];
+                    //     slots[j].innerHTML = number; 
+                    // };
+                }; 
                 index = r(nums.length)
                 number = nums[index];
                 slots[i].innerHTML = number;  
