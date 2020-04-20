@@ -56,10 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 // add a number to each panel
                 // remove corresponding number from array
             // when array length is 0, repopulate with numbers
-            // SET as top left box
+            // SET as top left box (panel0)
         // CREATE adjacent boxes to the right
-            // DETERMINE which numbers can't be in each row based on previous panels
-            // POPULATE with numbers that are remaining
+            // for panels 1, 2: 
+                // DETERMINE which numbers can't be in each row based on previous panels
+                // POPULATE with numbers that are remaining
         // VERIFY all rows and boxes contain 1-9
         // CREATE 2ND row of boxes 
         // CREATE 3rd row of boxes 
