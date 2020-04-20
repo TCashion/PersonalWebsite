@@ -5,8 +5,38 @@ document.addEventListener("DOMContentLoaded", () => {
         let index;  
         let nums = [1,2,3,4,5,6,7,8,9];
         let number = 0;
+        let gameBoard = [];
         let panels = document.querySelectorAll(".sudoku-panel");
         let panel0 = [];
+
+        // parse panels object: 
+        let refreshObj = () => {
+
+            gameBoard = [];
+            let panel = {}; 
+
+            let createPanel = (min, max) {
+                for (let i = min; i < max; i++) {
+                    panel[i] = parseInt(document.querySelectorAll(".sudoku-number")[i].innerHTML);
+                };
+                gameBoard.push(panel);
+                panel = {};
+            }
+            
+            for (let i = 0; i < 9; i++) {
+                panel[i] = parseInt(document.querySelectorAll(".sudoku-number")[i].innerHTML);
+            };
+            gameBoard.push(panel);
+            panel = {};
+
+            for (let i = 9; i < 18; i++) {
+                panel[i - 9] = parseInt(document.querySelectorAll(".sudoku-number")[i].innerHTML);
+            }
+            gameBoard.push(panel);
+            panel = {}; 
+            console.log(gameBoard);
+
+        };
 
         // random number generator (0-8) to choose from nums
         let r = (n) => {
@@ -32,10 +62,20 @@ document.addEventListener("DOMContentLoaded", () => {
             repop();
         };
 
+        refreshObj();
+
         // second panel
-        for (let i = 0; i < 2; i++) {
-            
-        }
+        for (let i = 0; i < 9; i++) {
+            let slots = panels[1].querySelectorAll(".sudoku-number");
+            index = r(nums.length)
+            number = nums[index];
+            // populate panel array to track for next panels to meet sudoku requirements
+            panel0.push(number);
+            slots[i].innerHTML = number;  
+            nums.splice(index,1);
+            repop();
+        };
+        refreshObj();
 
     };
 
@@ -47,6 +87,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+
+
+// need to create object for entire board: 
+    // create object of first panel to push to main array of objects
+    // let panel = {}; 
+    // for (let i = 0; i < 9; i++) {panel[i] = document.querySelectorAll(".sudoku-number")[i].innerHTML;}
+
 
 // PROGRAM Sudoku
 
