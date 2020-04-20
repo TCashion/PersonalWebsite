@@ -1,9 +1,37 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // random number generator (1-9)
-    let r = () => {
-        return Math.ceil( Math.random() * (9) )
+    let nums = [1,2,3,4,5,6,7,8,9];
+
+    // random number generator (0-8) to choose from nums
+    let r = (n) => {
+        return Math.floor( Math.random() * (n) )
     };
+
+    // generate numbers function: pull numbers out of the array and line them up on the board
+    const generateNums = () => {
+        let index;  
+        let number = 0;
+        let panels = document.querySelectorAll(".sudoku-panel");
+
+        for (let i = 0; i < panels.length; i++) {
+            index = r(nums.length)
+            number = nums[index];
+            panels[i].innerHTML = number;  
+            nums.splice(index,1);
+        };
+
+        if (nums.length === 0) {
+            nums = [1,2,3,4,5,6,7,8,9];
+        };
+
+    };
+
+    // event listener & handler for button
+    let button = document.getElementById("sudoku-button");
+
+    button.addEventListener("click", () => {
+        generateNums(); 
+    });
 
 });
 
@@ -11,6 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // MODULE create board
         // CREATE 3x3 matrix of numbers 1 - 9
+            // loop through panels 
+                // add a number to each panel
+                // remove corresponding number from array
+            // when array length is 0, repopulate with numbers
             // SET as top left box
         // CREATE adjacent boxes to the right
             // VERIFY all rows and boxes contain 1-9
