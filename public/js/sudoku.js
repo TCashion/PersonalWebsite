@@ -46,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let repop = () => {
             if (nums.length === 0) {
                 nums = [1,2,3,4,5,6,7,8,9];
+                refreshObj();
             };
         }
 
@@ -60,8 +61,6 @@ document.addEventListener("DOMContentLoaded", () => {
             repop();
         };
 
-        refreshObj();
-
         // second panel
         for (let i = 0; i < 9; i++) {
             let slots = panels[1].querySelectorAll(".sudoku-number");
@@ -72,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
             nums.splice(index,1);
             repop();
         };
-        refreshObj();
 
     };
 
