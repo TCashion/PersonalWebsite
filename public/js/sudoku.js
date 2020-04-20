@@ -1,18 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    
-
-    // random number generator (0-8) to choose from nums
-    let r = (n) => {
-        return Math.floor( Math.random() * (n) )
-    };
-
     // generate numbers function: pull numbers out of the array and line them up on the board
     const generateNums = () => {
         let index;  
         let nums = [1,2,3,4,5,6,7,8,9];
         let number = 0;
         let panels = document.querySelectorAll(".sudoku-panel");
+
+        // random number generator (0-8) to choose from nums
+        let r = (n) => {
+            return Math.floor( Math.random() * (n) )
+        };
 
         for (let i = 0; i < 9; i++) {
             let slots = panels[0].querySelectorAll(".sudoku-number");
