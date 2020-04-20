@@ -51,23 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
         // create numbers in DOM
         for (let p = 0; p < 9; p++) {
             for (let i = 0; i < 9; i++) {
-                let slots = panels[p].querySelectorAll(".sudoku-number");
-                // for second column, remove values that have already been taken
+                let domSlots = panels[p].querySelectorAll(".sudoku-number");
                 if (p === 1) {
                     // create "unavailable" array that consists of values already used in the row
-                    let unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
                     // when random number generates, check if that index value corresponds to a number that's unavailable. 
-                            
-                            // if so, run again until an adequate number is generated
+                        // if so, run again until an adequate number is generated
                                 // splice this number from nums array 
                         // if not, populate the number
-                        
-                }; 
-                index = r(nums.length)
-                number = nums[index];
-                slots[i].innerHTML = number;  
-                nums.splice(index,1);
-                repop();
+                } else { 
+                    index = r(nums.length)
+                    number = nums[index];
+                    domSlots[i].innerHTML = number;  
+                    nums.splice(index,1);
+                    repop();
+                };
             };
         }
 
