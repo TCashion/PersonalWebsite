@@ -15,25 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
             gameBoard = [];
             let panel = {}; 
 
-            let createPanel = (min, max) {
-                for (let i = min; i < max; i++) {
-                    panel[i] = parseInt(document.querySelectorAll(".sudoku-number")[i].innerHTML);
+            let createPanel = (min, max) => {
+                for (let i = min; i <= max; i++) {
+                    panel[i - min] = parseInt(document.querySelectorAll(".sudoku-number")[i].innerHTML);
                 };
                 gameBoard.push(panel);
                 panel = {};
             }
-            
-            for (let i = 0; i < 9; i++) {
-                panel[i] = parseInt(document.querySelectorAll(".sudoku-number")[i].innerHTML);
-            };
-            gameBoard.push(panel);
-            panel = {};
 
-            for (let i = 9; i < 18; i++) {
-                panel[i - 9] = parseInt(document.querySelectorAll(".sudoku-number")[i].innerHTML);
-            }
-            gameBoard.push(panel);
-            panel = {}; 
+            // create object for corresponding panels
+            createPanel(0, 8);
+            createPanel(9, 17);
+            createPanel(18,26);
+            // commented out until full board is ready: 
+            // createPanel(27,35);
+            // createPanel(36,44);
+            // createPanel(45,53);
+            // createPanel(54,62);
+            // createPanel(63,71);
+            // createPanel(72,80);
             console.log(gameBoard);
 
         };
