@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let number = 0;
         let gameBoard = [];
         let panels = document.querySelectorAll(".sudoku-panel");
-        let panel0 = [];
 
         // parse panels object: 
         let refreshObj = () => {
@@ -55,8 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let slots = panels[0].querySelectorAll(".sudoku-number");
             index = r(nums.length)
             number = nums[index];
-            // populate panel array to track for next panels to meet sudoku requirements
-            panel0.push(number);
+            // populate panel array to track for next panels to meet sudoku 
             slots[i].innerHTML = number;  
             nums.splice(index,1);
             repop();
@@ -70,7 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
             index = r(nums.length)
             number = nums[index];
             // populate panel array to track for next panels to meet sudoku requirements
-            panel0.push(number);
             slots[i].innerHTML = number;  
             nums.splice(index,1);
             repop();
