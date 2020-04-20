@@ -452,7 +452,10 @@ Gameboard Styles
 **************************************** */
 
 .gameboard {
-    margin: 2rem; 
+    border: #25323B 3px solid; 
+    border-radius: 5px;
+    margin: 10px;
+    padding: 20px; 
 }
 
 .gamerow {
@@ -474,6 +477,11 @@ Gameboard Styles
     background-color: #DCE6EC;
     text-align: center;
     padding: 1.5rem 0;
+}
+
+.sudoku-row {
+    height: 35px; 
+    width: 105px;
 }
 
 .X, .O {

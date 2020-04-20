@@ -38,26 +38,58 @@
     <!-- *********** END HEADER ************* -->
 
     <div class="container">
-        <h2>Tic-Tac-Toe!</h2>
-        <div class="gameboard">
-            <div class="gamerow" id="row-1">
-                <div class="col col-4 panel first-column"></div>
-                <div class="col col-4 panel second-column"></div>
-                <div class="col col-4 panel third-column"></div>
+        
+        <div class="row">
+            
+            <!-- Tic Tac Toe -->
+            <div class="gameboard col col-6">
+                <h2>Tic-Tac-Toe!</h2>
+                <div class="gamerow" id="row-1">
+                    <div class="col col-4 panel first-column"></div>
+                    <div class="col col-4 panel second-column"></div>
+                    <div class="col col-4 panel third-column"></div>
+                </div>
+                <div class="gamerow" id="row-2">
+                    <div class="col col-4 panel first-column"></div>
+                    <div class="col col-4 panel second-column"></div>
+                    <div class="col col-4 panel third-column"></div>
+                </div>
+                <div class="gamerow" id="row-3">
+                    <div class="col col-4 panel first-column"></div>
+                    <div class="col col-4 panel second-column"></div>
+                    <div class="col col-4 panel third-column"></div>
+                </div>
+                <h2>User's turn: <span id="player">Player 1 (X)</span></h2>
+                <button class="gameboard-button" id="TTT-button">Reset</button>
             </div>
-            <div class="gamerow" id="row-2">
-                <div class="col col-4 panel first-column"></div>
-                <div class="col col-4 panel second-column"></div>
-                <div class="col col-4 panel third-column"></div>
+
+            <!-- SUDOKU -->
+            <div class="gameboard col col-6">
+                <h2>Sudoko!</h2>
+                <div class="row">
+                    <div class="col col-4">
+                        <div class="row sudoku-row">
+                            <div class="col col-4 panel"></div>
+                            <div class="col col-4 panel"></div>
+                            <div class="col col-4 panel"></div>
+                        </div>
+                        <div class="row sudoku-row">
+                            <div class="col col-4 panel"></div>
+                            <div class="col col-4 panel"></div>
+                            <div class="col col-4 panel"></div>
+                        </div>
+                        <div class="row sudoku-row">
+                            <div class="col col-4 panel"></div>
+                            <div class="col col-4 panel"></div>
+                            <div class="col col-4 panel"></div>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-            <div class="gamerow" id="row-3">
-                <div class="col col-4 panel first-column"></div>
-                <div class="col col-4 panel second-column"></div>
-                <div class="col col-4 panel third-column"></div>
-            </div>
+
         </div>
-        <h2>User's turn: <span id="player">Player 1 (X)</span></h2>
-        <button class="gameboard-button" id="TTT-button">Reset</button>
     </div>
 
     <!-- *********** FOOTER ***************** -->
