@@ -25,28 +25,18 @@ document.addEventListener("DOMContentLoaded", () => {
             let slots = panels[0].querySelectorAll(".sudoku-number");
             index = r(nums.length)
             number = nums[index];
+            // populate panel array to track for next panels to meet sudoku requirements
+            panel0.push(number);
             slots[i].innerHTML = number;  
             nums.splice(index,1);
             repop();
-            panel0.push(number);
         };
 
-
         // second panel
-        for (let i = 0; i < 9; i++) {
-            console.log(panel0)
-            // remove existing numbers for each row 
-            // for (let j = 0; j < 3; j++) {
-            //     nums.forEach(num => {
-            //         if (num == 
-            //     })
-            // }
-            // index = r(nums.length)
-            // number = nums[index];
-            // slots[i].innerHTML = number;  
-            // nums.splice(index,1);
-            // repop();
+        for (let i = 0; i < 2; i++) {
+            
         }
+
     };
 
     // event listener & handler for button
