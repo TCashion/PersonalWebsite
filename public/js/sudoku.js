@@ -50,27 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         }
 
-        // first panel 
-        for (let i = 0; i < 9; i++) {
-            let slots = panels[0].querySelectorAll(".sudoku-number");
-            index = r(nums.length)
-            number = nums[index];
-            // populate panel array to track for next panels to meet sudoku 
-            slots[i].innerHTML = number;  
-            nums.splice(index,1);
-            repop();
-        };
-
-        // second panel
-        for (let i = 0; i < 9; i++) {
-            let slots = panels[1].querySelectorAll(".sudoku-number");
-            index = r(nums.length)
-            number = nums[index];
-            // populate panel array to track for next panels to meet sudoku requirements
-            slots[i].innerHTML = number;  
-            nums.splice(index,1);
-            repop();
-        };
+        for (let p = 0; p < 3; p++) {
+            for (let i = 0; i < 9; i++) {
+                let slots = panels[p].querySelectorAll(".sudoku-number");
+                index = r(nums.length)
+                number = nums[index];
+                // populate panel array to track for next panels to meet sudoku requirements
+                slots[i].innerHTML = number;  
+                nums.splice(index,1);
+                repop();
+            };
+        }
 
     };
 
