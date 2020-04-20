@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const generateNums = () => {
         let index;  
         let number = 0;
-        let panels = document.querySelectorAll(".sudoku-panel");
+        let panels = document.querySelectorAll(".sudoku-number");
 
         for (let i = 0; i < panels.length; i++) {
             index = r(nums.length)

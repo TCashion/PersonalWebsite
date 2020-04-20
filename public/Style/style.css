@@ -470,7 +470,7 @@ Gameboard Styles
     display: block; 
 }
 
-.panel, .sudoku-panel {
+.panel, .sudoku-number {
     border: #666B6E solid 1px;
     border-radius: 5px;
     margin: 1px;
@@ -479,14 +479,24 @@ Gameboard Styles
     padding: 1.5rem 0;
 }
 
+.sudoku-meta-row {
+    width: 315px; 
+    margin: 0 auto;
+}
+
 .sudoku-row {
     height: 35px; 
-    width: 105px;
 }
 
 .sudoku-panel {
+    width: auto; 
+    border: #666B6E solid 1px;
+}
+
+.sudoku-number {
     font-size: 1.6rem;
     color: #25323B;
+    align-content: center;
 }
 
 .X, .O {
