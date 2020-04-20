@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // random number generator (1-9)
+    let r = () => {
+        return Math.ceil( Math.random() * (9) )
+    };
+
 });
 
 // PROGRAM Sudoku
