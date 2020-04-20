@@ -26,13 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
             createPanel(0, 8);
             createPanel(9, 17);
             createPanel(18,26);
-            // commented out until full board is ready: 
-            // createPanel(27,35);
-            // createPanel(36,44);
-            // createPanel(45,53);
-            // createPanel(54,62);
-            // createPanel(63,71);
-            // createPanel(72,80);
+            createPanel(27,35);
+            createPanel(36,44);
+            createPanel(45,53);
+            createPanel(54,62);
+            createPanel(63,71);
+            createPanel(72,80);
             console.log(gameBoard);
         };
 
@@ -49,17 +48,17 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         }
 
-        for (let p = 0; p < 3; p++) {
+        for (let p = 0; p < 9; p++) {
             for (let i = 0; i < 9; i++) {
                 let slots = panels[p].querySelectorAll(".sudoku-number");
                 // for second column, remove values that have already been taken
                 // if (p === 1 || p === 4 || p === 7) {
-                    // for (let j = 0; j < 3; j++) {
-                    //     // let available = nums.filter(value => gameBoard[p - 1][j].includes(value) !== true);
-                    //     // index = r(available.length)
-                    //     // number = available[index];
-                    //     // slots[j].innerHTML = number; 
-                    // };
+                //     for (let j = 0; j < 3; j++) {
+                //         let available = nums.filter(value => gameBoard[p - 1][j].includes(value) !== true);
+                //         index = r(available.length)
+                //         number = available[index];
+                //         slots[j].innerHTML = number; 
+                //     };
                 // }; 
                 index = r(nums.length)
                 number = nums[index];
