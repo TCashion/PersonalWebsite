@@ -11,12 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const generateNums = () => {
         let index;  
         let number = 0;
-        let panels = document.querySelectorAll(".sudoku-number");
+        let panels = document.querySelectorAll(".sudoku-panel");
 
-        for (let i = 0; i < panels.length; i++) {
+        for (let i = 0; i < 10; i++) {
+            let slots = panels[0].querySelectorAll(".sudoku-number");
             index = r(nums.length)
             number = nums[index];
-            panels[i].innerHTML = number;  
+            slots[i].innerHTML = number;  
             nums.splice(index,1);
         };
 
