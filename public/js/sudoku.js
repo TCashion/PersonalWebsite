@@ -6,24 +6,47 @@ document.addEventListener("DOMContentLoaded", () => {
         let nums = [1,2,3,4,5,6,7,8,9];
         let number = 0;
         let panels = document.querySelectorAll(".sudoku-panel");
+        let panel0 = [];
 
         // random number generator (0-8) to choose from nums
         let r = (n) => {
             return Math.floor( Math.random() * (n) )
         };
 
+        // repopulate nums array
+        let repop = () => {
+            if (nums.length === 0) {
+                nums = [1,2,3,4,5,6,7,8,9];
+            };
+        }
+
+        // first panel 
         for (let i = 0; i < 9; i++) {
             let slots = panels[0].querySelectorAll(".sudoku-number");
             index = r(nums.length)
             number = nums[index];
             slots[i].innerHTML = number;  
             nums.splice(index,1);
+            repop();
+            panel0.push(number);
         };
 
-        if (nums.length === 0) {
-            nums = [1,2,3,4,5,6,7,8,9];
-        };
 
+        // second panel
+        for (let i = 0; i < 9; i++) {
+            console.log(panel0)
+            // remove existing numbers for each row 
+            // for (let j = 0; j < 3; j++) {
+            //     nums.forEach(num => {
+            //         if (num == 
+            //     })
+            // }
+            // index = r(nums.length)
+            // number = nums[index];
+            // slots[i].innerHTML = number;  
+            // nums.splice(index,1);
+            // repop();
+        }
     };
 
     // event listener & handler for button
