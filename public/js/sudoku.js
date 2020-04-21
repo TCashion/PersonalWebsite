@@ -57,7 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         let unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
                         console.log("unavailable " + unavailable);
                         let available = nums.filter(value => unavailable.includes(value) !== true);
-                        console.log("available " + available)
+                        console.log("available " + available);
+
                         // index = r(nums.length)
                         // number = available[index];
                         // domSlots[i].innerHTML = number;  
@@ -66,10 +67,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         
                     
-                    // when random number generates, check if that index value corresponds to a number that's unavailable. 
-                        // if so, run again until an adequate number is generated
-                                // splice this number from nums array 
-                        // if not, populate the number
+                        // when random number generates, check if that index value corresponds to a number that's unavailable. 
+                            // if so, run again until an adequate number is generated
+                                    // splice this number from nums array 
+                            // if not, populate the number
+
+                    switch (i) {
+                        case 0: 
+                            domSlots[i].innerHTML = 1; 
+                            break;
+                        case 1: 
+                            domSlots[i].innerHTML = 2;
+                            break; 
+                        case 2: 
+                            domSlots[i].innerHTML = 3;
+                            break; 
+                        case 3: 
+                            domSlots[i].innerHTML = 4;
+                            break; 
+                        case 4: 
+                            domSlots[i].innerHTML = 5;
+                            break; 
+                        case 5: 
+                            domSlots[i].innerHTML = 6;
+                            break; 
+                        case 6: 
+                            domSlots[i].innerHTML = 7;
+                            break; 
+                        case 7: 
+                            domSlots[i].innerHTML = 8;
+                            break; 
+                        case 8: 
+                            domSlots[i].innerHTML = 9;
+                            break; 
+                    };
                 } else { 
                     index = r(nums.length)
                     number = nums[index];
