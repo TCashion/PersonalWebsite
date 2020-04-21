@@ -53,76 +53,57 @@ document.addEventListener("DOMContentLoaded", () => {
             for (let i = 0; i < 9; i++) {
                 let domSlots = panels[p].querySelectorAll(".sudoku-number");
                 if (p === 1) {
-                        // create "unavailable" array that consists of values already used in the row
-                        
 
-                        
+                    // the following switch case accounts for numbers already used in the row;
 
-                        
-                    
-                        // when random number generates, check if that index value corresponds to a number that's unavailable. 
-                            // if so, run again until an adequate number is generated
-                                    // splice this number from nums array 
-                            // if not, populate the number
                     let unavailable = [];
                     let available = [];
 
+                    // numbers already used in the given row and/or column should be input as "...usedNumbers";
+                    let switchCaseFunction = (...usedNumbers) => {
+                        unavailable = usedNumbers;
+                        console.log("unavailable " + unavailable);
+                        available = nums.filter(value => unavailable.includes(value) !== true);
+                        console.log("available " + available);
+                        domSlots[i].innerHTML = 1; 
+                        index = r(available.length)
+                        number = available[index];
+                        domSlots[i].innerHTML = number;  
+                        available.splice(number,1);
+                        nums.splice(nums.indexOf(number),1);
+                    }
+
                     switch (i) {
                         case 0: 
-                            unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
-                            console.log("unavailable " + unavailable);
-                            available = nums.filter(value => unavailable.includes(value) !== true);
-                            console.log("available " + available);
-                            domSlots[i].innerHTML = 1; 
-                            index = r(nums.length)
-                            number = available[index];
-                            domSlots[i].innerHTML = number;  
-                            available.splice(number,1);
-                            nums.splice(nums.indexOf(number),1);
+                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
                             break;
                         case 1: 
-                            unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
-                            console.log("unavailable " + unavailable);
-                            available = nums.filter(value => unavailable.includes(value) !== true);
-                            console.log("available " + available);
-                            index = r(nums.length)
-                            number = available[index];
-                            domSlots[i].innerHTML = number;  
-                            available.splice(number,1);
-                            nums.splice(nums.indexOf(number),1);
-                            console.log("numbers " + nums)
+                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
                             break; 
                         case 2: 
-                            unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
-                            console.log("unavailable " + unavailable);
-                            available = nums.filter(value => unavailable.includes(value) !== true);
-                            console.log("available " + available);
-                            index = r(nums.length)
-                            number = available[index];
-                            domSlots[i].innerHTML = number;  
-                            available.splice(number,1);
-                            nums.splice(nums.indexOf(number),1);
-                            console.log("numbers " + nums)
+                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
                             break; 
                         case 3: 
-                            domSlots[i].innerHTML = 4;
+                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
                             break; 
                         case 4: 
-                            domSlots[i].innerHTML = 5;
+                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
                             break; 
                         case 5: 
-                            domSlots[i].innerHTML = 6;
+                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
                             break; 
                         case 6: 
-                            domSlots[i].innerHTML = 7;
+                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
                             break; 
                         case 7: 
-                            domSlots[i].innerHTML = 8;
+                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
                             break; 
                         case 8: 
-                            domSlots[i].innerHTML = 9;
+                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
+                            repop();
                             break; 
                     };
+                    
                 } else { 
                     index = r(nums.length)
                     number = nums[index];
