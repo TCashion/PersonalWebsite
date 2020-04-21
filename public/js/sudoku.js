@@ -107,9 +107,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                 break; 
                         };
                     }
+
+                    // invoke function 
                     populatePanel();
 
-                    
+                    // account for final number being undefined. 
+                    if (!gameBoard[p][8]) {
+                        populatePanel();
+                    };
 
                 } else { 
                     index = r(nums.length)
