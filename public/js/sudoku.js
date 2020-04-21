@@ -74,36 +74,42 @@ document.addEventListener("DOMContentLoaded", () => {
                         console.log("remaining numbers:" + nums)
                     }
 
-                    switch (i) {
-                        case 0: 
-                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
-                            break;
-                        case 1: 
-                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
-                            break; 
-                        case 2: 
-                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
-                            break; 
-                        case 3: 
-                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
-                            break; 
-                        case 4: 
-                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
-                            break; 
-                        case 5: 
-                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
-                            break; 
-                        case 6: 
-                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
-                            break; 
-                        case 7: 
-                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
-                            break; 
-                        case 8: 
-                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
-                            repop();
-                            break; 
-                    };
+                    // function expression for populating panels 1 - 8
+                    let populatePanel = () => {                  
+                        switch (i) {
+                            case 0: 
+                                switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
+                                break;
+                            case 1: 
+                                switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
+                                break; 
+                            case 2: 
+                                switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
+                                break; 
+                            case 3: 
+                                switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
+                                break; 
+                            case 4: 
+                                switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
+                                break; 
+                            case 5: 
+                                switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
+                                break; 
+                            case 6: 
+                                switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
+                                break; 
+                            case 7: 
+                                switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
+                                break; 
+                            case 8: 
+                                switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
+                                repop();
+                                break; 
+                        };
+                    }
+                    populatePanel();
+
+                    
 
                 } else { 
                     index = r(nums.length)
