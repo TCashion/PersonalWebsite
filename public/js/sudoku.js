@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let number = 0;
         let gameBoard = [];
         let panels = document.querySelectorAll(".sudoku-panel");
+        let errorTracker = 0;
 
         // parse panels object: 
         let refreshObj = () => {
@@ -46,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 nums = [1,2,3,4,5,6,7,8,9];
                 refreshObj();
             };
-        }
+        };
 
         // create numbers in DOM
         // iterates through panels
@@ -97,9 +98,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             break; 
                         case 6: 
                             switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
-                            if (available.length < 3) {
-                                console.log("ERROR");
-                            }
                             break; 
                         case 7: 
                             switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
@@ -110,16 +108,26 @@ document.addEventListener("DOMContentLoaded", () => {
                             break; 
                     };
                 };
-
-                    // re-runs code if any slots are "undefined"
+                    
                 let checkForErrors = () => {
+                    // re-runs code if any slots are "undefined"
+                    // ********************in progress***************
                     if (!gameBoard[p][8]) {
-                        populatePanel();
-                    } else if (!gameBoard[p][7] && available.length === 0) {
-                        console.log("error");
-                        populatePanel();
+                        
+                        // this will stop code from running if there are duplicates in panel 2, which manifests itself as the last position being "NaN" in the object
+                        errorTracker = 1;
+                        return errorTracker;
+
+                        // populatePanel();
+                    // } else if (gameBoard[p][8] === NaN) {
+                    //     populatePanel();
                     };
-                }
+                    // // check for duplicates
+                    console.log(gameBoard[p]);
+                    console.log(gameBoard[p][8]);
+                        
+                    
+                };
 
                 switch (p) {
                         case 0: 
@@ -172,6 +180,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let button = document.getElementById("sudoku-button");
 
     button.addEventListener("click", (e) => {
+        // added twice to fix bug where boxes do not fill properly on page reload. To be fixed later. 
+        generateNums(); 
         generateNums(); 
     });
 
