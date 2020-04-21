@@ -71,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         domSlots[i].innerHTML = number;  
                         available.splice(number,1);
                         nums.splice(nums.indexOf(number),1);
+                        console.log("remaining numbers:" + nums)
                     }
 
                     switch (i) {
@@ -103,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             repop();
                             break; 
                     };
-                    
+
                 } else { 
                     index = r(nums.length)
                     number = nums[index];
