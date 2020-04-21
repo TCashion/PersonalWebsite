@@ -54,16 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 let domSlots = panels[p].querySelectorAll(".sudoku-number");
                 if (p === 1) {
                         // create "unavailable" array that consists of values already used in the row
-                        let unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
-                        console.log("unavailable " + unavailable);
-                        let available = nums.filter(value => unavailable.includes(value) !== true);
-                        console.log("available " + available);
+                        
 
-                        // index = r(nums.length)
-                        // number = available[index];
-                        // domSlots[i].innerHTML = number;  
-                        // nums.splice(nums.indexOf(number),1);
-                        // console.log("numbers " + nums)
+                        
 
                         
                     
@@ -74,10 +67,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     switch (i) {
                         case 0: 
+                            let unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
+                            console.log("unavailable " + unavailable);
+                            let available = nums.filter(value => unavailable.includes(value) !== true);
+                            console.log("available " + available);
                             domSlots[i].innerHTML = 1; 
+                            index = r(nums.length)
+                            number = available[index];
+                            domSlots[i].innerHTML = number;  
+                            available.splice(number,1);
+                            nums.splice(nums.indexOf(number),1);
                             break;
                         case 1: 
                             domSlots[i].innerHTML = 2;
+                            console.log("numbers " + nums)
                             break; 
                         case 2: 
                             domSlots[i].innerHTML = 3;
