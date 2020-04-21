@@ -112,24 +112,55 @@ document.addEventListener("DOMContentLoaded", () => {
                 let checkForErrors = () => {
                     if (!gameBoard[p][8]) {
                         populatePanel();
+                    } else if (!gameBoard[p][7]) {
+                        console.log("error");
                     };
                 }
 
-                if (p === 1) {
-
-                    // invoke functions
-                    populatePanel();
-                    checkForErrors(); 
-
-                } else { 
-                    index = r(nums.length)
-                    number = nums[index];
-                    domSlots[i].innerHTML = number;  
-                    nums.splice(index,1);
-                    repop();
+                switch (p) {
+                        case 0: 
+                            index = r(nums.length)
+                            number = nums[index];
+                            domSlots[i].innerHTML = number;  
+                            nums.splice(index,1);
+                            repop();
+                            break;
+                        case 1: 
+                            // invoke functions
+                            populatePanel();
+                            checkForErrors(); 
+                            break; 
+                        // case 2: 
+                        //     ;
+                        //     break; 
+                        // case 3: 
+                        //     ;
+                        //     break; 
+                        // case 4: 
+                        //     ;
+                        //     break; 
+                        // case 5: 
+                        //     ;
+                        //     break; 
+                        // case 6: 
+                        //     ;
+                        //     break; 
+                        // case 7: 
+                        //     ;
+                        //     break; 
+                        // case 8: 
+                        //     ;
+                        //     break;
+                        default: 
+                            index = r(nums.length)
+                            number = nums[index];
+                            domSlots[i].innerHTML = number;  
+                            nums.splice(index,1);
+                            repop();
+                            break;
                 };
             };
-        }
+        };
 
     };
 
