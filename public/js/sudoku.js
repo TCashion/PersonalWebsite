@@ -97,6 +97,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             break; 
                         case 6: 
                             switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
+                            if (available.length < 3) {
+                                console.log("ERROR");
+                            }
                             break; 
                         case 7: 
                             switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
@@ -112,8 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 let checkForErrors = () => {
                     if (!gameBoard[p][8]) {
                         populatePanel();
-                    } else if (!gameBoard[p][7]) {
+                    } else if (!gameBoard[p][7] && available.length === 0) {
                         console.log("error");
+                        populatePanel();
                     };
                 }
 
@@ -167,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // event listener & handler for button
     let button = document.getElementById("sudoku-button");
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click", (e) => {
         generateNums(); 
     });
 
