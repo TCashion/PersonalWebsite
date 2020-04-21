@@ -64,12 +64,14 @@ document.addEventListener("DOMContentLoaded", () => {
                             // if so, run again until an adequate number is generated
                                     // splice this number from nums array 
                             // if not, populate the number
+                    let unavailable = [];
+                    let available = [];
 
                     switch (i) {
                         case 0: 
-                            let unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
+                            unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
                             console.log("unavailable " + unavailable);
-                            let available = nums.filter(value => unavailable.includes(value) !== true);
+                            available = nums.filter(value => unavailable.includes(value) !== true);
                             console.log("available " + available);
                             domSlots[i].innerHTML = 1; 
                             index = r(nums.length)
@@ -79,11 +81,28 @@ document.addEventListener("DOMContentLoaded", () => {
                             nums.splice(nums.indexOf(number),1);
                             break;
                         case 1: 
-                            domSlots[i].innerHTML = 2;
+                            unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
+                            console.log("unavailable " + unavailable);
+                            available = nums.filter(value => unavailable.includes(value) !== true);
+                            console.log("available " + available);
+                            index = r(nums.length)
+                            number = available[index];
+                            domSlots[i].innerHTML = number;  
+                            available.splice(number,1);
+                            nums.splice(nums.indexOf(number),1);
                             console.log("numbers " + nums)
                             break; 
                         case 2: 
-                            domSlots[i].innerHTML = 3;
+                            unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
+                            console.log("unavailable " + unavailable);
+                            available = nums.filter(value => unavailable.includes(value) !== true);
+                            console.log("available " + available);
+                            index = r(nums.length)
+                            number = available[index];
+                            domSlots[i].innerHTML = number;  
+                            available.splice(number,1);
+                            nums.splice(nums.indexOf(number),1);
+                            console.log("numbers " + nums)
                             break; 
                         case 3: 
                             domSlots[i].innerHTML = 4;
