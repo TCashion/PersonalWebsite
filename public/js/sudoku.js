@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
             createObjPanel(54,62);
             createObjPanel(63,71);
             createObjPanel(72,80);
-            console.log(gameBoard);
+            // console.log(gameBoard);
         };
 
         // random number generator (0-8) to choose from nums
@@ -53,7 +53,19 @@ document.addEventListener("DOMContentLoaded", () => {
             for (let i = 0; i < 9; i++) {
                 let domSlots = panels[p].querySelectorAll(".sudoku-number");
                 if (p === 1) {
-                    // create "unavailable" array that consists of values already used in the row
+                        // create "unavailable" array that consists of values already used in the row
+                        let unavailable = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
+                        console.log("unavailable " + unavailable);
+                        let available = nums.filter(value => unavailable.includes(value) !== true);
+                        console.log("available " + available)
+                        // index = r(nums.length)
+                        // number = available[index];
+                        // domSlots[i].innerHTML = number;  
+                        // nums.splice(nums.indexOf(number),1);
+                        // console.log("numbers " + nums)
+
+                        
+                    
                     // when random number generates, check if that index value corresponds to a number that's unavailable. 
                         // if so, run again until an adequate number is generated
                                 // splice this number from nums array 
