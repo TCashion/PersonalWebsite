@@ -49,72 +49,77 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // create numbers in DOM
+        // iterates through panels
         for (let p = 0; p < 9; p++) {
+            // iterates through individual slots in panels 
             for (let i = 0; i < 9; i++) {
+                // variable declarations necessary for functions: 
                 let domSlots = panels[p].querySelectorAll(".sudoku-number");
-                if (p === 1) {
+                let unavailable = [];
+                let available = [];
 
-                    // the following switch case accounts for numbers already used in the row;
+                // function expressions: 
+                    // where ...usedNumbers accounts for numbers already used in previous columns or rows (per sudoku rules)
+                let switchCaseFunction = (...usedNumbers) => {
+                    unavailable = usedNumbers;
+                    console.log("unavailable " + unavailable);
+                    available = nums.filter(value => unavailable.includes(value) !== true);
+                    console.log("available " + available);
+                    domSlots[i].innerHTML = 1; 
+                    index = r(available.length)
+                    number = available[index];
+                    domSlots[i].innerHTML = number;  
+                    available.splice(number,1);
+                    nums.splice(nums.indexOf(number),1);
+                    console.log("remaining numbers:" + nums)
+                }
 
-                    let unavailable = [];
-                    let available = [];
+                    // for populating panels 1 - 8
+                let populatePanel = () => {                  
+                    switch (i) {
+                        case 0: 
+                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
+                            break;
+                        case 1: 
+                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
+                            break; 
+                        case 2: 
+                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
+                            break; 
+                        case 3: 
+                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
+                            break; 
+                        case 4: 
+                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
+                            break; 
+                        case 5: 
+                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
+                            break; 
+                        case 6: 
+                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
+                            break; 
+                        case 7: 
+                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
+                            break; 
+                        case 8: 
+                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
+                            repop();
+                            break; 
+                    };
+                };
 
-                    // numbers already used in the given row and/or column should be input as "...usedNumbers";
-                    let switchCaseFunction = (...usedNumbers) => {
-                        unavailable = usedNumbers;
-                        console.log("unavailable " + unavailable);
-                        available = nums.filter(value => unavailable.includes(value) !== true);
-                        console.log("available " + available);
-                        domSlots[i].innerHTML = 1; 
-                        index = r(available.length)
-                        number = available[index];
-                        domSlots[i].innerHTML = number;  
-                        available.splice(number,1);
-                        nums.splice(nums.indexOf(number),1);
-                        console.log("remaining numbers:" + nums)
-                    }
-
-                    // function expression for populating panels 1 - 8
-                    let populatePanel = () => {                  
-                        switch (i) {
-                            case 0: 
-                                switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
-                                break;
-                            case 1: 
-                                switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
-                                break; 
-                            case 2: 
-                                switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
-                                break; 
-                            case 3: 
-                                switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
-                                break; 
-                            case 4: 
-                                switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
-                                break; 
-                            case 5: 
-                                switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
-                                break; 
-                            case 6: 
-                                switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
-                                break; 
-                            case 7: 
-                                switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
-                                break; 
-                            case 8: 
-                                switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
-                                repop();
-                                break; 
-                        };
-                    }
-
-                    // invoke function 
-                    populatePanel();
-
-                    // account for final number being undefined. 
+                    // re-runs code if any slots are "undefined"
+                let checkForErrors = () => {
                     if (!gameBoard[p][8]) {
                         populatePanel();
                     };
+                }
+
+                if (p === 1) {
+
+                    // invoke functions
+                    populatePanel();
+                    checkForErrors(); 
 
                 } else { 
                     index = r(nums.length)
