@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         index = r(available.length)
                         number = available[index];
                         domSlots[i].innerHTML = number;  
-                        available.splice(number,1);
                         nums.splice(nums.indexOf(number),1);
                         console.log("remaining numbers:" + nums)
                 };
