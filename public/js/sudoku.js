@@ -73,7 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         console.log("unavailable " + unavailable);
                         available = nums.filter(value => unavailable.includes(value) !== true);
                         console.log("available " + available);
-                        domSlots[i].innerHTML = 1; 
                         index = r(available.length)
                         number = available[index];
                         domSlots[i].innerHTML = number;  
@@ -126,8 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         errorTracker = 0;
                         return errorTracker;
                     } else {
+                        gameBoard[p] = {};
+                        populatePanel();
                         errorTracker = 1;
                         return errorTracker; 
+                        
                     };
                     // if (!gameBoard[p][8]) {
                     //     console.log(gameBoard[p][8]);
@@ -155,14 +157,14 @@ document.addEventListener("DOMContentLoaded", () => {
                             populatePanel();
                             checkForErrors(); 
                             break; 
-                        case 2: 
-                            populatePanel();
-                            checkForErrors();
-                            break; 
-                        case 3: 
-                            populatePanel();
-                            checkForErrors();
-                            break; 
+                        // case 2: 
+                        //     populatePanel();
+                        //     checkForErrors();
+                        //     break; 
+                        // case 3: 
+                        //     populatePanel();
+                        //     checkForErrors();
+                        //     break; 
                         // case 4: 
                         //     populatePanel();
                         //     checkForErrors();1
