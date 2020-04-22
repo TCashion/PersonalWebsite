@@ -77,9 +77,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         console.log("index: " + index);
                         number = available[index];
                         console.log("number: " + number + " goes in slot " + p + "-" + i);
-                        domSlots[i].innerHTML = number;  
-                        nums.splice(nums.indexOf(number),1);
-                        console.log("remaining numbers:" + nums)
+                        if (number !== undefined) {
+                            domSlots[i].innerHTML = number;  
+                            nums.splice(nums.indexOf(number),1);
+                            console.log("remaining numbers:" + nums)
+                        } else {
+                            // write code here for re-populating panel if it did not work!
+                            // clear panel and object
+                            for (let i = 0; i < 9; i++) {
+                                domSlots[i].innerHTML = "";
+                            };
+                            gameBoard[p] = {};
+                            // rerun switchcasefunction
+
+                        };
                 };
 
                     // for populating panels 1 - 8
@@ -125,24 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         console.log("has em all")
                         errorTracker = 0;
                         return errorTracker;
-                    } else {
-                        gameBoard[p] = {};
-                        errorTracker = 1;
-                        return errorTracker; 
-                        
-                    };
-                    // if (!gameBoard[p][8]) {
-                    //     console.log(gameBoard[p][8]);
-                    //     panel = {};
-                    //     generateNums();
-                    //     refreshObj();
-                        // populatePanel();
-                    // } else if (!gameBoard[p][7]) {
-                    //     console.log(gameBoard[p][7]);
-                    //     panel = {};
-                    //     refreshObj();
-                    //     populatePanel();
-                    // };
+                    }; 
                 };
 
                 switch (p) {
