@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (number !== undefined) {
                             domSlots[i].innerHTML = number;  
                             nums.splice(nums.indexOf(number),1);
-                            console.log("remaining numbers:" + nums)
+                            console.log("remaining numbers:" + nums);
                         } else {
                             // clear panel and object
                             for (let j = 0; j < 9; j++) {
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
 
                     // for populating panels 1 - 8
-                let populatePanel = () => {                  
+                let populatePanel = (p) => {                  
                     // restartLoop:
                     switch (i) {
                         case 0: 
@@ -127,8 +127,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
                             repop();
                             if (errorTracker === 1) {
-                                // continue restartLoop; 
-                                // i = 0;
+                                // continue restartLoop; creates error
+                                // i = 0; breaks page
                                 // populatePanel(); breaks page
                                 // populateBoard(); breaks page
                             };
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 let populateBoard = () => {
 
-            
+                    
                     switch (p) {
                             case 0: 
                                 index = r(nums.length)
@@ -160,13 +160,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                 repop();
                                 break;
                             case 1: 
-                                populatePanel();
+                                populatePanel(p);
                                 checkForErrors(); 
                                 break; 
-                            case 2: 
-                                populatePanel();
-                                checkForErrors();
-                                break; 
+                            // case 2: 
+                            //     populatePanel();
+                            //     checkForErrors();
+                            //     break; 
                             // case 3: 
                             //     populatePanel();
                             //     checkForErrors();
