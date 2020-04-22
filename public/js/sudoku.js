@@ -1,5 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+    // clear panel 
+    const clearPanel = () => {
+        document.querySelectorAll(".sudoku-number").forEach(slot => {
+            slot.innerHTML = "";
+        });
+    };
+
     // generate numbers function: pull numbers out of the array and line them up on the board
     const generateNums = () => {
         let index;  
@@ -62,18 +69,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 // function expressions: 
                     // where ...usedNumbers accounts for numbers already used in previous columns or rows (per sudoku rules)
                 let switchCaseFunction = (...usedNumbers) => {
-                    unavailable = usedNumbers;
-                    console.log("unavailable " + unavailable);
-                    available = nums.filter(value => unavailable.includes(value) !== true);
-                    console.log("available " + available);
-                    domSlots[i].innerHTML = 1; 
-                    index = r(available.length)
-                    number = available[index];
-                    domSlots[i].innerHTML = number;  
-                    available.splice(number,1);
-                    nums.splice(nums.indexOf(number),1);
-                    console.log("remaining numbers:" + nums)
-                }
+                        unavailable = usedNumbers;
+                        console.log("unavailable " + unavailable);
+                        available = nums.filter(value => unavailable.includes(value) !== true);
+                        console.log("available " + available);
+                        domSlots[i].innerHTML = 1; 
+                        index = r(available.length)
+                        number = available[index];
+                        domSlots[i].innerHTML = number;  
+                        available.splice(number,1);
+                        nums.splice(nums.indexOf(number),1);
+                        console.log("remaining numbers:" + nums)
+                };
 
                     // for populating panels 1 - 8
                 let populatePanel = () => {                  
@@ -111,22 +118,29 @@ document.addEventListener("DOMContentLoaded", () => {
                     
                 let checkForErrors = () => {
                     // re-runs code if any slots are "undefined"
+                    // stop code from running if there are duplicates in panel 2, which manifests itself as the last position being "NaN" in the object
                     // ********************in progress***************
-                    if (!gameBoard[p][8]) {
-                        
-                        // this will stop code from running if there are duplicates in panel 2, which manifests itself as the last position being "NaN" in the object
-                        errorTracker = 1;
+                    let verifier = Object.values(gameBoard[p]);
+                    if (verifier.includes(1) && verifier.includes(2) && verifier.includes(3) && verifier.includes(4) && verifier.includes(5) && verifier.includes(6) && verifier.includes(7) && verifier.includes(8) && verifier.includes(9)) {
+                        console.log("has em all")
+                        errorTracker = 0;
                         return errorTracker;
-
-                        // populatePanel();
-                    // } else if (gameBoard[p][8] === NaN) {
-                    //     populatePanel();
+                    } else {
+                        errorTracker = 1;
+                        return errorTracker; 
                     };
-                    // // check for duplicates
-                    console.log(gameBoard[p]);
-                    console.log(gameBoard[p][8]);
-                        
-                    
+                    // if (!gameBoard[p][8]) {
+                    //     console.log(gameBoard[p][8]);
+                    //     panel = {};
+                    //     generateNums();
+                    //     refreshObj();
+                        // populatePanel();
+                    // } else if (!gameBoard[p][7]) {
+                    //     console.log(gameBoard[p][7]);
+                    //     panel = {};
+                    //     refreshObj();
+                    //     populatePanel();
+                    // };
                 };
 
                 switch (p) {
@@ -138,38 +152,44 @@ document.addEventListener("DOMContentLoaded", () => {
                             repop();
                             break;
                         case 1: 
-                            // invoke functions
                             populatePanel();
                             checkForErrors(); 
                             break; 
-                        // case 2: 
-                        //     ;
-                        //     break; 
-                        // case 3: 
-                        //     ;
-                        //     break; 
+                        case 2: 
+                            populatePanel();
+                            checkForErrors();
+                            break; 
+                        case 3: 
+                            populatePanel();
+                            checkForErrors();
+                            break; 
                         // case 4: 
-                        //     ;
+                        //     populatePanel();
+                        //     checkForErrors();1
                         //     break; 
                         // case 5: 
-                        //     ;
+                        //     populatePanel();
+                        //     checkForErrors();
                         //     break; 
                         // case 6: 
-                        //     ;
+                        //     populatePanel();
+                        //     checkForErrors();
                         //     break; 
                         // case 7: 
-                        //     ;
+                        //     populatePanel();
+                        //     checkForErrors();
                         //     break; 
                         // case 8: 
-                        //     ;
+                        //     populatePanel();
+                        //     checkForErrors();
                         //     break;
-                        default: 
-                            index = r(nums.length)
-                            number = nums[index];
-                            domSlots[i].innerHTML = number;  
-                            nums.splice(index,1);
-                            repop();
-                            break;
+                        // default: 
+                        //     index = r(nums.length)
+                        //     number = nums[index];
+                        //     domSlots[i].innerHTML = number;  
+                        //     nums.splice(index,1);
+                        //     repop();
+                        //     break;
                 };
             };
         };
@@ -180,9 +200,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let button = document.getElementById("sudoku-button");
 
     button.addEventListener("click", (e) => {
-        // added twice to fix bug where boxes do not fill properly on page reload. To be fixed later. 
-        generateNums(); 
-        generateNums(); 
+        clearPanel();    
+        generateNums();            
     });
 
 });
