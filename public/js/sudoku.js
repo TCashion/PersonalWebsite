@@ -70,11 +70,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     // where ...usedNumbers accounts for numbers already used in previous columns or rows (per sudoku rules)
                 let switchCaseFunction = (...usedNumbers) => {
                         unavailable = usedNumbers;
-                        console.log("unavailable " + unavailable);
+                        console.log("START unavailable " + unavailable);
                         available = nums.filter(value => unavailable.includes(value) !== true);
                         console.log("available " + available);
                         index = r(available.length)
+                        console.log("index: " + index);
                         number = available[index];
+                        console.log("number: " + number + " goes in slot " + p + "-" + i);
                         domSlots[i].innerHTML = number;  
                         nums.splice(nums.indexOf(number),1);
                         console.log("remaining numbers:" + nums)
@@ -125,7 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         return errorTracker;
                     } else {
                         gameBoard[p] = {};
-                        populatePanel();
                         errorTracker = 1;
                         return errorTracker; 
                         
