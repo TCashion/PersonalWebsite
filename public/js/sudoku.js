@@ -65,6 +65,8 @@ document.addEventListener("DOMContentLoaded", () => {
             for (let i = 0; i < 9; i++) {
 
                 // function expressions: 
+                    // this creates the numbers that go in each panel's slots, taking into account the previous panels in order to avoid duplicates. 
+                        // variable "i" points to individual slots inside panels
                     // where ...usedNumbers accounts for numbers already used in previous columns or rows (per sudoku rules)
                 let switchCaseFunction = (...usedNumbers) => {
                         let unavailable = [];
@@ -95,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
 
                     // for populating panels 1 - 8
+                    // this iterates through each panel slot (i) and invokes switchCaseFunction in order to put a number in the slot
                 let populatePanel = (p) => {                  
                     // restartLoop:
                     switch (i) {
@@ -148,6 +151,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     }; 
                 };
 
+                // this iterates through each panel (p) and populates it with numbers 
+                // NEEDS TO BE MOVED! outside of for loop that loops thorugh slots "i" 
                 let populateBoard = () => {
 
                     
