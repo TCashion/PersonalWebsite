@@ -82,21 +82,24 @@ document.addEventListener("DOMContentLoaded", () => {
                             nums.splice(nums.indexOf(number),1);
                             console.log("remaining numbers:" + nums)
                         } else {
-                            // write code here for re-populating panel if it did not work!
                             // clear panel and object
-                            for (let i = 0; i < 9; i++) {
-                                domSlots[i].innerHTML = "";
+                            for (let j = 0; j < 9; j++) {
+                                domSlots[j].innerHTML = "";
                             };
                             gameBoard[p] = {};
-                            // rerun switchcasefunction
-
+                            errorTracker = 1;
+                            //resart code: 
+                            // i = 0;
+                            // continue restartLoop;
                         };
                 };
 
                     // for populating panels 1 - 8
                 let populatePanel = () => {                  
+                    // restartLoop:
                     switch (i) {
                         case 0: 
+                            errorTracker = 0;
                             switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
                             break;
                         case 1: 
@@ -123,6 +126,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         case 8: 
                             switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
                             repop();
+                            if (errorTracker === 1) {
+                                // continue restartLoop; 
+                                // i = 0;
+                                // populatePanel();
+                            };
                             break; 
                     };
                 };
@@ -139,54 +147,60 @@ document.addEventListener("DOMContentLoaded", () => {
                     }; 
                 };
 
-                switch (p) {
-                        case 0: 
-                            index = r(nums.length)
-                            number = nums[index];
-                            domSlots[i].innerHTML = number;  
-                            nums.splice(index,1);
-                            repop();
-                            break;
-                        case 1: 
-                            populatePanel();
-                            checkForErrors(); 
-                            break; 
-                        // case 2: 
-                        //     populatePanel();
-                        //     checkForErrors();
-                        //     break; 
-                        // case 3: 
-                        //     populatePanel();
-                        //     checkForErrors();
-                        //     break; 
-                        // case 4: 
-                        //     populatePanel();
-                        //     checkForErrors();1
-                        //     break; 
-                        // case 5: 
-                        //     populatePanel();
-                        //     checkForErrors();
-                        //     break; 
-                        // case 6: 
-                        //     populatePanel();
-                        //     checkForErrors();
-                        //     break; 
-                        // case 7: 
-                        //     populatePanel();
-                        //     checkForErrors();
-                        //     break; 
-                        // case 8: 
-                        //     populatePanel();
-                        //     checkForErrors();
-                        //     break;
-                        // default: 
-                        //     index = r(nums.length)
-                        //     number = nums[index];
-                        //     domSlots[i].innerHTML = number;  
-                        //     nums.splice(index,1);
-                        //     repop();
-                        //     break;
+                let populateBoard = () => {
+
+            
+                    switch (p) {
+                            case 0: 
+                                index = r(nums.length)
+                                number = nums[index];
+                                domSlots[i].innerHTML = number;  
+                                nums.splice(index,1);
+                                repop();
+                                break;
+                            case 1: 
+                                populatePanel();
+                                checkForErrors(); 
+                                break; 
+                            case 2: 
+                                populatePanel();
+                                checkForErrors();
+                                break; 
+                            // case 3: 
+                            //     populatePanel();
+                            //     checkForErrors();
+                            //     break; 
+                            // case 4: 
+                            //     populatePanel();
+                            //     checkForErrors();1
+                            //     break; 
+                            // case 5: 
+                            //     populatePanel();
+                            //     checkForErrors();
+                            //     break; 
+                            // case 6: 
+                            //     populatePanel();
+                            //     checkForErrors();
+                            //     break; 
+                            // case 7: 
+                            //     populatePanel();
+                            //     checkForErrors();
+                            //     break; 
+                            // case 8: 
+                            //     populatePanel();
+                            //     checkForErrors();
+                            //     break;
+                            // default: 
+                            //     index = r(nums.length)
+                            //     number = nums[index];
+                            //     domSlots[i].innerHTML = number;  
+                            //     nums.splice(index,1);
+                            //     repop();
+                            //     break;
+                    };
                 };
+                // invoke function
+                populateBoard();
             };
         };
 
