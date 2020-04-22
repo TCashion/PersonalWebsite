@@ -59,16 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // create numbers in DOM
         // iterates through panels
         for (let p = 0; p < 9; p++) {
+            let domSlots = panels[p].querySelectorAll(".sudoku-number");
+
             // iterates through individual slots in panels 
             for (let i = 0; i < 9; i++) {
-                // variable declarations necessary for functions: 
-                let domSlots = panels[p].querySelectorAll(".sudoku-number");
-                let unavailable = [];
-                let available = [];
 
                 // function expressions: 
                     // where ...usedNumbers accounts for numbers already used in previous columns or rows (per sudoku rules)
                 let switchCaseFunction = (...usedNumbers) => {
+                        let unavailable = [];
+                        let available = [];     
                         unavailable = usedNumbers;
                         console.log("START unavailable " + unavailable);
                         available = nums.filter(value => unavailable.includes(value) !== true);
@@ -129,7 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             if (errorTracker === 1) {
                                 // continue restartLoop; 
                                 // i = 0;
-                                // populatePanel();
+                                // populatePanel(); breaks page
+                                // populateBoard(); breaks page
                             };
                             break; 
                     };
