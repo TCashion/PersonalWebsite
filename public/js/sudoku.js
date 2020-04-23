@@ -90,21 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         console.log("index: " + index);
                         number = available[index];
                         console.log("number: " + number + " goes in slot " + p + "-" + i);
-                        if (number !== undefined) {
-                            domSlots[i].innerHTML = number;  
-                            nums.splice(nums.indexOf(number),1);
-                            console.log("remaining numbers:" + nums);
-                        } else {
-                            // clear panel and object
-                            for (let j = 0; j < 9; j++) {
-                                domSlots[j].innerHTML = "";
-                            };
-                            gameBoard[p] = {};
-                            errorTracker = 1;
-                            //resart code: 
-                            // i = 0;
-                            // continue restartLoop;
-                        };
+                        domSlots[i].innerHTML = number;  
+                        nums.splice(nums.indexOf(number),1);
+                        console.log("remaining numbers:" + nums);
                 };
 
                     // for populating panels 1 - 8
@@ -140,12 +128,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         case 8: 
                             switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
                             repop();
-                            if (errorTracker === 1) {
-                                // continue restartLoop; creates error
-                                // i = 0; breaks page
-                                // populatePanel(); breaks page
-                                // populateBoard(); breaks page
-                            };
                             break; 
                     };
                 };
@@ -166,7 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
 
                 // this iterates through each panel (p) and populates it with numbers 
-                // NEEDS TO BE MOVED! outside of for loop that loops thorugh slots "i" 
                 let populateBoard = () => {
 
                     
@@ -181,9 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
                             case 1: 
                                 populatePanel(p);
                                 checkForErrors(); 
-                                while (errorTracker === 1) {
-                                    populatePanel(p);
-                                };
                                 break; 
                             // case 2: 
                             //     populatePanel();
