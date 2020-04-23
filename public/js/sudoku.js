@@ -87,45 +87,41 @@ document.addEventListener("DOMContentLoaded", () => {
                         index = r(available.length);
                         number = available[index];
                         domSlots[slot].innerHTML = number;
-                        available.splice(index,1);
-                    }
+                        available.splice(index,1); 
+                        refreshObj();
+                    };
 
-                    if (row === 0) { 
-                        switch (column) {
+                    if (column === 0) { 
+                        switch (row) {
                             case 0:
-                                unavailable = [gameBoard[p-3][row], gameBoard[p-3][row + 3], gameBoard[p-3][row + 6]];
+                                unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
                                 slotFiller(0);
-                                refreshObj();
                                 break;
                             case 1: 
-                                unavailable = [gameBoard[p-3][row], gameBoard[p-3][row + 3], gameBoard[p-3][row + 6], gameBoard[p][0], gameBoard[p][3], gameBoard[p][6]];
-                                slotFiller(1);
-                                refreshObj();
+                                // unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][3], gameBoard[p][6]];
+                                // slotFiller(3);
                                 break;
                             case 2: 
                                 // unavailable = 
-                                // slotFiller(2);
-                                // refreshObj();
+                                // slotFiller(6);
                                 break;
                         };
-                    } else if (row === 1) {
-                        switch (column) {
+                    } else if (column === 1) {
+                        switch (row) {
                             case 0: 
-                                unavailable = [gameBoard[p-3][row], gameBoard[p-3][row + 3], gameBoard[p-3][row + 6],gameBoard[p][0]];
-                                slotFiller(3);
-                                refreshObj();
+                                unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0]];
+                                slotFiller(1);
                                 break;
                             case 1: 
                                 break;
                             case 2:
                                 break;
                         };
-                    } else if (row === 2) {
-                        switch (column) {
+                    } else if (column === 2) {
+                        switch (row) {
                             case 0:
-                                unavailable = [gameBoard[p-3][row], gameBoard[p-3][row + 3], gameBoard[p-3][row + 6], gameBoard[p][0], gameBoard[p][3]];
-                                slotFiller(6);
-                                refreshObj();
+                                unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1]];
+                                slotFiller(2);
                                 break;
                             case 1: 
                                 break;
@@ -133,6 +129,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 break; 
                         }
                     };
+                    refreshObj();
+                    // console.log(gameBoard[3]);
                 };
 
                 // this is for populating panels
@@ -236,15 +234,19 @@ document.addEventListener("DOMContentLoaded", () => {
                                 thirdColumn(2);
                                 break; 
                             case 3: 
+                                // goes one row at a time and adds numbers to slots. 
                                 firstColumn(0,0);
-                                firstColumn(1,0);
-                                firstColumn(2,0);
                                 firstColumn(0,1);
-                                firstColumn(1,1);
-                                firstColumn(2,1);
                                 firstColumn(0,2);
-                                firstColumn(1,2);
-                                firstColumn(2,2);
+
+                                // firstColumn(1,0);
+                                // firstColumn(2,0);
+                                
+                                // firstColumn(1,1);
+                                // firstColumn(2,1);
+                                
+                                // firstColumn(1,2);
+                                // firstColumn(2,2);
                             //     populatePanel();
                             //     checkForErrors();
                                 break; 
