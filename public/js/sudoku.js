@@ -78,12 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 // iterates through individual slots in panels 
                 for (let i = 0; i < 9; i++) {
 
+                    let available = [];
+                    let unavailable = [];
                     // function expressions: 
 
                     let firstColumn = (row, column) => {
-
-                        let available = [];
-                        let unavailable = [];
 
                         let slotFiller = (slot) => {
                             available = nums.filter(value => unavailable.includes(value) !== true);
@@ -169,38 +168,49 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         };
                         refreshObj();
-                        // console.log(gameBoard[3]);
                     };
 
                     // this is for populating panels
                         // numbers are mixed manually to give some randomness
                     let secondColumn = (row) => {
-                        if (row === 0) {
-                            let available = [gameBoard[p-1][6],gameBoard[p-1][4],gameBoard[p-1][5]];
-                            for (let s = 0; s < 3; s++) {
-                                index = r(available.length);
-                                number = available[index];
-                                domSlots[s].innerHTML = number;
-                                available.splice(index,1);
-                            };
-                        } else if (row === 1) {
-                            let available = [gameBoard[p-1][0],gameBoard[p-1][7],gameBoard[p-1][8]];
-                            for (let s = 3; s < 6; s++) {
-                                index = r(available.length);
-                                number = available[index];
-                                domSlots[s].innerHTML = number;
-                                available.splice(index,1);
-                            };
-                        } else if (row === 2) {
-                            let available = [gameBoard[p-1][3],gameBoard[p-1][1],gameBoard[p-1][2]];
-                            for (let s = 6; s < 9; s++) {
-                                index = r(available.length);
-                                number = available[index];
-                                domSlots[s].innerHTML = number;
-                                available.splice(index,1);
-                            }; 
-                        };  
-                        refreshObj();              
+
+                        switch (p) {
+                            case 1:
+                                if (row === 0) {
+                                    available = [gameBoard[p-1][6],gameBoard[p-1][4],gameBoard[p-1][5]];
+                                    for (let s = 0; s < 3; s++) {
+                                        index = r(available.length);
+                                        number = available[index];
+                                        domSlots[s].innerHTML = number;
+                                        available.splice(index,1);
+                                    };
+                                } else if (row === 1) {
+                                    available = [gameBoard[p-1][0],gameBoard[p-1][7],gameBoard[p-1][8]];
+                                    for (let s = 3; s < 6; s++) {
+                                        index = r(available.length);
+                                        number = available[index];
+                                        domSlots[s].innerHTML = number;
+                                        available.splice(index,1);
+                                    };
+                                } else if (row === 2) {
+                                    available = [gameBoard[p-1][3],gameBoard[p-1][1],gameBoard[p-1][2]];
+                                    for (let s = 6; s < 9; s++) {
+                                        index = r(available.length);
+                                        number = available[index];
+                                        domSlots[s].innerHTML = number;
+                                        available.splice(index,1);
+                                    }; 
+                                };  
+                                refreshObj();
+                                break;
+                            case 4:
+
+                                break;
+                            case 7:
+
+                                break;
+                        };
+                                      
                     };
 
                     let thirdColumn = (row) => {
