@@ -98,8 +98,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 slotFiller(0);
                                 break;
                             case 1: 
-                                // unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][3], gameBoard[p][6]];
-                                // slotFiller(3);
+                                unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2]];
+                                slotFiller(3);
                                 break;
                             case 2: 
                                 // unavailable = 
@@ -113,6 +113,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 slotFiller(1);
                                 break;
                             case 1: 
+                                unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
+                                slotFiller(4);
                                 break;
                             case 2:
                                 break;
@@ -124,6 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 slotFiller(2);
                                 break;
                             case 1: 
+                                unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4]];
+                                slotFiller(5);
                                 break;
                             case 2: 
                                 break; 
@@ -234,18 +238,15 @@ document.addEventListener("DOMContentLoaded", () => {
                                 thirdColumn(2);
                                 break; 
                             case 3: 
-                                // goes one row at a time and adds numbers to slots. 
+                                // goes one row at a time and adds numbers to slots. Must be in this order. 
                                 firstColumn(0,0);
                                 firstColumn(0,1);
                                 firstColumn(0,2);
-
-                                // firstColumn(1,0);
+                                firstColumn(1,0);
+                                firstColumn(1,1);
+                                firstColumn(1,2);
                                 // firstColumn(2,0);
-                                
-                                // firstColumn(1,1);
                                 // firstColumn(2,1);
-                                
-                                // firstColumn(1,2);
                                 // firstColumn(2,2);
                             //     populatePanel();
                             //     checkForErrors();
