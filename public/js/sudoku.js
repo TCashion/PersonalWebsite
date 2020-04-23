@@ -419,7 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             };
             // console.log(gameBoard[6]); // for testing!
-        } while (Object.values(gameBoard[6]).includes(NaN) || Object.values(gameBoard[4]).includes(NaN)); //end while
+        } while (Object.values(gameBoard[3]).includes(NaN) || Object.values(gameBoard[4]).includes(NaN) || Object.values(gameBoard[6]).includes(NaN)); //end while
 
 
     };
