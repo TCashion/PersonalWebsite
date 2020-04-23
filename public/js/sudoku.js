@@ -83,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let unavailable = [];
 
                     let slotFiller = (slot) => {
+                        available = nums.filter(value => unavailable.includes(value) !== true);
                         index = r(available.length);
                         number = available[index];
                         domSlots[slot].innerHTML = number;
@@ -92,22 +93,25 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (row === 0) { 
                         switch (column) {
                             case 0:
-                                unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
-                                available = nums.filter(value => unavailable.includes(value) !== true);
+                                unavailable = [gameBoard[p-3][row], gameBoard[p-3][row + 3], gameBoard[p-3][row + 6]];
                                 slotFiller(0);
                                 refreshObj();
                                 break;
                             case 1: 
-                                
+                                unavailable = [gameBoard[p-3][row], gameBoard[p-3][row + 3], gameBoard[p-3][row + 6], gameBoard[p][0], gameBoard[p][3], gameBoard[p][6]];
+                                slotFiller(1);
+                                refreshObj();
                                 break;
                             case 2: 
+                                // unavailable = 
+                                // slotFiller(2);
+                                // refreshObj();
                                 break;
                         };
                     } else if (row === 1) {
                         switch (column) {
                             case 0: 
-                                unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6],gameBoard[p][0]];
-                                available = nums.filter(value => unavailable.includes(value) !== true);
+                                unavailable = [gameBoard[p-3][row], gameBoard[p-3][row + 3], gameBoard[p-3][row + 6],gameBoard[p][0]];
                                 slotFiller(3);
                                 refreshObj();
                                 break;
@@ -115,6 +119,18 @@ document.addEventListener("DOMContentLoaded", () => {
                                 break;
                             case 2:
                                 break;
+                        };
+                    } else if (row === 2) {
+                        switch (column) {
+                            case 0:
+                                unavailable = [gameBoard[p-3][row], gameBoard[p-3][row + 3], gameBoard[p-3][row + 6], gameBoard[p][0], gameBoard[p][3]];
+                                slotFiller(6);
+                                refreshObj();
+                                break;
+                            case 1: 
+                                break;
+                            case 2: 
+                                break; 
                         }
                     };
                 };
@@ -222,6 +238,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             case 3: 
                                 firstColumn(0,0);
                                 firstColumn(1,0);
+                                firstColumn(2,0);
+                                firstColumn(0,1);
+                                firstColumn(1,1);
+                                firstColumn(2,1);
+                                firstColumn(0,2);
+                                firstColumn(1,2);
+                                firstColumn(2,2);
                             //     populatePanel();
                             //     checkForErrors();
                                 break; 
