@@ -95,10 +95,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         console.log("remaining numbers:" + nums);
                 };
 
-                // this is for populating panel1 (2nd column)
+                // this is for populating panel1 (2nd column). More manual, but it works
+                    // numbers are mixed manually to give some randomness
                 let secondColumn = (row) => {
                     if (row === 1) {
-                        let available = [gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]];
+                        let available = [gameBoard[p-1][6],gameBoard[p-1][4],gameBoard[p-1][5]];
                         for (let s = 0; s < 3; s++) {
                             index = r(available.length);
                             number = available[index];
@@ -106,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             available.splice(index,1);
                         };
                     } else if (row === 2) {
-                        let available = [gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]];
+                        let available = [gameBoard[p-1][0],gameBoard[p-1][7],gameBoard[p-1][8]];
                         for (let s = 3; s < 6; s++) {
                             index = r(available.length);
                             number = available[index];
@@ -114,14 +115,15 @@ document.addEventListener("DOMContentLoaded", () => {
                             available.splice(index,1);
                         };
                     } else if (row === 3) {
-                        let available = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
+                        let available = [gameBoard[p-1][3],gameBoard[p-1][1],gameBoard[p-1][2]];
                         for (let s = 6; s < 9; s++) {
                             index = r(available.length);
                             number = available[index];
                             domSlots[s].innerHTML = number;
                             available.splice(index,1);
                         }; 
-                    };                    
+                    };     
+                    refreshObj();              
                 };
 
                     // for populating panels 1 - 8
@@ -192,8 +194,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 secondColumn(1);
                                 secondColumn(2);
                                 secondColumn(3);
+                                console.log(gameBoard[p]);
                                 // populatePanel(p);
-                                // checkForErrors(); 
+                                checkForErrors(); 
                                 break; 
                             // case 2: 
                             //     populatePanel();
