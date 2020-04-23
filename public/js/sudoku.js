@@ -171,14 +171,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                 secondColumn(1);
                                 secondColumn(2);
                                 secondColumn(3);
-                                checkForErrors(); 
                                 break; 
                             case 2: 
                                 thirdColumn(1);
                                 thirdColumn(2);
                                 thirdColumn(3);
-                            //     populatePanel();
-                                checkForErrors();
                                 break; 
                             // case 3: 
                             //     populatePanel();
