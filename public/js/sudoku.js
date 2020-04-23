@@ -386,8 +386,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 //     checkForErrors();
                                 //     break; 
                                 case 6: 
-                                    firstColumn(0,1);
                                     firstColumn(0,0);
+                                    firstColumn(0,1);                                
                                     firstColumn(0,2);
                                     firstColumn(1,0);
                                     firstColumn(1,1);
