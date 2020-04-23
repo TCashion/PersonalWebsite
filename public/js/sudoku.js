@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     // clear panel 
-    const clearPanel = () => {
+    const clearBoard = (min, max) => {
         document.querySelectorAll(".sudoku-number").forEach(slot => {
             slot.innerHTML = "";
         });
@@ -148,6 +148,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         console.log("has em all")
                         errorTracker = 0;
                         return errorTracker;
+                    } else {
+                        errorTracker = 1;
+                        return errorTracker;
                     }; 
                 };
 
@@ -167,6 +170,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             case 1: 
                                 populatePanel(p);
                                 checkForErrors(); 
+                                while (errorTracker === 1) {
+                                    populatePanel(p);
+                                };
                                 break; 
                             // case 2: 
                             //     populatePanel();
@@ -216,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let button = document.getElementById("sudoku-button");
 
     button.addEventListener("click", (e) => {
-        clearPanel();    
+        clearBoard();    
         generateNums();            
     });
 
