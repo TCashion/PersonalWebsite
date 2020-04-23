@@ -113,12 +113,16 @@ document.addEventListener("DOMContentLoaded", () => {
                             switch (row) {
                                 case 0:
                                     unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
-                                    thirdRowCounter(0,3,6);
+                                    // thirdRowCounter(0,3,6);
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
+                                    };
                                     slotFiller(0);
                                     break;
                                 case 1: 
-                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
-                                    currentPanelUsed(0,3);
+                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2]];
+                                    // currentPanelUsed(0,3);
+
                                     if (gameBoard[p - 6]) {
                                         unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
                                     };
