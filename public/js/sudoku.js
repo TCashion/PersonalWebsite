@@ -252,11 +252,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         let verifier = Object.values(gameBoard[p]);
                         if (verifier.includes(1) && verifier.includes(2) && verifier.includes(3) && verifier.includes(4) && verifier.includes(5) && verifier.includes(6) && verifier.includes(7) && verifier.includes(8) && verifier.includes(9)) {
                             console.log("has em all")
-                            errorTracker = 0;
-                            return errorTracker;
-                        } else {
-                            errorTracker = 1;
-                            return errorTracker;
                         }; 
                     };
 
