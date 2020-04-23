@@ -77,10 +77,52 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // function expressions: 
 
+                let firstColumn = (row, column) => {
+
+                    let available = [];
+                    let unavailable = [];
+
+                    let slotFiller = (slot) => {
+                        index = r(available.length);
+                        number = available[index];
+                        domSlots[slot].innerHTML = number;
+                        available.splice(index,1);
+                    }
+
+                    if (row === 0) { 
+                        switch (column) {
+                            case 0:
+                                unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
+                                available = nums.filter(value => unavailable.includes(value) !== true);
+                                slotFiller(0);
+                                refreshObj();
+                                break;
+                            case 1: 
+                                
+                                break;
+                            case 2: 
+                                break;
+                        };
+                    } else if (row === 1) {
+                        switch (column) {
+                            case 0: 
+                                unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6],gameBoard[p][0]];
+                                available = nums.filter(value => unavailable.includes(value) !== true);
+                                slotFiller(3);
+                                refreshObj();
+                                break;
+                            case 1: 
+                                break;
+                            case 2:
+                                break;
+                        }
+                    };
+                };
+
                 // this is for populating panels
                     // numbers are mixed manually to give some randomness
                 let secondColumn = (row) => {
-                    if (row === 1) {
+                    if (row === 0) {
                         let available = [gameBoard[p-1][6],gameBoard[p-1][4],gameBoard[p-1][5]];
                         for (let s = 0; s < 3; s++) {
                             index = r(available.length);
@@ -88,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             domSlots[s].innerHTML = number;
                             available.splice(index,1);
                         };
-                    } else if (row === 2) {
+                    } else if (row === 1) {
                         let available = [gameBoard[p-1][0],gameBoard[p-1][7],gameBoard[p-1][8]];
                         for (let s = 3; s < 6; s++) {
                             index = r(available.length);
@@ -96,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             domSlots[s].innerHTML = number;
                             available.splice(index,1);
                         };
-                    } else if (row === 3) {
+                    } else if (row === 2) {
                         let available = [gameBoard[p-1][3],gameBoard[p-1][1],gameBoard[p-1][2]];
                         for (let s = 6; s < 9; s++) {
                             index = r(available.length);
@@ -104,12 +146,12 @@ document.addEventListener("DOMContentLoaded", () => {
                             domSlots[s].innerHTML = number;
                             available.splice(index,1);
                         }; 
-                    };     
+                    };  
                     refreshObj();              
                 };
 
                 let thirdColumn = (row) => {
-                    if (row === 1) {
+                    if (row === 0) {
                         let unavailable = [gameBoard[p-2][0], gameBoard[p-2][1], gameBoard[p-2][2], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
                         let available = nums.filter(value => unavailable.includes(value) !== true);
                         for (let s = 0; s < 3; s++) {
@@ -118,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             domSlots[s].innerHTML = number;
                             available.splice(index,1);
                         };
-                    } else if (row === 2) {
+                    } else if (row === 1) {
                         let unavailable = [gameBoard[p-2][3], gameBoard[p-2][4], gameBoard[p-2][5], gameBoard[p-1][3], gameBoard[p-1][4], gameBoard[p-1][5]];
                         let available = nums.filter(value => unavailable.includes(value) !== true);
                         for (let s = 3; s < 6; s++) {
@@ -127,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             domSlots[s].innerHTML = number;
                             available.splice(index,1);
                         };
-                    } else if (row === 3) {
+                    } else if (row === 2) {
                         let unavailable = [gameBoard[p-2][6], gameBoard[p-2][7], gameBoard[p-2][8], gameBoard[p-1][6], gameBoard[p-1][7], gameBoard[p-1][8]];
                         let available = nums.filter(value => unavailable.includes(value) !== true);
                         for (let s = 6; s < 9; s++) {
@@ -168,19 +210,21 @@ document.addEventListener("DOMContentLoaded", () => {
                                 repop();
                                 break;
                             case 1: 
+                                secondColumn(0);
                                 secondColumn(1);
                                 secondColumn(2);
-                                secondColumn(3);
                                 break; 
                             case 2: 
+                                thirdColumn(0);
                                 thirdColumn(1);
                                 thirdColumn(2);
-                                thirdColumn(3);
                                 break; 
-                            // case 3: 
+                            case 3: 
+                                firstColumn(0,0);
+                                firstColumn(1,0);
                             //     populatePanel();
                             //     checkForErrors();
-                            //     break; 
+                                break; 
                             // case 4: 
                             //     populatePanel();
                             //     checkForErrors();1
