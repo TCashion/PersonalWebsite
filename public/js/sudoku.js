@@ -102,8 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 slotFiller(3);
                                 break;
                             case 2: 
-                                // unavailable = 
-                                // slotFiller(6);
+                                unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
+                                slotFiller(6);
                                 break;
                         };
                     } else if (column === 1) {
@@ -117,6 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 slotFiller(4);
                                 break;
                             case 2:
+                                unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
+                                slotFiller(7);
                                 break;
                         };
                     } else if (column === 2) {
@@ -130,6 +132,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 slotFiller(5);
                                 break;
                             case 2: 
+                                unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6], gameBoard[p][7]];
+                                slotFiller(8);
                                 break; 
                         }
                     };
@@ -245,9 +249,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                 firstColumn(1,0);
                                 firstColumn(1,1);
                                 firstColumn(1,2);
-                                // firstColumn(2,0);
-                                // firstColumn(2,1);
-                                // firstColumn(2,2);
+                                firstColumn(2,0);
+                                firstColumn(2,1);
+                                firstColumn(2,2);
                             //     populatePanel();
                             //     checkForErrors();
                                 break; 
