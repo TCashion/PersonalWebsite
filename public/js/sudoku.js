@@ -126,6 +126,38 @@ document.addEventListener("DOMContentLoaded", () => {
                     refreshObj();              
                 };
 
+                let thirdColumn = (row) => {
+                    if (row === 1) {
+                        let unavailable = [gameBoard[p-2][0], gameBoard[p-2][1], gameBoard[p-2][2], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
+                        let available = nums.filter(value => unavailable.includes(value) !== true);
+                        for (let s = 0; s < 3; s++) {
+                            index = r(available.length);
+                            number = available[index];
+                            domSlots[s].innerHTML = number;
+                            available.splice(index,1);
+                        };
+                    } else if (row === 2) {
+                        let unavailable = [gameBoard[p-2][3], gameBoard[p-2][4], gameBoard[p-2][5], gameBoard[p-1][3], gameBoard[p-1][4], gameBoard[p-1][5]];
+                        let available = nums.filter(value => unavailable.includes(value) !== true);
+                        for (let s = 3; s < 6; s++) {
+                            index = r(available.length);
+                            number = available[index];
+                            domSlots[s].innerHTML = number;
+                            available.splice(index,1);
+                        };
+                    } else if (row === 3) {
+                        let unavailable = [gameBoard[p-2][6], gameBoard[p-2][7], gameBoard[p-2][8], gameBoard[p-1][6], gameBoard[p-1][7], gameBoard[p-1][8]];
+                        let available = nums.filter(value => unavailable.includes(value) !== true);
+                        for (let s = 6; s < 9; s++) {
+                            index = r(available.length);
+                            number = available[index];
+                            domSlots[s].innerHTML = number;
+                            available.splice(index,1);
+                        };
+                    };     
+                    refreshObj(); 
+                };
+
                     // for populating panels 1 - 8
                     // this iterates through each panel slot (i) and invokes switchCaseFunction in order to put a number in the slot
                 let populatePanel = (p) => {                  
@@ -194,13 +226,15 @@ document.addEventListener("DOMContentLoaded", () => {
                                 secondColumn(1);
                                 secondColumn(2);
                                 secondColumn(3);
-                                console.log(gameBoard[p]);
                                 checkForErrors(); 
                                 break; 
-                            // case 2: 
+                            case 2: 
+                                thirdColumn(1);
+                                thirdColumn(2);
+                                thirdColumn(3);
                             //     populatePanel();
-                            //     checkForErrors();
-                            //     break; 
+                                checkForErrors();
+                                break; 
                             // case 3: 
                             //     populatePanel();
                             //     checkForErrors();
