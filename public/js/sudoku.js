@@ -82,17 +82,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     let unavailable = [];
                     // function expressions: 
 
-                    let firstColumn = (row, column) => {
+                    let slotFiller = (slot) => {
+                        available = nums.filter(value => unavailable.includes(value) !== true);
+                        available = available.filter(value => typeof value === "number");
+                        index = r(available.length);
+                        number = available[index];
+                        domSlots[slot].innerHTML = number;
+                        available.splice(index,1); 
+                        refreshObj();
+                    };
 
-                        let slotFiller = (slot) => {
-                            available = nums.filter(value => unavailable.includes(value) !== true);
-                            available = available.filter(value => typeof value === "number");
-                            index = r(available.length);
-                            number = available[index];
-                            domSlots[slot].innerHTML = number;
-                            available.splice(index,1); 
-                            refreshObj();
-                        };
+                    let firstColumn = (row, column) => {
 
                         if (column === 0) { 
                             switch (row) {
@@ -204,39 +204,80 @@ document.addEventListener("DOMContentLoaded", () => {
                                 refreshObj();
                                 break;
                             case 4:
-                                switch (row) {
-                                    case 0:
-                                        if (column === 0) {
+                                if (column === 0) {
+                                    switch (row) {
+                                        case 0:
                                             unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
                                             if (gameBoard[p - 6]) {
                                                 unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
                                             };
                                             slotFiller(0);
-                                        } else if (column === 1) {
-        
-                                        } else if (column === 2) {
-        
-                                        };
-                                        break;
-                                    case 1:
-                                        if (column === 0) {
+                                            break;
+                                        case 1: 
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p][1], gameBoard[p][2]];
+                                            if (gameBoard[p - 6]) {
+                                                unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
+                                            };
+                                            slotFiller(3);
+                                            break;
+                                        case 2: 
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
+                                            if (gameBoard[p - 6]) {
+                                                unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
+                                            };
+                                            slotFiller(6);
+                                            break; 
+                                    }
                                         
-                                        } else if (column === 1) {
-        
-                                        } else if (column === 2) {
-        
-                                        };
-                                        break;
-                                    case 2:
-                                        if (column === 0) {
-                                        
-                                        } else if (column === 1) {
-        
-                                        } else if (column === 2) {
-        
-                                        };
-                                        break;
+                                } else if (column === 1) {
+                                    switch (row) {
+                                        case 0: 
+                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
+                                            if (gameBoard[p - 6]) {
+                                                unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
+                                            };
+                                            slotFiller(1);
+                                            break;
+                                        case 1: 
+                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
+                                            if (gameBoard[p - 6]) {
+                                                unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
+                                            };
+                                            slotFiller(4);
+                                            break;
+                                        case 2:
+                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
+                                            if (gameBoard[p - 6]) {
+                                                unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
+                                            };
+                                            slotFiller(7);
+                                            break;
                                     };
+                                } else if (column === 2) {
+                                    switch (row) {
+                                        case 0:
+                                            unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2], gameBoard[p][0], gameBoard[p][1]];
+                                            if (gameBoard[p - 6]) {
+                                                unavailable.push(gameBoard[p-6][0 + 2], gameBoard[p-6][3 + 2], gameBoard[p-6][6 + 2]);
+                                            };
+                                            slotFiller(2);
+                                            break;
+                                        case 1: 
+                                            unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4]];
+                                            if (gameBoard[p - 6]) {
+                                                unavailable.push(gameBoard[p-6][0 + 2], gameBoard[p-6][3 + 2], gameBoard[p-6][6 + 2]);
+                                            };
+                                            slotFiller(5);
+                                            break;
+                                        case 2: 
+                                            unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6], gameBoard[p][7]];
+                                            if (gameBoard[p - 6]) {
+                                                unavailable.push(gameBoard[p-6][0 + 2], gameBoard[p-6][3 + 2], gameBoard[p-6][6 + 2]);
+                                            };
+                                            slotFiller(8);
+                                            break; 
+                                    };
+                                };
                                     refreshObj();
                                 break;
                             case 7:
@@ -324,7 +365,15 @@ document.addEventListener("DOMContentLoaded", () => {
                                     firstColumn(2,2);
                                     break; 
                                 case 4: 
-                                    // secondColumn(0,0);
+                                    secondColumn(0,0);
+                                    secondColumn(0,1);
+                                    secondColumn(0,2);
+                                    secondColumn(1,0);
+                                    secondColumn(1,1);
+                                    secondColumn(1,2);
+                                    secondColumn(2,0);
+                                    secondColumn(2,1);
+                                    secondColumn(2,2);
                                     break; 
                                 // case 5: 
                                 //     populatePanel();
@@ -364,7 +413,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             };
             // console.log(gameBoard[6]); // for testing!
-        } while (Object.values(gameBoard[6]).includes(NaN)); //end while
+        } while (Object.values(gameBoard[6]).includes(NaN) || Object.values(gameBoard[4]).includes(NaN)); //end while
 
 
     };
