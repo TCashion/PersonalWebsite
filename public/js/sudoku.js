@@ -99,14 +99,23 @@ document.addEventListener("DOMContentLoaded", () => {
                             switch (row) {
                                 case 0:
                                     unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
+                                    };
                                     slotFiller(0);
                                     break;
                                 case 1: 
                                     unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
+                                    };
                                     slotFiller(3);
                                     break;
                                 case 2: 
                                     unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
+                                    };
                                     slotFiller(6);
                                     break;
                             };
@@ -114,14 +123,23 @@ document.addEventListener("DOMContentLoaded", () => {
                             switch (row) {
                                 case 0: 
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
+                                    };
                                     slotFiller(1);
                                     break;
                                 case 1: 
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
+                                    };
                                     slotFiller(4);
                                     break;
                                 case 2:
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
+                                    };
                                     slotFiller(7);
                                     break;
                             };
@@ -129,14 +147,23 @@ document.addEventListener("DOMContentLoaded", () => {
                             switch (row) {
                                 case 0:
                                     unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 2], gameBoard[p-6][3 + 2], gameBoard[p-6][6 + 2]);
+                                    };
                                     slotFiller(2);
                                     break;
                                 case 1: 
                                     unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 2], gameBoard[p-6][3 + 2], gameBoard[p-6][6 + 2]);
+                                    };
                                     slotFiller(5);
                                     break;
                                 case 2: 
                                     unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6], gameBoard[p][7]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 2], gameBoard[p-6][3 + 2], gameBoard[p-6][6 + 2]);
+                                    };
                                     slotFiller(8);
                                     break; 
                             }
@@ -265,10 +292,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                 //     populatePanel();
                                 //     checkForErrors();
                                 //     break; 
-                                // case 6: 
-                                //     populatePanel();
-                                //     checkForErrors();
-                                //     break; 
+                                case 6: 
+                                    firstColumn(0,1);
+                                    firstColumn(0,0);
+                                    firstColumn(0,2);
+                                    firstColumn(1,0);
+                                    firstColumn(1,1);
+                                    firstColumn(1,2);
+                                    firstColumn(2,0);
+                                    firstColumn(2,1);
+                                    firstColumn(2,2);
+                                    break; 
                                 // case 7: 
                                 //     populatePanel();
                                 //     checkForErrors();
@@ -291,7 +325,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     populateBoard();
                 };
             };
-        } while (Object.values(gameBoard[3]).includes(NaN)); //end while
+            // console.log(gameBoard[6]); // for testing!
+        } while (Object.values(gameBoard[6]).includes(NaN)); //end while
 
 
     };
@@ -305,36 +340,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
-
-
-
-// need to create object for entire board: 
-    // create object of first panel to push to main array of objects
-    // let panel = {}; 
-    // for (let i = 0; i < 9; i++) {panel[i] = document.querySelectorAll(".sudoku-number")[i].innerHTML;}
-
-
-// PROGRAM Sudoku
-
-    // MODULE create board
-        // CREATE 3x3 matrix of numbers 1 - 9
-            // loop through panels 
-                // add a number to each panel
-                // remove corresponding number from array
-            // when array length is 0, repopulate with numbers
-            // SET as top left box (panel0)
-        // CREATE adjacent boxes to the right
-            // for panels 1, 2: 
-                // DETERMINE which numbers can't be in each row based on previous panels
-                // POPULATE with numbers that are remaining
-        // VERIFY all rows and boxes contain 1-9
-        // CREATE 2ND row of boxes 
-        // CREATE 3rd row of boxes 
-    // END Module
-
-    // MODULE set difficulty
-        // TRACK user selection
-        // HIDE appropriate number of fields based on selection 
-    // END Module 
-
-// END PROGRAM
