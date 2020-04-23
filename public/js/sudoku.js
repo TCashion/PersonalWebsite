@@ -76,26 +76,8 @@ document.addEventListener("DOMContentLoaded", () => {
             for (let i = 0; i < 9; i++) {
 
                 // function expressions: 
-                    // this creates the numbers that go in each panel's slots, taking into account the previous panels in order to avoid duplicates. 
-                        // variable "i" points to individual slots inside panels
-                    // where ...usedNumbers accounts for numbers already used in previous columns or rows (per sudoku rules)
-                let switchCaseFunction = (...usedNumbers) => {
-                        let unavailable = [];
-                        let available = [];     
-                        unavailable = usedNumbers;
-                        console.log("START unavailable " + unavailable);
-                        available = nums.filter(value => unavailable.includes(value) !== true);
-                        console.log("available " + available);
-                        index = r(available.length)
-                        console.log("index: " + index);
-                        number = available[index];
-                        console.log("number: " + number + " goes in slot " + p + "-" + i);
-                        domSlots[i].innerHTML = number;  
-                        nums.splice(nums.indexOf(number),1);
-                        console.log("remaining numbers:" + nums);
-                };
 
-                // this is for populating panel1 (2nd column). More manual, but it works
+                // this is for populating panels
                     // numbers are mixed manually to give some randomness
                 let secondColumn = (row) => {
                     if (row === 1) {
@@ -156,43 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         };
                     };     
                     refreshObj(); 
-                };
-
-                    // for populating panels 1 - 8
-                    // this iterates through each panel slot (i) and invokes switchCaseFunction in order to put a number in the slot
-                let populatePanel = (p) => {                  
-
-                    switch (i) {
-                        case 0: 
-                            errorTracker = 0;
-                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
-                            break;
-                        case 1: 
-                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
-                            break; 
-                        case 2: 
-                            switchCaseFunction(gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]);
-                            break; 
-                        case 3: 
-                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
-                            break; 
-                        case 4: 
-                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
-                            break; 
-                        case 5: 
-                            switchCaseFunction(gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]);
-                            break; 
-                        case 6: 
-                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
-                            break; 
-                        case 7: 
-                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
-                            break; 
-                        case 8: 
-                            switchCaseFunction(gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]);
-                            repop();
-                            break; 
-                    };
                 };
                     
                 let checkForErrors = () => {
