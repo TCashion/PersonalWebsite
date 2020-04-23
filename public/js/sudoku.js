@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     // this is for populating panels
                         // numbers are mixed manually to give some randomness
-                    let secondColumn = (row) => {
+                    let secondColumn = (row, column) => {
 
                         switch (p) {
                             case 1:
@@ -204,10 +204,44 @@ document.addEventListener("DOMContentLoaded", () => {
                                 refreshObj();
                                 break;
                             case 4:
-
+                                switch (row) {
+                                    case 0:
+                                        if (column === 0) {
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
+                                            if (gameBoard[p - 6]) {
+                                                unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
+                                            };
+                                            slotFiller(0);
+                                        } else if (column === 1) {
+        
+                                        } else if (column === 2) {
+        
+                                        };
+                                        break;
+                                    case 1:
+                                        if (column === 0) {
+                                        
+                                        } else if (column === 1) {
+        
+                                        } else if (column === 2) {
+        
+                                        };
+                                        break;
+                                    case 2:
+                                        if (column === 0) {
+                                        
+                                        } else if (column === 1) {
+        
+                                        } else if (column === 2) {
+        
+                                        };
+                                        break;
+                                    };
+                                    refreshObj();
                                 break;
                             case 7:
 
+                                refreshObj();
                                 break;
                         };
                                       
@@ -279,8 +313,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     break; 
                                 case 3: 
                                     // goes one row at a time and adds numbers to slots. Must be in this order. 
-                                    firstColumn(0,1);
                                     firstColumn(0,0);
+                                    firstColumn(0,1);
                                     firstColumn(0,2);
                                     firstColumn(1,0);
                                     firstColumn(1,1);
@@ -289,10 +323,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                     firstColumn(2,1);
                                     firstColumn(2,2);
                                     break; 
-                                // case 4: 
-                                //     populatePanel();
-                                //     checkForErrors();1
-                                //     break; 
+                                case 4: 
+                                    // secondColumn(0,0);
+                                    break; 
                                 // case 5: 
                                 //     populatePanel();
                                 //     checkForErrors();
