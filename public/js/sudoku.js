@@ -1,10 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    // clear panel 
+    // clear board 
     const clearBoard = (min, max) => {
         document.querySelectorAll(".sudoku-number").forEach(slot => {
             slot.innerHTML = "";
         });
+    };
+
+    // clear panel 
+    const clearPanel = (min, max) => {
+        let indivPanel = [];
+        for (let i = min; i <= max; i++) {
+            indivPanel.push(document.querySelectorAll(".sudoku-number")[i]);
+        };
+        indivPanel.forEach(value => 
+            value.innerHTML = "")
+        return indivPanel;
     };
 
     // generate numbers function: pull numbers out of the array and line them up on the board
