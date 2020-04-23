@@ -87,6 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                         let slotFiller = (slot) => {
                             available = nums.filter(value => unavailable.includes(value) !== true);
+                            available = available.filter(value => typeof value === "number");
                             index = r(available.length);
                             number = available[index];
                             domSlots[slot].innerHTML = number;
@@ -246,8 +247,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     break; 
                                 case 3: 
                                     // goes one row at a time and adds numbers to slots. Must be in this order. 
-                                    firstColumn(0,0);
                                     firstColumn(0,1);
+                                    firstColumn(0,0);
                                     firstColumn(0,2);
                                     firstColumn(1,0);
                                     firstColumn(1,1);
