@@ -95,10 +95,39 @@ document.addEventListener("DOMContentLoaded", () => {
                         console.log("remaining numbers:" + nums);
                 };
 
+                // this is for populating panel1 (2nd column)
+                let secondColumn = (row) => {
+                    if (row === 1) {
+                        let available = [gameBoard[p-1][3],gameBoard[p-1][4],gameBoard[p-1][5]];
+                        for (let s = 0; s < 3; s++) {
+                            index = r(available.length);
+                            number = available[index];
+                            domSlots[s].innerHTML = number;
+                            available.splice(index,1);
+                        };
+                    } else if (row === 2) {
+                        let available = [gameBoard[p-1][6],gameBoard[p-1][7],gameBoard[p-1][8]];
+                        for (let s = 3; s < 6; s++) {
+                            index = r(available.length);
+                            number = available[index];
+                            domSlots[s].innerHTML = number;
+                            available.splice(index,1);
+                        };
+                    } else if (row === 3) {
+                        let available = [gameBoard[p-1][0],gameBoard[p-1][1],gameBoard[p-1][2]];
+                        for (let s = 6; s < 9; s++) {
+                            index = r(available.length);
+                            number = available[index];
+                            domSlots[s].innerHTML = number;
+                            available.splice(index,1);
+                        }; 
+                    };                    
+                };
+
                     // for populating panels 1 - 8
                     // this iterates through each panel slot (i) and invokes switchCaseFunction in order to put a number in the slot
                 let populatePanel = (p) => {                  
-                    // restartLoop:
+
                     switch (i) {
                         case 0: 
                             errorTracker = 0;
@@ -160,8 +189,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                 repop();
                                 break;
                             case 1: 
-                                populatePanel(p);
-                                checkForErrors(); 
+                                secondColumn(1);
+                                secondColumn(2);
+                                secondColumn(3);
+                                // populatePanel(p);
+                                // checkForErrors(); 
                                 break; 
                             // case 2: 
                             //     populatePanel();
