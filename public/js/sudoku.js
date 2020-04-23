@@ -195,7 +195,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                 secondColumn(2);
                                 secondColumn(3);
                                 console.log(gameBoard[p]);
-                                // populatePanel(p);
                                 checkForErrors(); 
                                 break; 
                             // case 2: 
