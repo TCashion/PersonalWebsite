@@ -83,6 +83,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     // function expressions: 
 
+                        //accounts for p - 6 panel, which is necessary for filling the bottom three panels
+                    let thirdRowCounter = (...prevSlots) => {
+                        let slots = [...prevSlots];
+                        if (gameBoard[p-6]) {
+                            for (let i = 0; i < slots.length; i++) {
+                                unavailable.push(gameBoard[p-6][slots[i]]);
+                            };
+                        };
+                    };
+
                     let currentPanelUsed = (startIndex, endIndexPlusOne) => {
                         unavailable.concat(Object.values(gameBoard[p]).slice(startIndex, endIndexPlusOne));
                     };
@@ -103,9 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             switch (row) {
                                 case 0:
                                     unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
-                                    if (gameBoard[p - 6]) {
-                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
-                                    };
+                                    thirdRowCounter(0,3,6);
                                     slotFiller(0);
                                     break;
                                 case 1: 
