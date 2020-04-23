@@ -69,225 +69,229 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // create numbers in DOM
         // iterates through panels
-        for (let p = 0; p < 9; p++) {
-            let domSlots = panels[p].querySelectorAll(".sudoku-number");
+        // wrapped in do/while loop to account for errors
+        do {
+            for (let p = 0; p < 9; p++) {
+                let domSlots = panels[p].querySelectorAll(".sudoku-number");
 
-            // iterates through individual slots in panels 
-            for (let i = 0; i < 9; i++) {
 
-                // function expressions: 
+                // iterates through individual slots in panels 
+                for (let i = 0; i < 9; i++) {
 
-                let firstColumn = (row, column) => {
+                    // function expressions: 
 
-                    let available = [];
-                    let unavailable = [];
+                    let firstColumn = (row, column) => {
 
-                    let slotFiller = (slot) => {
-                        available = nums.filter(value => unavailable.includes(value) !== true);
-                        index = r(available.length);
-                        number = available[index];
-                        domSlots[slot].innerHTML = number;
-                        available.splice(index,1); 
+                        let available = [];
+                        let unavailable = [];
+
+                        let slotFiller = (slot) => {
+                            available = nums.filter(value => unavailable.includes(value) !== true);
+                            index = r(available.length);
+                            number = available[index];
+                            domSlots[slot].innerHTML = number;
+                            available.splice(index,1); 
+                            refreshObj();
+                        };
+
+                        if (column === 0) { 
+                            switch (row) {
+                                case 0:
+                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
+                                    slotFiller(0);
+                                    break;
+                                case 1: 
+                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2]];
+                                    slotFiller(3);
+                                    break;
+                                case 2: 
+                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
+                                    slotFiller(6);
+                                    break;
+                            };
+                        } else if (column === 1) {
+                            switch (row) {
+                                case 0: 
+                                    unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0]];
+                                    slotFiller(1);
+                                    break;
+                                case 1: 
+                                    unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
+                                    slotFiller(4);
+                                    break;
+                                case 2:
+                                    unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
+                                    slotFiller(7);
+                                    break;
+                            };
+                        } else if (column === 2) {
+                            switch (row) {
+                                case 0:
+                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1]];
+                                    slotFiller(2);
+                                    break;
+                                case 1: 
+                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4]];
+                                    slotFiller(5);
+                                    break;
+                                case 2: 
+                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6], gameBoard[p][7]];
+                                    slotFiller(8);
+                                    break; 
+                            }
+                        };
                         refreshObj();
+                        // console.log(gameBoard[3]);
                     };
 
-                    if (column === 0) { 
-                        switch (row) {
-                            case 0:
-                                unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
-                                slotFiller(0);
-                                break;
-                            case 1: 
-                                unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2]];
-                                slotFiller(3);
-                                break;
-                            case 2: 
-                                unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
-                                slotFiller(6);
-                                break;
-                        };
-                    } else if (column === 1) {
-                        switch (row) {
-                            case 0: 
-                                unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0]];
-                                slotFiller(1);
-                                break;
-                            case 1: 
-                                unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
-                                slotFiller(4);
-                                break;
-                            case 2:
-                                unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
-                                slotFiller(7);
-                                break;
-                        };
-                    } else if (column === 2) {
-                        switch (row) {
-                            case 0:
-                                unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1]];
-                                slotFiller(2);
-                                break;
-                            case 1: 
-                                unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4]];
-                                slotFiller(5);
-                                break;
-                            case 2: 
-                                unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6], gameBoard[p][7]];
-                                slotFiller(8);
-                                break; 
-                        }
+                    // this is for populating panels
+                        // numbers are mixed manually to give some randomness
+                    let secondColumn = (row) => {
+                        if (row === 0) {
+                            let available = [gameBoard[p-1][6],gameBoard[p-1][4],gameBoard[p-1][5]];
+                            for (let s = 0; s < 3; s++) {
+                                index = r(available.length);
+                                number = available[index];
+                                domSlots[s].innerHTML = number;
+                                available.splice(index,1);
+                            };
+                        } else if (row === 1) {
+                            let available = [gameBoard[p-1][0],gameBoard[p-1][7],gameBoard[p-1][8]];
+                            for (let s = 3; s < 6; s++) {
+                                index = r(available.length);
+                                number = available[index];
+                                domSlots[s].innerHTML = number;
+                                available.splice(index,1);
+                            };
+                        } else if (row === 2) {
+                            let available = [gameBoard[p-1][3],gameBoard[p-1][1],gameBoard[p-1][2]];
+                            for (let s = 6; s < 9; s++) {
+                                index = r(available.length);
+                                number = available[index];
+                                domSlots[s].innerHTML = number;
+                                available.splice(index,1);
+                            }; 
+                        };  
+                        refreshObj();              
                     };
-                    refreshObj();
-                    // console.log(gameBoard[3]);
-                };
 
-                // this is for populating panels
-                    // numbers are mixed manually to give some randomness
-                let secondColumn = (row) => {
-                    if (row === 0) {
-                        let available = [gameBoard[p-1][6],gameBoard[p-1][4],gameBoard[p-1][5]];
-                        for (let s = 0; s < 3; s++) {
-                            index = r(available.length);
-                            number = available[index];
-                            domSlots[s].innerHTML = number;
-                            available.splice(index,1);
-                        };
-                    } else if (row === 1) {
-                        let available = [gameBoard[p-1][0],gameBoard[p-1][7],gameBoard[p-1][8]];
-                        for (let s = 3; s < 6; s++) {
-                            index = r(available.length);
-                            number = available[index];
-                            domSlots[s].innerHTML = number;
-                            available.splice(index,1);
-                        };
-                    } else if (row === 2) {
-                        let available = [gameBoard[p-1][3],gameBoard[p-1][1],gameBoard[p-1][2]];
-                        for (let s = 6; s < 9; s++) {
-                            index = r(available.length);
-                            number = available[index];
-                            domSlots[s].innerHTML = number;
-                            available.splice(index,1);
+                    let thirdColumn = (row) => {
+                        if (row === 0) {
+                            let unavailable = [gameBoard[p-2][0], gameBoard[p-2][1], gameBoard[p-2][2], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
+                            let available = nums.filter(value => unavailable.includes(value) !== true);
+                            for (let s = 0; s < 3; s++) {
+                                index = r(available.length);
+                                number = available[index];
+                                domSlots[s].innerHTML = number;
+                                available.splice(index,1);
+                            };
+                        } else if (row === 1) {
+                            let unavailable = [gameBoard[p-2][3], gameBoard[p-2][4], gameBoard[p-2][5], gameBoard[p-1][3], gameBoard[p-1][4], gameBoard[p-1][5]];
+                            let available = nums.filter(value => unavailable.includes(value) !== true);
+                            for (let s = 3; s < 6; s++) {
+                                index = r(available.length);
+                                number = available[index];
+                                domSlots[s].innerHTML = number;
+                                available.splice(index,1);
+                            };
+                        } else if (row === 2) {
+                            let unavailable = [gameBoard[p-2][6], gameBoard[p-2][7], gameBoard[p-2][8], gameBoard[p-1][6], gameBoard[p-1][7], gameBoard[p-1][8]];
+                            let available = nums.filter(value => unavailable.includes(value) !== true);
+                            for (let s = 6; s < 9; s++) {
+                                index = r(available.length);
+                                number = available[index];
+                                domSlots[s].innerHTML = number;
+                                available.splice(index,1);
+                            };
+                        };     
+                        refreshObj(); 
+                    };
+                        
+                    let checkForErrors = () => {
+                        // re-runs code if any slots are "undefined"
+                        // stop code from running if there are duplicates in panel 2, which manifests itself as the last position being "NaN" in the object
+                        // ********************in progress***************
+                        let verifier = Object.values(gameBoard[p]);
+                        if (verifier.includes(1) && verifier.includes(2) && verifier.includes(3) && verifier.includes(4) && verifier.includes(5) && verifier.includes(6) && verifier.includes(7) && verifier.includes(8) && verifier.includes(9)) {
+                            console.log("has em all")
+                            errorTracker = 0;
+                            return errorTracker;
+                        } else {
+                            errorTracker = 1;
+                            return errorTracker;
                         }; 
-                    };  
-                    refreshObj();              
-                };
-
-                let thirdColumn = (row) => {
-                    if (row === 0) {
-                        let unavailable = [gameBoard[p-2][0], gameBoard[p-2][1], gameBoard[p-2][2], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
-                        let available = nums.filter(value => unavailable.includes(value) !== true);
-                        for (let s = 0; s < 3; s++) {
-                            index = r(available.length);
-                            number = available[index];
-                            domSlots[s].innerHTML = number;
-                            available.splice(index,1);
-                        };
-                    } else if (row === 1) {
-                        let unavailable = [gameBoard[p-2][3], gameBoard[p-2][4], gameBoard[p-2][5], gameBoard[p-1][3], gameBoard[p-1][4], gameBoard[p-1][5]];
-                        let available = nums.filter(value => unavailable.includes(value) !== true);
-                        for (let s = 3; s < 6; s++) {
-                            index = r(available.length);
-                            number = available[index];
-                            domSlots[s].innerHTML = number;
-                            available.splice(index,1);
-                        };
-                    } else if (row === 2) {
-                        let unavailable = [gameBoard[p-2][6], gameBoard[p-2][7], gameBoard[p-2][8], gameBoard[p-1][6], gameBoard[p-1][7], gameBoard[p-1][8]];
-                        let available = nums.filter(value => unavailable.includes(value) !== true);
-                        for (let s = 6; s < 9; s++) {
-                            index = r(available.length);
-                            number = available[index];
-                            domSlots[s].innerHTML = number;
-                            available.splice(index,1);
-                        };
-                    };     
-                    refreshObj(); 
-                };
-                    
-                let checkForErrors = () => {
-                    // re-runs code if any slots are "undefined"
-                    // stop code from running if there are duplicates in panel 2, which manifests itself as the last position being "NaN" in the object
-                    // ********************in progress***************
-                    let verifier = Object.values(gameBoard[p]);
-                    if (verifier.includes(1) && verifier.includes(2) && verifier.includes(3) && verifier.includes(4) && verifier.includes(5) && verifier.includes(6) && verifier.includes(7) && verifier.includes(8) && verifier.includes(9)) {
-                        console.log("has em all")
-                        errorTracker = 0;
-                        return errorTracker;
-                    } else {
-                        errorTracker = 1;
-                        return errorTracker;
-                    }; 
-                };
-
-                // this iterates through each panel (p) and populates it with numbers 
-                let populateBoard = () => {
-
-                    
-                    switch (p) {
-                            case 0: 
-                                index = r(nums.length)
-                                number = nums[index];
-                                domSlots[i].innerHTML = number;  
-                                nums.splice(index,1);
-                                repop();
-                                break;
-                            case 1: 
-                                secondColumn(0);
-                                secondColumn(1);
-                                secondColumn(2);
-                                break; 
-                            case 2: 
-                                thirdColumn(0);
-                                thirdColumn(1);
-                                thirdColumn(2);
-                                break; 
-                            case 3: 
-                                // goes one row at a time and adds numbers to slots. Must be in this order. 
-                                firstColumn(0,0);
-                                firstColumn(0,1);
-                                firstColumn(0,2);
-                                firstColumn(1,0);
-                                firstColumn(1,1);
-                                firstColumn(1,2);
-                                firstColumn(2,0);
-                                firstColumn(2,1);
-                                firstColumn(2,2);
-                            //     populatePanel();
-                            //     checkForErrors();
-                                break; 
-                            // case 4: 
-                            //     populatePanel();
-                            //     checkForErrors();1
-                            //     break; 
-                            // case 5: 
-                            //     populatePanel();
-                            //     checkForErrors();
-                            //     break; 
-                            // case 6: 
-                            //     populatePanel();
-                            //     checkForErrors();
-                            //     break; 
-                            // case 7: 
-                            //     populatePanel();
-                            //     checkForErrors();
-                            //     break; 
-                            // case 8: 
-                            //     populatePanel();
-                            //     checkForErrors();
-                            //     break;
-                            // default: 
-                            //     index = r(nums.length)
-                            //     number = nums[index];
-                            //     domSlots[i].innerHTML = number;  
-                            //     nums.splice(index,1);
-                            //     repop();
-                            //     break;
                     };
+
+                    // this iterates through each panel (p) and populates it with numbers 
+                    let populateBoard = () => {
+
+                        
+                        switch (p) {
+                                case 0: 
+                                    index = r(nums.length)
+                                    number = nums[index];
+                                    domSlots[i].innerHTML = number;  
+                                    nums.splice(index,1);
+                                    repop();
+                                    break;
+                                case 1: 
+                                    secondColumn(0);
+                                    secondColumn(1);
+                                    secondColumn(2);
+                                    break; 
+                                case 2: 
+                                    thirdColumn(0);
+                                    thirdColumn(1);
+                                    thirdColumn(2);
+                                    break; 
+                                case 3: 
+                                    // goes one row at a time and adds numbers to slots. Must be in this order. 
+                                    firstColumn(0,0);
+                                    firstColumn(0,1);
+                                    firstColumn(0,2);
+                                    firstColumn(1,0);
+                                    firstColumn(1,1);
+                                    firstColumn(1,2);
+                                    firstColumn(2,0);
+                                    firstColumn(2,1);
+                                    firstColumn(2,2);
+                                    break; 
+                                // case 4: 
+                                //     populatePanel();
+                                //     checkForErrors();1
+                                //     break; 
+                                // case 5: 
+                                //     populatePanel();
+                                //     checkForErrors();
+                                //     break; 
+                                // case 6: 
+                                //     populatePanel();
+                                //     checkForErrors();
+                                //     break; 
+                                // case 7: 
+                                //     populatePanel();
+                                //     checkForErrors();
+                                //     break; 
+                                // case 8: 
+                                //     populatePanel();
+                                //     checkForErrors();
+                                //     break;
+                                // default: 
+                                //     index = r(nums.length)
+                                //     number = nums[index];
+                                //     domSlots[i].innerHTML = number;  
+                                //     nums.splice(index,1);
+                                //     repop();
+                                //     break;
+                        };
+                        
+                    };
+                    // invoke function
+                    populateBoard();
                 };
-                // invoke function
-                populateBoard();
             };
-        };
+        } while (Object.values(gameBoard[3]).includes(NaN)); //end while
+
 
     };
 
