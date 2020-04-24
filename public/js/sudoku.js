@@ -597,6 +597,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             };
        } while ( 
+           // the following causes the code to re-run until all numbers are "defined"
             Object.values(gameBoard[2]).includes(NaN) 
             || Object.values(gameBoard[3]).includes(NaN) 
             || Object.values(gameBoard[4]).includes(NaN) 
