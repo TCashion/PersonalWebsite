@@ -622,6 +622,7 @@ Media Queries
 
     /* gameboard */
 
+    /* hidden until further dev opportunity */
     #sudoku-board {
         display: none;
     }

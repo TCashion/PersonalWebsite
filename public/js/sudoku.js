@@ -631,3 +631,5 @@ document.addEventListener("DOMContentLoaded", () => {
 // notes for refactoring:
     // unavailable arrays already include things like gameBoard[p-1][0+3]... so you can change the "3" in this example to a variable based on the position of the board. 
     // also, current order of nested loops may not be most efficient... review this. 
+
+    // current lines of code: 627. Goal should be 500
