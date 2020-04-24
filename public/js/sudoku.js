@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     // function expressions: 
 
                         //accounts for p - 6 panel, which is necessary for filling the bottom three panels
-                    let thirdTierCounter = (...prevSlots) => {
+                    let thirdRowCounter = (...prevSlots) => {
                         let slots = [...prevSlots];
                         if (gameBoard[p-6]) {
                             for (let k = 0; k < slots.length; k++) {
@@ -116,17 +116,27 @@ document.addEventListener("DOMContentLoaded", () => {
                             unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
                             switch (row) {
                                 case 0:
-                                    thirdTierCounter(0,3,6);
+                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
+                                    // thirdRowCounter(0,3,6);
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
+                                    };
                                     slotFiller(0);
                                     break;
                                 case 1: 
-                                    addCurrentPanelUsed();
-                                    thirdTierCounter(0,3,6);
+                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2]];
+                                    // currentPanelUsed(0,3);
+
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
+                                    };
                                     slotFiller(3);
                                     break;
                                 case 2: 
-                                    addCurrentPanelUsed();
-                                    thirdTierCounter(0,3,6);
+                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
+                                    };
                                     slotFiller(6);
                                     break;
                             };
@@ -135,20 +145,23 @@ document.addEventListener("DOMContentLoaded", () => {
                             switch (row) {
                                 case 0: 
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0]];
-                                    
-                                    thirdTierCounter(1,4,7);
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
+                                    };
                                     slotFiller(1);
                                     break;
                                 case 1: 
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
-                                    
-                                    thirdTierCounter(1,4,7);
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
+                                    };
                                     slotFiller(4);
                                     break;
                                 case 2:
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
-                                    
-                                    thirdTierCounter(1,4,7);
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
+                                    };
                                     slotFiller(7);
                                     console.log("loading")
                                     break;
