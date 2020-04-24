@@ -423,8 +423,15 @@ document.addEventListener("DOMContentLoaded", () => {
                                     secondColumn(2,2);
                                     break; 
                                 // case 5: 
-                                //     populatePanel();
-                                //     checkForErrors();
+                                //     thirdColumn(0,0);
+                                //     thirdColumn(0,1);
+                                //     thirdColumn(0,2);
+                                //     thirdColumn(1,0);
+                                //     thirdColumn(1,1);
+                                //     thirdColumn(1,2);
+                                //     thirdColumn(2,0);
+                                //     thirdColumn(2,1);
+                                //     thirdColumn(2,2);
                                 //     break; 
                                 case 6: 
                                     firstColumn(0,0);
@@ -449,8 +456,15 @@ document.addEventListener("DOMContentLoaded", () => {
                                     secondColumn(2,2);
                                     break; 
                                 // case 8: 
-                                //     populatePanel();
-                                //     checkForErrors();
+                                //     thirdColumn(0,0);
+                                //     thirdColumn(0,1);
+                                //     thirdColumn(0,2);
+                                //     thirdColumn(1,0);
+                                //     thirdColumn(1,1);
+                                //     thirdColumn(1,2);
+                                //     thirdColumn(2,0);
+                                //     thirdColumn(2,1);
+                                //     thirdColumn(2,2);
                                 //     break;
                                 // default: 
                                 //     index = r(nums.length)
