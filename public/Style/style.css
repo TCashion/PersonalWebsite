@@ -465,6 +465,12 @@ Gameboard Styles
     margin: 0 auto; 
 }
 
+.gameboard p {
+    width: 300px;
+    /* justify-content: center; */
+    margin: 15px auto; 
+}
+
 .gameboard-button {
     margin: 10px auto; 
     display: block; 
