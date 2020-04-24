@@ -157,20 +157,20 @@ document.addEventListener("DOMContentLoaded", () => {
                         } else if (column === 2) {
                             switch (row) {
                                 case 0:
-                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1]];
-
+                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2]];
+                                    addCurrentPanelUsed();
                                     thirdTierCounter(2,5,8);
                                     slotFiller(2);
                                     break;
                                 case 1: 
-                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4]];
-                                    
+                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2]];
+                                    addCurrentPanelUsed();
                                     thirdTierCounter(2,5,8);
                                     slotFiller(5);
                                     break;
                                 case 2: 
-                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6], gameBoard[p][7]];
-                                    
+                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2]];
+                                    addCurrentPanelUsed();
                                     thirdTierCounter(2,5,8);
                                     slotFiller(8);
                                     break; 
