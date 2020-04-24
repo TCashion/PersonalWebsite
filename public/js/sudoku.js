@@ -88,18 +88,21 @@ document.addEventListener("DOMContentLoaded", () => {
                         let slots = [...prevSlots];
                         if (gameBoard[p-6]) {
                             for (let k = 0; k < slots.length; k++) {
-                                unavailable.push(gameBoard[p-6][slots[k]]);
+                                index = slots[k];
+                                unavailable.push(gameBoard[p-6][index]);
                             };
                         };
                     };
 
-                    let currentPanelUsed = (startIndex, endIndexPlusOne) => {
-                        unavailable.concat(Object.values(gameBoard[p]).slice(startIndex, endIndexPlusOne));
+                    let addCurrentPanelUsed = () => {
+                        let currentUsed = Object.values(gameBoard[p]).filter(value => typeof value === "number");
+                        for (let k = 0; k < currentUsed.length; k++) {
+                            unavailable.push(currentUsed[k]);
+                        };
                     };
 
                     let slotFiller = (slot) => {
                         available = nums.filter(value => unavailable.includes(value) !== true);
-                        available = available.filter(value => typeof value === "number");
                         index = r(available.length);
                         number = available[index];
                         domSlots[slot].innerHTML = number;
@@ -110,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let firstColumn = (row, column) => {
 
                         if (column === 0) { 
+                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
                             switch (row) {
                                 case 0:
                                     unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
@@ -137,6 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     break;
                             };
                         } else if (column === 1) {
+                            // bug: unable to add addCurrentPanelUsed function here... causes it to break; 
                             switch (row) {
                                 case 0: 
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0]];
@@ -158,9 +163,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                         unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
                                     };
                                     slotFiller(7);
+                                    console.log("loading")
                                     break;
+                                    
                             };
                         } else if (column === 2) {
+                            unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2]];
                             switch (row) {
                                 case 0:
                                     unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1]];
@@ -223,51 +231,41 @@ document.addEventListener("DOMContentLoaded", () => {
                                 break;
                             case 4:
                                 if (column === 0) {
+                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
                                     switch (row) {
                                         case 0:
-                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
-                                            if (gameBoard[p - 6]) {
-                                                unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
-                                            };
+                                            addCurrentPanelUsed();
+                                            thirdTierCounter(0,3,6);
                                             slotFiller(0);
                                             break;
                                         case 1: 
-                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p][1], gameBoard[p][2]];
-                                            if (gameBoard[p - 6]) {
-                                                unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
-                                            };
+                                            addCurrentPanelUsed();
+                                            thirdTierCounter(0,3,6);
                                             slotFiller(3);
                                             break;
                                         case 2: 
-                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
-                                            if (gameBoard[p - 6]) {
-                                                unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
-                                            };
+                                            addCurrentPanelUsed();
+                                            thirdTierCounter(0,3,6);
                                             slotFiller(6);
                                             break; 
-                                    }
+                                    };
                                         
                                 } else if (column === 1) {
+                                    unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1]];
                                     switch (row) {
                                         case 0: 
-                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
-                                            if (gameBoard[p - 6]) {
-                                                unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
-                                            };
+                                            addCurrentPanelUsed();
+                                            thirdTierCounter(1,4,7);
                                             slotFiller(1);
                                             break;
                                         case 1: 
-                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
-                                            if (gameBoard[p - 6]) {
-                                                unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
-                                            };
+                                            addCurrentPanelUsed();
+                                            thirdTierCounter(1,4,7);
                                             slotFiller(4);
                                             break;
                                         case 2:
-                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
-                                            if (gameBoard[p - 6]) {
-                                                unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
-                                            };
+                                            addCurrentPanelUsed();
+                                            thirdTierCounter(1,4,7);
                                             slotFiller(7);
                                             break;
                                     };
@@ -299,7 +297,49 @@ document.addEventListener("DOMContentLoaded", () => {
                                     refreshObj();
                                 break;
                             case 7:
+                                if (column === 0) {
+                                    switch (row) {
+                                        case 0:
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
+                                            thirdTierCounter(0,3,6);
+                                            slotFiller(0);
+                                            break;
+                                        case 1: 
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p][0]];
+                                            thirdTierCounter(0,3,6);
+                                            slotFiller(3);
+                                            break;
+                                        case 2:
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][3]];
+                                            thirdTierCounter(0,3,6);
+                                            slotFiller(6);
+                                            break;
+                                    };
+                                } else if (column === 1) {
+                                    switch (row) {
+                                        case 0:
 
+                                            break;
+                                        case 1: 
+
+                                            break;
+                                        case 2:
+                                            
+                                            break;
+                                    };
+                                } else if (column === 2) {
+                                    switch (row) {
+                                        case 0:
+
+                                            break;
+                                        case 1: 
+
+                                            break;
+                                        case 2:
+                                            
+                                            break;
+                                    };
+                                };
                                 refreshObj();
                                 break;
                         };
@@ -408,10 +448,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                     firstColumn(2,1);
                                     firstColumn(2,2);
                                     break; 
-                                // case 7: 
-                                //     populatePanel();
-                                //     checkForErrors();
-                                //     break; 
+                                case 7: 
+                                    secondColumn(0,0);
+                                    // secondColumn(0,1);
+                                    // secondColumn(0,2);
+                                    secondColumn(1,0);
+                                    // secondColumn(1,1);
+                                    // secondColumn(1,2);
+                                    secondColumn(2,0);
+                                    // secondColumn(2,1);
+                                    // secondColumn(2,2);
+                                    break; 
                                 // case 8: 
                                 //     populatePanel();
                                 //     checkForErrors();
@@ -431,7 +478,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             };
             // console.log(gameBoard[6]); // for testing!
-        } while (Object.values(gameBoard[3]).includes(NaN) || Object.values(gameBoard[4]).includes(NaN) || Object.values(gameBoard[6]).includes(NaN)); //end while
+        } while (Object.values(gameBoard[3]).includes(NaN) || Object.values(gameBoard[4]).includes(NaN) || Object.values(gameBoard[6]).includes(NaN) || Object.values(gameBoard[7]).includes(NaN)); //end while
 
 
     };
