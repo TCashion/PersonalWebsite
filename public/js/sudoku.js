@@ -440,36 +440,36 @@ document.addEventListener("DOMContentLoaded", () => {
                                             thirdTierCounter(1,4,7);
                                             slotFiller(1);
                                             break;
-                                    //     case 1: 
-                                    //         unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1],  gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p-2][0 + 3], gameBoard[p-2][1 + 3], gameBoard[p-2][2 + 3], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
-                                    //         thirdTierCounter(1,4,7);
-                                    //         slotFiller(4);
-                                    //         break;
-                                    //     case 2:
-                                    //         unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p-2][0 + 6], gameBoard[p-2][1 + 6], gameBoard[p-2][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
-                                    //         thirdTierCounter(1,4,7);
-                                    //         slotFiller(7);
-                                    //         break;
+                                        case 1: 
+                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1],  gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p-2][0 + 3], gameBoard[p-2][1 + 3], gameBoard[p-2][2 + 3], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
+                                            thirdTierCounter(1,4,7);
+                                            slotFiller(4);
+                                            break;
+                                        case 2:
+                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p-2][0 + 6], gameBoard[p-2][1 + 6], gameBoard[p-2][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
+                                            thirdTierCounter(1,4,7);
+                                            slotFiller(7);
+                                            break;
                                     };
-                                } // } else if (column === 2) {
-                                    // switch (row) {
-                                    //     case 0:
-                                    //         unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2], gameBoard[p-2][0], gameBoard[p-2][1], gameBoard[p-2][2], gameBoard[p][0], gameBoard[p][1]];
-                                    //         thirdTierCounter(2,5,8);
-                                    //         slotFiller(2);
-                                    //         break;
-                                    //     case 1: 
-                                    //         unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p-2][0 + 3], gameBoard[p-2][1 + 3], gameBoard[p-2][2 + 3], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4]];
-                                    //         thirdTierCounter(2,5,8);
-                                    //         slotFiller(5);
-                                    //         break;
-                                    //     case 2: 
-                                    //         unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p-2][0 + 6], gameBoard[p-2][1 + 6], gameBoard[p-2][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6], gameBoard[p][7]];
-                                    //         thirdTierCounter(2,5,8);
-                                    //         slotFiller(8);
-                                    //         break; 
-                                    // };
-                                // };
+                                } else if (column === 2) {
+                                    switch (row) {
+                                        case 0:
+                                            unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2], gameBoard[p-2][0], gameBoard[p-2][1], gameBoard[p-2][2], gameBoard[p][0], gameBoard[p][1]];
+                                            thirdTierCounter(2,5,8);
+                                            slotFiller(2);
+                                            break;
+                                        case 1: 
+                                            unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p-2][0 + 3], gameBoard[p-2][1 + 3], gameBoard[p-2][2 + 3], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4]];
+                                            thirdTierCounter(2,5,8);
+                                            slotFiller(5);
+                                            break;
+                                        case 2: 
+                                            unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p-2][0 + 6], gameBoard[p-2][1 + 6], gameBoard[p-2][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6], gameBoard[p][7]];
+                                            thirdTierCounter(2,5,8);
+                                            slotFiller(8);
+                                            break; 
+                                    };
+                                };
                                 refreshObj();
                                 break; 
                         };
@@ -568,13 +568,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                 case 8: 
                                     thirdColumn(0,0);
                                     thirdColumn(0,1);
-                                //     thirdColumn(0,2);
+                                    thirdColumn(0,2);
                                     thirdColumn(1,0);
-                                //     thirdColumn(1,1);
-                                //     thirdColumn(1,2);
+                                    thirdColumn(1,1);
+                                    thirdColumn(1,2);
                                     thirdColumn(2,0);
-                                //     thirdColumn(2,1);
-                                //     thirdColumn(2,2);
+                                    thirdColumn(2,1);
+                                    thirdColumn(2,2);
                                     break;
                                 // default: 
                                 //     index = r(nums.length)
