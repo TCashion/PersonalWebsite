@@ -510,8 +510,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     secondColumn(2,1);
                                     secondColumn(2,2);
                                     break; 
-                                // case 8: 
-                                //     thirdColumn(0,0);
+                                case 8: 
+                                    thirdColumn(0,0);
                                 //     thirdColumn(0,1);
                                 //     thirdColumn(0,2);
                                 //     thirdColumn(1,0);
@@ -520,7 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 //     thirdColumn(2,0);
                                 //     thirdColumn(2,1);
                                 //     thirdColumn(2,2);
-                                //     break;
+                                    break;
                                 // default: 
                                 //     index = r(nums.length)
                                 //     number = nums[index];
@@ -562,3 +562,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // notes for refactoring:
     // unavailable arrays already include things like gameBoard[p-1][0+3]... so you can change the "3" in this example to a variable based on the position of the board. 
+    // also, current order of nested loops may not be most efficient... review this. 
+    
