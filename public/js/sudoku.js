@@ -165,7 +165,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                     break; 
                             }
                         };
-                        refreshObj();
                     };
 
                     // this is for populating panels
@@ -199,7 +198,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                         available.splice(index,1);
                                     }; 
                                 };  
-                                refreshObj();
                                 break;
                             case 4:
                                 if (column === 0) {
@@ -258,7 +256,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                             break; 
                                     };
                                 };
-                                    refreshObj();
                                 break;
                             case 7:
                                 if (column === 0) {
@@ -316,10 +313,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                             break;
                                     };
                                 };
-                                refreshObj();
                                 break;
-                        };
-                                      
+                        };         
                     };
 
                     let thirdColumn = (row, column) => {
@@ -412,7 +407,6 @@ document.addEventListener("DOMContentLoaded", () => {
                                             break; 
                                     };
                                 };
-                                refreshObj();
                                 break;
                             case 8: 
                                 if (column === 0) {
@@ -470,11 +464,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                             break; 
                                     };
                                 };
-                                refreshObj();
                                 break; 
                         };
-
-                        refreshObj(); 
                     };
                         
                     let checkForErrors = () => {
