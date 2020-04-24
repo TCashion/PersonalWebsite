@@ -212,38 +212,40 @@ document.addEventListener("DOMContentLoaded", () => {
                                 break;
                             case 4:
                                 if (column === 0) {
+                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
                                     switch (row) {
                                         case 0:
-                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
+                                            addCurrentPanelUsed();
                                             thirdTierCounter(0,3,6);
                                             slotFiller(0);
                                             break;
                                         case 1: 
-                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p][1], gameBoard[p][2]];
+                                            addCurrentPanelUsed();
                                             thirdTierCounter(0,3,6);
                                             slotFiller(3);
                                             break;
                                         case 2: 
-                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
+                                            addCurrentPanelUsed();
                                             thirdTierCounter(0,3,6);
                                             slotFiller(6);
                                             break; 
                                     };
                                         
                                 } else if (column === 1) {
+                                    unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1]];
                                     switch (row) {
                                         case 0: 
-                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
+                                            addCurrentPanelUsed();
                                             thirdTierCounter(1,4,7);
                                             slotFiller(1);
                                             break;
                                         case 1: 
-                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
+                                            addCurrentPanelUsed();
                                             thirdTierCounter(1,4,7);
                                             slotFiller(4);
                                             break;
                                         case 2:
-                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
+                                            addCurrentPanelUsed();
                                             thirdTierCounter(1,4,7);
                                             slotFiller(7);
                                             break;
