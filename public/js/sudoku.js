@@ -433,13 +433,13 @@ document.addEventListener("DOMContentLoaded", () => {
                                             slotFiller(6);
                                             break; 
                                     };
-                                } // else if (column === 1) {
-                                    // switch (row) {
-                                    //     case 0: 
-                                    //         unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2], gameBoard[p-2][0], gameBoard[p-2][1], gameBoard[p-2][2], gameBoard[p][0]];
-                                    //         thirdTierCounter(1,4,7);
-                                    //         slotFiller(1);
-                                    //         break;
+                                } else if (column === 1) {
+                                    switch (row) {
+                                        case 0: 
+                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2], gameBoard[p-2][0], gameBoard[p-2][1], gameBoard[p-2][2], gameBoard[p][0]];
+                                            thirdTierCounter(1,4,7);
+                                            slotFiller(1);
+                                            break;
                                     //     case 1: 
                                     //         unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1],  gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p-2][0 + 3], gameBoard[p-2][1 + 3], gameBoard[p-2][2 + 3], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
                                     //         thirdTierCounter(1,4,7);
@@ -450,8 +450,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     //         thirdTierCounter(1,4,7);
                                     //         slotFiller(7);
                                     //         break;
-                                    // };
-                                // } else if (column === 2) {
+                                    };
+                                } // } else if (column === 2) {
                                     // switch (row) {
                                     //     case 0:
                                     //         unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2], gameBoard[p-2][0], gameBoard[p-2][1], gameBoard[p-2][2], gameBoard[p][0], gameBoard[p][1]];
@@ -567,7 +567,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     break; 
                                 case 8: 
                                     thirdColumn(0,0);
-                                //     thirdColumn(0,1);
+                                    thirdColumn(0,1);
                                 //     thirdColumn(0,2);
                                     thirdColumn(1,0);
                                 //     thirdColumn(1,1);
