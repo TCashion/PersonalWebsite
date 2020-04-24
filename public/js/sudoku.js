@@ -152,7 +152,9 @@ document.addEventListener("DOMContentLoaded", () => {
                                     
                                     thirdTierCounter(1,4,7);
                                     slotFiller(7);
+                                    console.log("loading")
                                     break;
+                                    
                             };
                         } else if (column === 2) {
                             switch (row) {
