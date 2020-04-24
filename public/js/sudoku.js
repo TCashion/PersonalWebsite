@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll(".sudoku-number").forEach(slot => {
             slot.innerHTML = "";
         });
+        gameBoard = [];
     };
 
     // clear panel 
@@ -611,11 +612,16 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // event listener & handler for button
-    let button = document.getElementById("sudoku-button");
+    let resetButton = document.getElementById("sudoku-button");
+    let clearButton = document.getElementById("sudoku-clear");
 
-    button.addEventListener("click", (e) => {
+    resetButton.addEventListener("click", (e) => {
         clearBoard();    
         generateNums();            
+    });
+
+    clearButton.addEventListener("click", (e) => {
+        clearBoard(); 
     });
 
 });
