@@ -114,20 +114,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     let firstColumn = (row, column) => {
 
                         if (column === 0) { 
+                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
                             switch (row) {
                                 case 0:
-                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
                                     thirdTierCounter(0,3,6);
                                     slotFiller(0);
                                     break;
                                 case 1: 
-                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]]; 
                                     addCurrentPanelUsed();
                                     thirdTierCounter(0,3,6);
                                     slotFiller(3);
                                     break;
                                 case 2: 
-                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]]; 
                                     addCurrentPanelUsed();
                                     thirdTierCounter(0,3,6);
                                     slotFiller(6);
@@ -157,21 +155,19 @@ document.addEventListener("DOMContentLoaded", () => {
                                     
                             };
                         } else if (column === 2) {
+                            unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2]];
                             switch (row) {
                                 case 0:
-                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2]];
                                     addCurrentPanelUsed();
                                     thirdTierCounter(2,5,8);
                                     slotFiller(2);
                                     break;
                                 case 1: 
-                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2]];
                                     addCurrentPanelUsed();
                                     thirdTierCounter(2,5,8);
                                     slotFiller(5);
                                     break;
                                 case 2: 
-                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2]];
                                     addCurrentPanelUsed();
                                     thirdTierCounter(2,5,8);
                                     slotFiller(8);
