@@ -500,16 +500,19 @@ document.addEventListener("DOMContentLoaded", () => {
                                     repop();
                                     break;
                                 case 1: 
+                                    console.log("made it to panel " + p);
                                     secondColumn(0);
                                     secondColumn(1);
                                     secondColumn(2);
                                     break; 
                                 case 2: 
+                                    console.log("made it to panel " + p);
                                     thirdColumn(0);
                                     thirdColumn(1);
                                     thirdColumn(2);
                                     break; 
                                 case 3: 
+                                    console.log("made it to panel " + p);
                                     // goes one row at a time and adds numbers to slots. Must be in this order. 
                                     firstColumn(0,0);
                                     firstColumn(0,1);
@@ -522,6 +525,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     firstColumn(2,2);
                                     break; 
                                 case 4: 
+                                    console.log("made it to panel " + p);
                                     secondColumn(0,0);
                                     secondColumn(0,1);
                                     secondColumn(0,2);
@@ -533,6 +537,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     secondColumn(2,2);
                                     break; 
                                 case 5: 
+                                    console.log("made it to panel " + p);
                                     thirdColumn(0,0);
                                     thirdColumn(0,1);
                                     thirdColumn(0,2);
@@ -544,6 +549,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     thirdColumn(2,2);
                                     break; 
                                 case 6: 
+                                    console.log("made it to panel " + p);
                                     firstColumn(0,0);
                                     firstColumn(0,1);                                
                                     firstColumn(0,2);
@@ -555,6 +561,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     firstColumn(2,2);
                                     break; 
                                 case 7: 
+                                    console.log("made it to panel " + p);
                                     secondColumn(0,0);
                                     secondColumn(0,1);
                                     secondColumn(0,2);
@@ -566,6 +573,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     secondColumn(2,2);
                                     break; 
                                 case 8: 
+                                    console.log("made it to panel " + p);
                                     thirdColumn(0,0);
                                     thirdColumn(0,1);
                                     thirdColumn(0,2);
@@ -588,7 +596,7 @@ document.addEventListener("DOMContentLoaded", () => {
         || Object.values(gameBoard[5]).includes(NaN) 
         || Object.values(gameBoard[6]).includes(NaN) 
         || Object.values(gameBoard[7]).includes(NaN)
-        // || Object.values(gameBoard[8]).includes(NaN) 
+        || Object.values(gameBoard[8]).includes(NaN) 
         ); //end while
 
 
