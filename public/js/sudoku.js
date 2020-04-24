@@ -94,8 +94,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         };
                     };
 
-                    let currentPanelUsed = (startIndex, endIndexPlusOne) => {
-                        unavailable.concat(Object.values(gameBoard[p]).slice(startIndex, endIndexPlusOne));
+                    let addCurrentPanelUsed = () => {
+                        let currentUsed = Object.values(gameBoard[p]).filter(value => typeof value === "number");
+                        for (let i = 0; i < currentUsed.length; i++) {
+                            unavailable.push(currentUsed[i]);
+                        };
                     };
 
                     let slotFiller = (slot) => {
@@ -118,7 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                     slotFiller(0);
                                     break;
                                 case 1: 
-                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2]];
+                                    unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]] 
+                                    addCurrentPanelUsed();
                                     thirdTierCounter(0,3,6);
                                     slotFiller(3);
                                     break;
