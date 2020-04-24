@@ -88,7 +88,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         let slots = [...prevSlots];
                         if (gameBoard[p-6]) {
                             for (let k = 0; k < slots.length; k++) {
-                                unavailable.push(gameBoard[p-6][slots[k]]);
+                                index = slots[k];
+                                unavailable.push(gameBoard[p-6][index]);
                             };
                         };
                     };
@@ -113,26 +114,17 @@ document.addEventListener("DOMContentLoaded", () => {
                             switch (row) {
                                 case 0:
                                     unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6]];
-                                    // thirdRowCounter(0,3,6);
-                                    if (gameBoard[p - 6]) {
-                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
-                                    };
+                                    thirdTierCounter(0,3,6);
                                     slotFiller(0);
                                     break;
                                 case 1: 
                                     unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2]];
-                                    // currentPanelUsed(0,3);
-
-                                    if (gameBoard[p - 6]) {
-                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
-                                    };
+                                    thirdTierCounter(0,3,6);
                                     slotFiller(3);
                                     break;
                                 case 2: 
                                     unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
-                                    if (gameBoard[p - 6]) {
-                                        unavailable.push(gameBoard[p-6][0], gameBoard[p-6][3], gameBoard[p-6][6]);
-                                    };
+                                    thirdTierCounter(0,3,6);
                                     slotFiller(6);
                                     break;
                             };
@@ -140,23 +132,17 @@ document.addEventListener("DOMContentLoaded", () => {
                             switch (row) {
                                 case 0: 
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0]];
-                                    if (gameBoard[p - 6]) {
-                                        unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
-                                    };
+                                    thirdTierCounter(1,4,7);
                                     slotFiller(1);
                                     break;
                                 case 1: 
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3]];
-                                    if (gameBoard[p - 6]) {
-                                        unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
-                                    };
+                                    thirdTierCounter(1,4,7);
                                     slotFiller(4);
                                     break;
                                 case 2:
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
-                                    if (gameBoard[p - 6]) {
-                                        unavailable.push(gameBoard[p-6][0 + 1], gameBoard[p-6][3 + 1], gameBoard[p-6][6 + 1]);
-                                    };
+                                    thirdTierCounter(1,4,7);
                                     slotFiller(7);
                                     break;
                             };
