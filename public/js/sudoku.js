@@ -84,11 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     // function expressions: 
 
                         //accounts for p - 6 panel, which is necessary for filling the bottom three panels
-                    let thirdRowCounter = (...prevSlots) => {
+                    let thirdTierCounter = (...prevSlots) => {
                         let slots = [...prevSlots];
                         if (gameBoard[p-6]) {
-                            for (let i = 0; i < slots.length; i++) {
-                                unavailable.push(gameBoard[p-6][slots[i]]);
+                            for (let k = 0; k < slots.length; k++) {
+                                unavailable.push(gameBoard[p-6][slots[k]]);
                             };
                         };
                     };
