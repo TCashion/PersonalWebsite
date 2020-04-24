@@ -387,11 +387,11 @@ document.addEventListener("DOMContentLoaded", () => {
                                             thirdTierCounter(1,4,7);
                                             slotFiller(4);
                                             break;
-                                    //     case 2:
-                                    //         unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
-                                    //         thirdTierCounter(1,4,7);
-                                    //         slotFiller(7);
-                                    //         break;
+                                        case 2:
+                                            unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p-2][0 + 6], gameBoard[p-2][1 + 6], gameBoard[p-2][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6]];
+                                            thirdTierCounter(1,4,7);
+                                            slotFiller(7);
+                                            break;
                                     };
                                 } else if (column === 2) {
                                     // switch (row) {
@@ -485,7 +485,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     thirdColumn(1,1);
                                 //     thirdColumn(1,2);
                                     thirdColumn(2,0);
-                                //     thirdColumn(2,1);
+                                    thirdColumn(2,1);
                                 //     thirdColumn(2,2);
                                     break; 
                                 case 6: 
