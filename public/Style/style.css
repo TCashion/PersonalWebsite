@@ -458,6 +458,10 @@ Gameboard Styles
     padding: 20px; 
 }
 
+.gameboard h2 {
+    margin: 15px; 
+}
+
 .gamerow {
     display: flex;
     width: 300px;
