@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 // iterates through individual slots in panels 
-                for (let i = 0; i < 9; i++) {
+                // for (let i = 0; i < 9; i++) {
 
                     let available = [];
                     let unavailable = [];
@@ -484,10 +484,13 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                         switch (p) {
                                 case 0: 
-                                    index = r(nums.length)
-                                    number = nums[index];
-                                    domSlots[i].innerHTML = number;  
-                                    nums.splice(index,1);
+                                    
+                                    for (let s = 0; s < domSlots.length; s++) {
+                                        index = r(nums.length)
+                                        number = nums[index];
+                                        domSlots[s].innerHTML = number;  
+                                        nums.splice(index,1);
+                                    };
                                     repop();
                                     break;
                                 case 1: 
@@ -563,23 +566,23 @@ document.addEventListener("DOMContentLoaded", () => {
                                     secondColumn(2,1);
                                     secondColumn(2,2);
                                     break; 
-                                case 8: 
-                                    console.log("made it to panel " + p);
-                                    thirdColumn(0,0);
-                                    thirdColumn(0,1);
-                                    thirdColumn(0,2);
-                                    thirdColumn(1,0);
-                                    thirdColumn(1,1);
-                                    thirdColumn(1,2);
-                                    thirdColumn(2,0);
-                                    thirdColumn(2,1);
-                                    thirdColumn(2,2);
-                                    break;
+                                // case 8: 
+                                //     console.log("made it to panel " + p);
+                                //     thirdColumn(0,0);
+                                //     thirdColumn(0,1);
+                                //     thirdColumn(0,2);
+                                //     thirdColumn(1,0);
+                                //     thirdColumn(1,1);
+                                //     thirdColumn(1,2);
+                                //     thirdColumn(2,0);
+                                //     thirdColumn(2,1);
+                                //     thirdColumn(2,2);
+                                //     break;
                         };    
                     };
                     // invoke function
                     populateBoard();
-                };
+                // };
             };
         } while (
             Object.values(gameBoard[3]).includes(NaN) 
@@ -587,7 +590,7 @@ document.addEventListener("DOMContentLoaded", () => {
         || Object.values(gameBoard[5]).includes(NaN) 
         || Object.values(gameBoard[6]).includes(NaN) 
         || Object.values(gameBoard[7]).includes(NaN)
-        || Object.values(gameBoard[8]).includes(NaN) 
+        // || Object.values(gameBoard[8]).includes(NaN) 
         ); //end while
 
 
