@@ -576,21 +576,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                     thirdColumn(2,1);
                                     thirdColumn(2,2);
                                     break;
-                                // default: 
-                                //     index = r(nums.length)
-                                //     number = nums[index];
-                                //     domSlots[i].innerHTML = number;  
-                                //     nums.splice(index,1);
-                                //     repop();
-                                //     break;
-                        };
-                        
+                        };    
                     };
                     // invoke function
                     populateBoard();
                 };
             };
-            // console.log(gameBoard[6]); // for testing!
         } while (
             Object.values(gameBoard[3]).includes(NaN) 
         || Object.values(gameBoard[4]).includes(NaN) 
