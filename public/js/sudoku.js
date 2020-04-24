@@ -280,10 +280,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                             slotFiller(0);
                                             break;
                                         case 1: 
-
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p][0]];
+                                            thirdTierCounter(0,3,6);
+                                            slotFiller(3);
                                             break;
                                         case 2:
-
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][3]];
+                                            thirdTierCounter(0,3,6);
+                                            slotFiller(6);
                                             break;
                                     };
                                 } else if (column === 1) {
@@ -423,10 +427,10 @@ document.addEventListener("DOMContentLoaded", () => {
                                     secondColumn(0,0);
                                     // secondColumn(0,1);
                                     // secondColumn(0,2);
-                                    // secondColumn(1,0);
+                                    secondColumn(1,0);
                                     // secondColumn(1,1);
                                     // secondColumn(1,2);
-                                    // secondColumn(2,0);
+                                    secondColumn(2,0);
                                     // secondColumn(2,1);
                                     // secondColumn(2,2);
                                     break; 
@@ -449,7 +453,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             };
             // console.log(gameBoard[6]); // for testing!
-        } while (Object.values(gameBoard[3]).includes(NaN) || Object.values(gameBoard[4]).includes(NaN) || Object.values(gameBoard[6]).includes(NaN)); //end while
+        } while (Object.values(gameBoard[3]).includes(NaN) || Object.values(gameBoard[4]).includes(NaN) || Object.values(gameBoard[6]).includes(NaN) || Object.values(gameBoard[7]).includes(NaN)); //end while
 
 
     };
