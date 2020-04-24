@@ -171,18 +171,24 @@ document.addEventListener("DOMContentLoaded", () => {
                             unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2]];
                             switch (row) {
                                 case 0:
-                                    addCurrentPanelUsed();
-                                    thirdTierCounter(2,5,8);
+                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 2], gameBoard[p-6][3 + 2], gameBoard[p-6][6 + 2]);
+                                    };
                                     slotFiller(2);
                                     break;
                                 case 1: 
-                                    addCurrentPanelUsed();
-                                    thirdTierCounter(2,5,8);
+                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 2], gameBoard[p-6][3 + 2], gameBoard[p-6][6 + 2]);
+                                    };
                                     slotFiller(5);
                                     break;
                                 case 2: 
-                                    addCurrentPanelUsed();
-                                    thirdTierCounter(2,5,8);
+                                    unavailable = [gameBoard[p-3][0 + 2], gameBoard[p-3][3 + 2], gameBoard[p-3][6 + 2], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5], gameBoard[p][6], gameBoard[p][7]];
+                                    if (gameBoard[p - 6]) {
+                                        unavailable.push(gameBoard[p-6][0 + 2], gameBoard[p-6][3 + 2], gameBoard[p-6][6 + 2]);
+                                    };
                                     slotFiller(8);
                                     break; 
                             }
