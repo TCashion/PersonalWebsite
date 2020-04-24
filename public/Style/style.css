@@ -472,12 +472,17 @@ Gameboard Styles
 }
 
 .gameboard-button {
-    display: inline-block; 
-    margin: 15px;  
+    margin: 15px auto;  
+    display: block; 
 }
 
 .gameboard-button-panel {
     text-align: center;
+}
+
+.gameboard-button-panel .gameboard-button {
+    display: inline-block; 
+    margin: 15px; 
 }
 
 .panel, .sudoku-number {
@@ -615,4 +620,9 @@ Media Queries
         text-align: center;
     }
 
+    /* gameboard */
+
+    #sudoku-board {
+        display: none;
+    }
 }
