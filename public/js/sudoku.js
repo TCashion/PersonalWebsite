@@ -269,10 +269,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                             slotFiller(0)
                                             break;
                                         case 1: 
-
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 3], gameBoard[p-1][1 + 3], gameBoard[p-1][2 + 3], gameBoard[p][0]];
+                                            thirdTierCounter(0,3,6);
+                                            slotFiller(3);
                                             break;
                                         case 2:
-
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][3]];
+                                            thirdTierCounter(0,3,6);
+                                            slotFiller(6);
                                             break;
                                     };
                                 } else if (column === 1) {
