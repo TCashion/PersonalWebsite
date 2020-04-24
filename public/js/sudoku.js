@@ -261,7 +261,45 @@ document.addEventListener("DOMContentLoaded", () => {
                                     refreshObj();
                                 break;
                             case 7:
+                                if (column === 0) {
+                                    switch (row) {
+                                        case 0:
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0], gameBoard[p-1][1], gameBoard[p-1][2]];
+                                            thirdTierCounter(0,3,6);
+                                            slotFiller(0)
+                                            break;
+                                        case 1: 
 
+                                            break;
+                                        case 2:
+
+                                            break;
+                                    };
+                                } else if (column === 1) {
+                                    switch (row) {
+                                        case 0:
+
+                                            break;
+                                        case 1: 
+
+                                            break;
+                                        case 2:
+
+                                            break;
+                                    };
+                                } else if (column === 2) {
+                                    switch (row) {
+                                        case 0:
+
+                                            break;
+                                        case 1: 
+
+                                            break;
+                                        case 2:
+
+                                            break;
+                                    };
+                                };
                                 refreshObj();
                                 break;
                         };
@@ -370,10 +408,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                     firstColumn(2,1);
                                     firstColumn(2,2);
                                     break; 
-                                // case 7: 
-                                //     populatePanel();
-                                //     checkForErrors();
-                                //     break; 
+                                case 7: 
+                                    secondColumn(0,0);
+                                    // secondColumn(0,1);
+                                    // secondColumn(0,2);
+                                    secondColumn(1,0);
+                                    // secondColumn(1,1);
+                                    // secondColumn(1,2);
+                                    secondColumn(2,0);
+                                    // secondColumn(2,1);
+                                    // secondColumn(2,2);
+                                    break; 
                                 // case 8: 
                                 //     populatePanel();
                                 //     checkForErrors();
