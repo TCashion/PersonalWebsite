@@ -566,18 +566,18 @@ document.addEventListener("DOMContentLoaded", () => {
                                     secondColumn(2,1);
                                     secondColumn(2,2);
                                     break; 
-                                // case 8: 
-                                //     console.log("made it to panel " + p);
-                                //     thirdColumn(0,0);
-                                //     thirdColumn(0,1);
-                                //     thirdColumn(0,2);
-                                //     thirdColumn(1,0);
-                                //     thirdColumn(1,1);
-                                //     thirdColumn(1,2);
-                                //     thirdColumn(2,0);
-                                //     thirdColumn(2,1);
-                                //     thirdColumn(2,2);
-                                //     break;
+                                case 8: 
+                                    console.log("made it to panel " + p);
+                                    thirdColumn(0,0);
+                                    thirdColumn(0,1);
+                                    thirdColumn(0,2);
+                                    thirdColumn(1,0);
+                                    thirdColumn(1,1);
+                                    thirdColumn(1,2);
+                                    thirdColumn(2,0);
+                                    thirdColumn(2,1);
+                                    thirdColumn(2,2);
+                                    break;
                         };    
                     };
                     // invoke function
@@ -590,9 +590,9 @@ document.addEventListener("DOMContentLoaded", () => {
         || Object.values(gameBoard[5]).includes(NaN) 
         || Object.values(gameBoard[6]).includes(NaN) 
         || Object.values(gameBoard[7]).includes(NaN)
-        // || Object.values(gameBoard[8]).includes(NaN) 
+        || Object.values(gameBoard[8]).includes(NaN) 
         ); //end while
-
+            console.log(gameBoard);
 
     };
 
