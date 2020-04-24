@@ -369,13 +369,12 @@ document.addEventListener("DOMContentLoaded", () => {
                                             thirdTierCounter(0,3,6);
                                             slotFiller(3);
                                             break;
-                                        // case 2: 
-                                        //     unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
-                                        //     thirdTierCounter(0,3,6);
-                                        //     slotFiller(6);
-                                        //     break; 
-                                    }
-                                        
+                                        case 2: 
+                                            unavailable = [gameBoard[p-3][0], gameBoard[p-3][3], gameBoard[p-3][6], gameBoard[p-1][0 + 6], gameBoard[p-1][1 + 6], gameBoard[p-1][2 + 6], gameBoard[p-2][0 + 6], gameBoard[p-2][1 + 6], gameBoard[p-2][2 + 6], gameBoard[p][0], gameBoard[p][1], gameBoard[p][2], gameBoard[p][3], gameBoard[p][4], gameBoard[p][5]];
+                                            thirdTierCounter(0,3,6);
+                                            slotFiller(6);
+                                            break; 
+                                    };
                                 } else if (column === 1) {
                                     // switch (row) {
                                     //     case 0: 
@@ -485,7 +484,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     thirdColumn(1,0);
                                 //     thirdColumn(1,1);
                                 //     thirdColumn(1,2);
-                                //     thirdColumn(2,0);
+                                    thirdColumn(2,0);
                                 //     thirdColumn(2,1);
                                 //     thirdColumn(2,2);
                                     break; 
