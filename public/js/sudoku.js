@@ -132,6 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     break;
                             };
                         } else if (column === 1) {
+                            // bug: unable to add addCurrentPanelUsed function here... causes it to break; 
                             switch (row) {
                                 case 0: 
                                     unavailable = [gameBoard[p-3][0 + 1], gameBoard[p-3][3 + 1], gameBoard[p-3][6 + 1], gameBoard[p][0]];
@@ -272,7 +273,43 @@ document.addEventListener("DOMContentLoaded", () => {
                                     refreshObj();
                                 break;
                             case 7:
+                                if (column === 0) {
+                                    switch (row) {
+                                        case 0:
 
+                                            break;
+                                        case 1: 
+
+                                            break;
+                                        case 2:
+
+                                            break;
+                                    };
+                                } else if (column === 1) {
+                                    switch (row) {
+                                        case 0:
+
+                                            break;
+                                        case 1: 
+
+                                            break;
+                                        case 2:
+                                            
+                                            break;
+                                    };
+                                } else if (column === 2) {
+                                    switch (row) {
+                                        case 0:
+
+                                            break;
+                                        case 1: 
+
+                                            break;
+                                        case 2:
+                                            
+                                            break;
+                                    };
+                                };
                                 refreshObj();
                                 break;
                         };
