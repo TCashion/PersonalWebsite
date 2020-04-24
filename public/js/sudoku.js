@@ -87,8 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     let thirdTierCounter = (...prevSlots) => {
                         let slots = [...prevSlots];
                         if (gameBoard[p-6]) {
-                            for (let i = 0; i < slots.length; i++) {
-                                index = slots[i];
+                            for (let k = 0; k < slots.length; k++) {
+                                index = slots[k];
                                 unavailable.push(gameBoard[p-6][index]);
                             };
                         };
@@ -96,8 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     let addCurrentPanelUsed = () => {
                         let currentUsed = Object.values(gameBoard[p]).filter(value => typeof value === "number");
-                        for (let i = 0; i < currentUsed.length; i++) {
-                            unavailable.push(currentUsed[i]);
+                        for (let k = 0; k < currentUsed.length; k++) {
+                            unavailable.push(currentUsed[k]);
                         };
                     };
 
