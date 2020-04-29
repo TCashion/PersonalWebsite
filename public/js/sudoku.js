@@ -631,6 +631,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // notes for refactoring:
     // unavailable arrays already include things like gameBoard[p-1][0+3]... so you can change the "3" in this example to a variable based on the position of the board. 
     // also, current order of nested loops may not be most efficient... review this. 
+    // repop could include parameter outlining refreshObject parameters, so that we don't repeat lines 45 - 53
+    // in first, second, thirdcolumn, switch the parameters around to make it match the function... this is mostly for readability and maybe we can get some refactoring out of this
 
     // current lines of code: 627. Goal should be 500
     // test
