@@ -1,5 +1,7 @@
 # Welcome to the GitHub Repository for my portfolio
 
+     This website showcases my programming skills. Enjoy! 
+
 ## Features: 
 
 * ### GameBoard
