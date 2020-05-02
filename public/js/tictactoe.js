@@ -141,6 +141,7 @@
             [null, null, null],
         ];
         turn = 1; 
+        winner = null; 
         render();
     };
 
@@ -221,7 +222,16 @@
                 winner = row[0];
             }; 
         });
+        
         // check for vertical winner
+        if (!winner) {
+            for (let c = 0; c < board[0].length; c++) {
+                let arr = [board[0][c], board[1][c], board[2][c]];
+                if (counter(arr) === 3) {
+                    winner = board[0][c];
+                };
+            };
+        };
 
         // stop game if winner, and display winner
         if (winner) {
