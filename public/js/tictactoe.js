@@ -144,7 +144,6 @@
 
     function render() {
         updateTurn();
-        console.log(turn)
         // updateBoard(); 
     };
 
@@ -164,17 +163,40 @@
         display.style.color = playerColors[turn];
     };
 
+    function updateArray(cell) {
+        
+        const clickedPosition = cell.id; 
+        board.forEach(function(row) {
+            const rowIdx = board.indexOf(row);
+            for (let i = 0; i < row.length; i++) {
+                const colIdx = i;
+                console.log(`c${colIdx}r${rowIdx}`);
+                if (clickedPosition === `c${colIdx}r${rowIdx}`) {
+                    console.log("match");
+                    row[colIdx] = turn; 
+                };
+            };
+        });
+
+        // const cellsArr = Array.from(document.querySelectorAll(".panel"));
+        // cellsArr.forEach(cell => {
+        //     console.log(cell.id);
+        // })
+
+    };
+
     // function updateBoard() {
     //     const cell = 
     // };
 
     function handleClick(cell) {
         // click on reset button
-        if (cell.tagName === "BUTTON") {
-            init(); 
-        };
+        if (cell.tagName === "BUTTON") init(); 
+        // do nothing if user clicks outside of gameboard
         if (!Array.from(cell.classList).includes("panel")) return;
-        // click on cells
+        // click on cells:
+        if (!board) init(); // start game if player 1 clicks on board
+        updateArray(cell);
         turn *= -1; 
     };
     
