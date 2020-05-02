@@ -170,7 +170,7 @@
             for (let i = 0; i < row.length; i++) {
                 const colIdx = i;
                 if (cell.id === `r${rowIdx}c${colIdx}`) {
-                    if (board[colIdx][rowIdx] !== null) return; 
+                    if (board[rowIdx][colIdx] !== null) return; 
                     row[colIdx] = turn; 
                 };
             };
