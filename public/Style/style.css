@@ -13,6 +13,14 @@ Accent (buttons): #6B8696
 Font: #DCE6EC
 */
 
+:root {
+    --main-minus-two: #666B6E;
+    --main-minus-one: #25323B;
+    --main-color: #1F2021;      /* rgb(31,32,33) */
+    --main-plus-one: #6B8696;   /* accents,buttons */
+    --main-plus-two: #DCE6EC;   /* font */
+}
+
 
 html {
     font-size: 10px;

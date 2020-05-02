@@ -22,7 +22,7 @@
                          1: "blue",     // player1
                          -1: "grey"     // player2
                     }
-               - Winning combinations: winner declared if any of the following combinations of index positions are equal values and are 1 or -1
+               - Winning combinations: winner declared if any of the following combinations of index positions are equal values and are 1 or -1. Determine by absolute sum = 3.
                     1. board[0][0], board[0][1], board[0][2]
                     2. board[1][0], board[1][1], board[1][2]
                     3. board[2][0], board[2][1], board[2][2]
@@ -40,6 +40,7 @@
                               [c0r1, c1r1, c2r1]
                               [c0r2, c1r2, c2r2]
                          ]
+                    All positions start at null
                -Player turn
                -Winner (1 = player 1; -1 = Player 2; null = no winner/tie).
 
@@ -73,5 +74,5 @@
           
          ```
 
-    *  #### Sudoku
+    <!-- *  #### Sudoku -->
     

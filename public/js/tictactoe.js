@@ -94,17 +94,71 @@
 
 
 // refactor 
-document.addEventListener("DOMContentLoaded", function() {
+// document.addEventListener("DOMContentLoaded", function() {
 
     
     /*----- constants -----*/
+    const playerColors = {
+        "1": "var(--main-minus-two)",    // player1
+        "-1": "var(--main-minus-one)"    // player2
+    }; 
+
+    // const winners = [
+    //     [board[0][0], board[0][1], board[0][2]]
+    //     [board[1][0], board[1][1], board[1][2]]
+    //     [board[2][0], board[2][1], board[2][2]]
+    //     [board[0][0], board[1][0], board[2][0]]
+    //     [board[0][1], board[1][1], board[2][1]]
+    //     [board[0][2], board[1][2], board[2][2]]
+    //     [board[0][0], board[1][1], board[2][2]]
+    //     [board[0][2], board[1][1], board[2][0]]
+    // ];
     
     /*----- app's state (variables) -----*/
+    
+    let board; 
+    let turn; 
+    let winner; 
     
     /*----- cached element references -----*/
     
     /*----- event listeners -----*/
+    document.getElementById("TTT-button").addEventListener("click", function(e) {
+        event.preventDefault(); 
+        init(); 
+    });
     
     /*----- functions -----*/
 
-});
+    function init() {
+        board = [
+            [null, null, null],
+            [null, null, null],
+            [null, null, null],
+        ];
+        turn = 1; 
+        render();
+    };
+
+    function render() {
+        updateTurn();
+    };
+
+    function updateTurn() {
+        if (turn === 1) {
+            const heading = `Player 1's turn`;
+            updateDisplay(turn, heading)
+        } else {
+            const heading = `Player 2's turn`;
+            updateDisplay(turn, heading)
+        }
+    };
+
+    function updateDisplay(turn, heading) {
+        const display = document.getElementById("playersTurn");
+        display.innerText = heading; 
+        display.style.color = playerColors[turn];
+    };
+    
+
+// });
