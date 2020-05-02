@@ -172,6 +172,7 @@
                 if (cell.id === `r${rowIdx}c${colIdx}`) {
                     if (board[rowIdx][colIdx] !== null) return; 
                     row[colIdx] = turn; 
+                    turn *= -1; 
                 };
             };
         });      
@@ -208,8 +209,6 @@
         // click on cells:
         if (!board) init(); // start game if player 1 clicks on board
         updateArray(cell);
-        // need to stop if from changing turns if player clicks on occupied slot
-        turn *= -1; 
     };
     
 
