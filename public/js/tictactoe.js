@@ -100,7 +100,7 @@
     /*----- constants -----*/
     const playerColors = {
         "1": "var(--main-minus-two)",    // player1
-        "-1": "var(--main-minus-one)"    // player2
+        "-1": "var(--main-plus-one)"    // player2
     }; 
 
     // const winners = [
@@ -123,9 +123,11 @@
     /*----- cached element references -----*/
     
     /*----- event listeners -----*/
-    document.getElementById("TTT-button").addEventListener("click", function(e) {
+    document.getElementById("ticTacToeBoard").addEventListener("click", function(e) {
         event.preventDefault(); 
-        init(); 
+        const cell = e.target; 
+        handleClick(cell);
+        render(); 
     });
     
     /*----- functions -----*/
@@ -142,15 +144,17 @@
 
     function render() {
         updateTurn();
+        console.log(turn)
+        // updateBoard(); 
     };
 
     function updateTurn() {
         if (turn === 1) {
             const heading = `Player 1's turn`;
-            updateDisplay(turn, heading)
+            updateDisplay(turn, heading);
         } else {
             const heading = `Player 2's turn`;
-            updateDisplay(turn, heading)
+            updateDisplay(turn, heading);
         }
     };
 
@@ -158,6 +162,20 @@
         const display = document.getElementById("playersTurn");
         display.innerText = heading; 
         display.style.color = playerColors[turn];
+    };
+
+    // function updateBoard() {
+    //     const cell = 
+    // };
+
+    function handleClick(cell) {
+        // click on reset button
+        if (cell.tagName === "BUTTON") {
+            init(); 
+        };
+        if (!Array.from(cell.classList).includes("panel")) return;
+        // click on cells
+        turn *= -1; 
     };
     
 
