@@ -506,6 +506,12 @@ Gameboard Styles
     padding: 1.5rem 0;
 }
 
+.ttt-panel {
+    font-family: 'Bad Script', cursive;
+    font-size: 8rem;
+    font-weight: 1000;
+}
+
 .sudoku-meta-row {
     width: 315px; 
     margin: 0 auto;
@@ -524,12 +530,6 @@ Gameboard Styles
     font-size: 1.6rem;
     color: #25323B;
     align-content: center;
-}
-
-.X, .O {
-    color: #25323B; 
-    font-size: 10rem;
-    font-weight: 1000;
 }
 
 #player {

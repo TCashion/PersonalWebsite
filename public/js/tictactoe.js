@@ -192,6 +192,8 @@
                         } else if (board[rowIdx][colIdx] === -1) {
                             cell.innerText = "O";
                             cell.style.color = playerColors[-1];
+                        } else {
+                            cell.innerText = "";
                         }
                     }
                 });
