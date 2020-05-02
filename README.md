@@ -16,19 +16,13 @@
 
          ```
           Required constants:
-               -Board 
-                    Layout: 
-                         [
-                              [c0r0, c1r0, c2r0]
-                              [c0r1, c1r1, c2r1]
-                              [c0r2, c1r2, c2r2]
-                         ]
+               
                - Player colors
                     {
                          1: "blue",     // player1
                          -1: "grey"     // player2
                     }
-               - Winning combinations: winner declared if any of the following combinations of index positions are equal values
+               - Winning combinations: winner declared if any of the following combinations of index positions are equal values and are 1 or -1
                     1. board[0][0], board[0][1], board[0][2]
                     2. board[1][0], board[1][1], board[1][2]
                     3. board[2][0], board[2][1], board[2][2]
@@ -39,9 +33,42 @@
                     8. board[0][2], board[1][1], board[2][0]
 
           Require variables to track the status of the game: 
-               -Players (1 = player 1; -1 = Player 2).
+               -Board 
+                    Layout: 
+                         [
+                              [c0r0, c1r0, c2r0]
+                              [c0r1, c1r1, c2r1]
+                              [c0r2, c1r2, c2r2]
+                         ]
                -Player turn
                -Winner (1 = player 1; -1 = Player 2; null = no winner/tie).
+
+          Functionality: 
+               // PROGRAM TicTacToe
+
+                    // MODULE listen for player selection
+                         // READ player turn (1 or -1)
+                         // ON CLICK 
+                              // READ click position
+                              // IF box is empty
+                                   // UPDATE value at array position to be equal to player turn
+                                   // RUN module checkForWinner
+                                   // RENDER new board data so DOM is updated 
+                                   // CHANGE player turn 
+                              // ELSE do nothing
+                    // END MODULE
+
+                    // MODULE reset
+                         // ON CLICK of reset button
+                              // run init() function to reset game 
+                    // END MODULE
+
+                    // MODULE checkForWinner
+                         // IF any of the defined winner combinations are found
+                              // UPDATE winner board to reflect the value inside the winning combo array (1 or -1) 
+                    // END MODULE
+
+               // END PROGRAM TicTacToe
 
           
          ```
