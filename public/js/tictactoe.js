@@ -121,6 +121,7 @@
     let winner; 
     
     /*----- cached element references -----*/
+    const cellsArr = Array.from(document.querySelectorAll(".ttt-panel"));
     
     /*----- event listeners -----*/
     document.getElementById("ticTacToeBoard").addEventListener("click", function(e) {
@@ -144,7 +145,7 @@
 
     function render() {
         updateTurn();
-        updateBoard(); 
+        updateBoard(cellsArr); 
     };
 
     function updateTurn() {
@@ -164,12 +165,12 @@
     };
 
     function updateArray(cell) {
-        const clickedPosition = cell.id; 
         board.forEach(function(row) {
             const rowIdx = board.indexOf(row);
             for (let i = 0; i < row.length; i++) {
                 const colIdx = i;
-                if (clickedPosition === `c${colIdx}r${rowIdx}`) {
+                if (cell.id === `r${rowIdx}c${colIdx}`) {
+                    if (board[colIdx][rowIdx] !== null) return; 
                     row[colIdx] = turn; 
                 };
             };
@@ -177,15 +178,13 @@
     };
         
         
-    function updateBoard() {
-        const cellsArr = Array.from(document.querySelectorAll(".ttt-panel"));
-        cellsArr[0].innerText = "X";
+    function updateBoard(cellsArr) {
         board.forEach(function(row) {
             const rowIdx = board.indexOf(row);
             for (let i = 0; i < row.length; i++) {
                 const colIdx = i;
                 cellsArr.forEach(function(cell) {
-                    if (cell.id === `c${colIdx}r${rowIdx}`) {
+                    if (cell.id === `r${rowIdx}c${colIdx}`) {
                         if (board[rowIdx][colIdx] === 1) {
                             cell.innerText = "X";
                             cell.style.color = playerColors[1];
@@ -209,6 +208,7 @@
         // click on cells:
         if (!board) init(); // start game if player 1 clicks on board
         updateArray(cell);
+        // need to stop if from changing turns if player clicks on occupied slot
         turn *= -1; 
     };
     
