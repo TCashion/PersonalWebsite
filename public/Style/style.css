@@ -497,7 +497,7 @@ Gameboard Styles
     margin: 15px; 
 }
 
-.panel, .sudoku-number {
+.ttt-panel, .sudoku-number {
     border: #666B6E solid 1px;
     border-radius: 5px;
     margin: 1px;

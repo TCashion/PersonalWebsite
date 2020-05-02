@@ -144,7 +144,7 @@
 
     function render() {
         updateTurn();
-        // updateBoard(); 
+        updateBoard(); 
     };
 
     function updateTurn() {
@@ -164,36 +164,46 @@
     };
 
     function updateArray(cell) {
-        
         const clickedPosition = cell.id; 
         board.forEach(function(row) {
             const rowIdx = board.indexOf(row);
             for (let i = 0; i < row.length; i++) {
                 const colIdx = i;
-                console.log(`c${colIdx}r${rowIdx}`);
                 if (clickedPosition === `c${colIdx}r${rowIdx}`) {
-                    console.log("match");
                     row[colIdx] = turn; 
                 };
             };
-        });
-
-        // const cellsArr = Array.from(document.querySelectorAll(".panel"));
-        // cellsArr.forEach(cell => {
-        //     console.log(cell.id);
-        // })
-
+        });      
     };
-
-    // function updateBoard() {
-    //     const cell = 
-    // };
+        
+        
+    function updateBoard() {
+        const cellsArr = Array.from(document.querySelectorAll(".ttt-panel"));
+        cellsArr[0].innerText = "X";
+        board.forEach(function(row) {
+            const rowIdx = board.indexOf(row);
+            for (let i = 0; i < row.length; i++) {
+                const colIdx = i;
+                cellsArr.forEach(function(cell) {
+                    if (cell.id === `c${colIdx}r${rowIdx}`) {
+                        if (board[rowIdx][colIdx] === 1) {
+                            cell.innerText = "X";
+                            cell.style.color = playerColors[1];
+                        } else if (board[rowIdx][colIdx] === -1) {
+                            cell.innerText = "O";
+                            cell.style.color = playerColors[-1];
+                        }
+                    }
+                });
+            };
+        });
+    };
 
     function handleClick(cell) {
         // click on reset button
         if (cell.tagName === "BUTTON") init(); 
         // do nothing if user clicks outside of gameboard
-        if (!Array.from(cell.classList).includes("panel")) return;
+        if (!Array.from(cell.classList).includes("ttt-panel")) return;
         // click on cells:
         if (!board) init(); // start game if player 1 clicks on board
         updateArray(cell);
