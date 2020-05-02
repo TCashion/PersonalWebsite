@@ -122,6 +122,7 @@
     
     /*----- cached element references -----*/
     const cellsArr = Array.from(document.querySelectorAll(".ttt-panel"));
+    const display = document.getElementById("playersTurn");
     
     /*----- event listeners -----*/
     document.getElementById("ticTacToeBoard").addEventListener("click", function(e) {
@@ -159,9 +160,10 @@
     };
 
     function updateDisplay(turn, heading) {
-        const display = document.getElementById("playersTurn");
-        display.innerText = heading; 
-        display.style.color = playerColors[turn];
+        if (!winner) {
+            display.innerText = heading; 
+            display.style.color = playerColors[turn];
+        };
     };
 
     function updateArray(cell) {
@@ -173,6 +175,7 @@
                     if (board[rowIdx][colIdx] !== null) return; 
                     row[colIdx] = turn; 
                     turn *= -1; 
+                    winnerCheck(); 
                 };
             };
         });      
@@ -210,6 +213,35 @@
         if (!board) init(); // start game if player 1 clicks on board
         updateArray(cell);
     };
+
+    function winnerCheck() {
+        // check for horizontal winner
+        board.forEach(function(row) {
+            if (counter(row) === 3) {
+                winner = row[0];
+            }; 
+        });
+        // check for vertical winner
+
+        // stop game if winner, and display winner
+        if (winner) {
+            if (winner === 1) {
+                display.innerText = "Player 1 Wins!";
+            } else if (winner === -1) {
+                display.innerText = "Player 2 Wins!";
+            };
+            display.style.color = playerColors[winner];
+            turn = null; 
+        };
+    }
+
+    function counter(arr) {
+        let counter = 0; 
+        for (let i = 0; i < arr.length; i++) {
+            counter += arr[i];
+        }
+        return Math.abs(counter); 
+    }
     
 
 // });
