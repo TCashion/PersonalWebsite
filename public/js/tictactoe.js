@@ -148,6 +148,7 @@
     function render() {
         updateTurn();
         updateBoard(cellsArr); 
+        winnerColors(winnerCheck()); 
     };
 
     function updateTurn() {
@@ -216,20 +217,39 @@
     };
 
     function winnerCheck() {
+        let winningCells = [];
+        let colIdx;
+        
         // check for horizontal winner
         board.forEach(function(row) {
             if (counter(row) === 3) {
                 winner = row[0];
+                for (let c = 0; c < row.length; c++) {
+                    winningCells.push(`r${board.indexOf(row)}c${c}`);
+                };
             }; 
         });
         
         // check for vertical winner
-        if (!winner) {
-            for (let c = 0; c < board[0].length; c++) {
-                let arr = [board[0][c], board[1][c], board[2][c]];
-                if (counter(arr) === 3) {
-                    winner = board[0][c];
-                };
+        for (let c = 0; c < board[0].length; c++) {
+            let arr = [board[0][c], board[1][c], board[2][c]];
+            if (counter(arr) === 3) {
+                winner = board[0][c];
+                winningCells = [`r0c${c}`, `r1c${c}`, `r2c${c}`];
+            };
+        };
+
+
+        // check for diagonal winner
+        let arr = [board[0][0], board[1][1], board[2][2]];
+        if (counter(arr) === 3) {
+            winner = board[1][1];
+            winningCells = ["r0c0", "r1c1", "r2c2"];
+        } else {
+            arr = [board[0][2], board[1][1], board[2][0]];
+            if (counter(arr) === 3) {
+                winner = board[1][1];
+                winningCells = ["r0c2", "r1c1", "r2c0"];
             };
         };
 
@@ -243,7 +263,9 @@
             display.style.color = playerColors[winner];
             turn = null; 
         };
-    }
+
+        return winningCells; 
+    };
 
     function counter(arr) {
         let counter = 0; 
@@ -251,7 +273,11 @@
             counter += arr[i];
         }
         return Math.abs(counter); 
-    }
+    };
     
-
+    function winnerColors(winningCells) {
+        if (winner) {
+            console.log(winningCells)
+        }
+    };
 // });
