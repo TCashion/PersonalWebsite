@@ -6,11 +6,14 @@
 
 * ### GameBoard
     *  #### Tic-Tac-Toe
-         I created the first version of this tic-tac-toe game prior to starting my software engineering immersive with General Assembly. Upon starting the SEI, I quickly saw that I had made some practical errors in implementing the game, so as a project I refactored the functionality using the principles and best practices I picked up at GA. **Check out the gameboard at: https://traviscashion.com/gameboard.html.**
+         I created the first version of this tic-tac-toe game prior to starting my software engineering immersive with General Assembly. Upon starting the SEI, I quickly saw that I had made some practical errors in implementing the game, so as a project I refactored the functionality using the principles and best practices I picked up at GA. 
+         
+         **Find the live gameboard at: https://traviscashion.com/gameboard.html.**
 
          Wireframe:
 
          ![TTT Wireframe](https://imgur.com/9Bcijrx.png)
+         **note: coordinates were reversed during development to be `r(#)c(#)`
 
          Psuedocode:
 
