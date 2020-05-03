@@ -103,17 +103,6 @@
         "-1": "var(--main-plus-one)"    // player2
     }; 
 
-    // const winners = [
-    //     [board[0][0], board[0][1], board[0][2]]
-    //     [board[1][0], board[1][1], board[1][2]]
-    //     [board[2][0], board[2][1], board[2][2]]
-    //     [board[0][0], board[1][0], board[2][0]]
-    //     [board[0][1], board[1][1], board[2][1]]
-    //     [board[0][2], board[1][2], board[2][2]]
-    //     [board[0][0], board[1][1], board[2][2]]
-    //     [board[0][2], board[1][1], board[2][0]]
-    // ];
-    
     /*----- app's state (variables) -----*/
     
     let board; 
@@ -142,6 +131,9 @@
         ];
         turn = 1; 
         winner = null; 
+        cellsArr.forEach(function(cell) {
+            cell.style.backgroundColor = "var(--main-plus-two)";
+        });
         render();
     };
 
@@ -218,7 +210,6 @@
 
     function winnerCheck() {
         let winningCells = [];
-        let colIdx;
         
         // check for horizontal winner
         board.forEach(function(row) {
@@ -277,7 +268,11 @@
     
     function winnerColors(winningCells) {
         if (winner) {
-            console.log(winningCells)
+            winningCells.forEach(function(cellId) {
+                const cell = document.getElementById(`${cellId}`);
+                cell.style.color = "green";
+                cell.style.backgroundColor = "var(--main-minus-one)";
+            });
         }
     };
 // });
