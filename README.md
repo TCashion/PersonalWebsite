@@ -10,6 +10,8 @@
          
          **Find the live gameboard at: https://traviscashion.com/gameboard.html.**
 
+         Code for this game can be found in this repository at: https://github.com/TCashion/PersonalWebsite/blob/master/public/js/tictactoe.js. 
+
          Wireframe:
 
          ![TTT Wireframe](https://imgur.com/9Bcijrx.png)
