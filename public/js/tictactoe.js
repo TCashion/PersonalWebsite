@@ -41,6 +41,7 @@ function render() {
     updateTurn();
     updateBoard(cellsArr); 
     winnerColors(winnerCheck()); 
+    checkScratch();
 };
 
 function updateTurn() {
@@ -168,4 +169,14 @@ function winnerColors(winningCells) {
             cell.style.backgroundColor = "var(--main-minus-one)";
         });
     };
+};
+
+function checkScratch() {
+    if (!board[0].includes(null)
+    && !board[1].includes(null)
+    && !board[2].includes(null)
+    && !winner
+    ) {
+        display.innerText = "Scratch!"
+    }
 };
