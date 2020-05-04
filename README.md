@@ -4,6 +4,9 @@
 
 ## Features: 
 
+* ### Blog
+     I created this blog not only to showcase my personal writing samples, but also to demonstrate the filter function and unique styling that I created to display the various stories. The format of the post previews (round images that alternate from left to right) is the same as the *portfolio* page, however only the *blog* page has the filter function to sort through story types. 
+
 * ### GameBoard
     *  #### Tic-Tac-Toe
          I created the first version of this tic-tac-toe game prior to starting my software engineering immersive with General Assembly. Upon starting the SEI, I quickly saw that I had made some practical errors in implementing the game, so as a project I refactored the functionality using the principles and best practices I picked up at GA. 
