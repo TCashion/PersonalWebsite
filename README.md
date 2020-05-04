@@ -1,11 +1,15 @@
 # Welcome to the GitHub Repository for my portfolio
-
+     
      This website showcases my programming skills. Enjoy! 
+
+     https://traviscashion.com/
 
 ## Features: 
 
-* ### Blog
+* ### Blog 
      I created this blog not only to showcase my personal writing samples, but also to demonstrate the filter function and unique styling that I created to display the various stories. The format of the post previews (round images that alternate from left to right) is the same as the *portfolio* page, however only the *blog* page has the filter function to sort through story types. 
+
+     **Visit the blog at https://traviscashion.com/blog.html.** 
 
 * ### GameBoard
     *  #### Tic-Tac-Toe
