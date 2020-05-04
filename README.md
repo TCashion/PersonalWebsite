@@ -13,7 +13,7 @@
 
 * ### GameBoard
     *  #### Tic-Tac-Toe
-         I created the first version of this tic-tac-toe game prior to starting my software engineering immersive with General Assembly. Upon starting the SEI, I quickly saw that I had made some practical errors in implementing the game, so as a project I refactored the functionality using the principles and best practices I picked up at GA. 
+         I created the first version of this tic-tac-toe game prior to starting my software engineering immersive with General Assembly. Upon starting the SEI, I quickly saw that I had made some practical errors in implementing the game (my initial game was visual-centric, not data-centric), so as a project I refactored the functionality using the principles and best practices I picked up at GA. 
          
          **Find the live gameboard at: https://traviscashion.com/gameboard.html.**
 
