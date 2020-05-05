@@ -85,6 +85,18 @@
 
           
          ```
+     
 
-    <!-- *  #### Sudoku -->
+    *  #### Sudoku
+
+          This app allows the user to mimic the popular Sudoku puzzle by generating a Sudoku gameboard of their own. Currently, the app does not allow any "playability" functions, meaning that the user can generate the gameboard but not hide any of the numbers in order to try to solve the puzzle on their own. I plan to implement playability in future versions of this app. 
+
+          The generator will create a Sudoku board that meets the following game rules: 
+
+               * each 3x3 section of the board holds numbers 1 through 9, with 0 repeats. 
+               * each horizontal row and vertical column also hold all numbers 1 - 9, with 0 repeats. 
+
+          When using the generator, the user may notice a slight lag between clicking the "Reset" button and seeing the board populate. This is because the app goes through many combinations of numbers to fill the 9 x 9 gameboard until it finds a combination that meets the requirements. 
+
+    *  #### Battleship
     
