@@ -99,4 +99,179 @@
           When using the generator, the user may notice a slight lag between clicking the "Reset" button and seeing the board populate. This is because the app goes through many combinations of numbers to fill the 9 x 9 gameboard until it finds a combination that meets the requirements. 
 
     *  #### Battleship
+
+     ``` 
+     Psuedocode:
+
+
+
+          PROGRAM Battleship
+
+               /*----- constants -----*/
+
+                    playerColors = {playerOne: 1, playerTwo: 2};
+                    boardSize = 10x10                  // can adjust this for smaller during development
+                    boardLength = 10                   // "
+
+               /*----- app's state (variables) -----*/
+
+                    turn
+                    playerOneShips
+                    playerTwoShips
+                    playerOneBoard
+                    playerOneRadar
+                    playerTwoBoard
+                    playerTwoRadar
+                    playerOneCapturedShips
+                    playerTwoCapturedShips
+                    engageAi                 // for AI. Opens AI "session" if hit is detected, until hit ship sinks. starts at 0, goes to 1 until ship is sunk
+                    aiHits
+                    shipIdentified
+                    playerOneHit                  // -1 for miss, 1 for hit
+                    playerTwoHit                  // -1 for miss, 1 for hit
+
+
+               /*----- cached element references -----*/
+
+                    
+
+               /*----- event listeners -----*/
+
+                    Event listener on target form (see wireframe)
+                         ACTIVATE on submit
+                              IF coordinate provided:
+                                   ARE valid x,y coordinates 
+                                        must be between 0 and boardLength
+                                   ARE not already marked as hit or miss (1 or -1)
+                              THEN takeShot(playerOne, x, y)
+               
+               /*----- functions -----*/
+
+                    MODULE init()
+                         turn = 1; 
+                         playerBoardOne = function generateBoard()
+                         playerBoardTwo = function generateBoard()
+                         playerOneRadar = array of boardSize, all values null
+                         playerTwoRadar = array of boardSize, all values null
+                         playerOneCapturedShips = []
+                         playerTwoCapturedShips = []
+                         engageAi = 0
+                         aiHits = {}; 
+                         shipIdentified = false
+                         playerOneShips = function generateShips()
+                         playerTwoShips = function generateShips()
+
+                    END MODULE 
+
+                    MODULE render()
+                    END MODULE 
+
+
+
+
+                    MODULE generateBoard()
+                         create random layout of board
+                         OR
+                              to save development time, I could start with set board layouts rather than randomly generated ones; 
+                    END MODULE 
+
+                    MODULE generateShips()
+                         [
+                              {type: carrier, 
+                              length: 5, 
+                              unhitSpaces: this.length, 
+                              hitSpaces: 0},
+                              {type: battleship, 
+                              length: 4, 
+                              unhitSpaces: this.length, 
+                              hitSpaces: 0},
+                              {type: cruiser, 
+                              length: 3, 
+                              unhitSpaces: this.length, 
+                              hitSpaces: 0},
+                              {type: submarine, 
+                              length: 3, 
+                              unhitSpaces: this.length, 
+                              hitSpaces: 0},
+                              {type: destroyer, 
+                              length: 2, 
+                              unhitSpaces: this.length, 
+                              hitSpaces: 0},
+                         ]
+                    END MODULE
+
+
+                    MODULE randomShot() // generates random shot for playerTwo
+                         ASSIGN x coordinate
+                              x = randomNum(0,boardLength)
+                         ASSIGN y coordinate
+                              y = randomNum(0,boardLength)
+                         takeShot(playerTwo, x, y)
+                    END MODULE
+
+
+                    MODULE randomNum(boardLength) {
+                              random number generator between 0 and (board length - 1);
+                         }
+                    END MODULE
+
+                    MODULE takeShot(player, xCoordinate, yCoordinate)
+
+                    END MODULE
+
+                    MODULE opponentAi
+
+                         IF playerTwoHit = 1 
+                              engageAi = 1
+                              aiHits = {
+                                   hits: (x0, y0)
+                                   }
+                                   
+
+                         WHILE engageAi = 1 {
+                              playerTwo shots only on adjacent cells to recent hit 
+                                   // options (x0 + 1,  y0), (x0 - 1,  y0), (x0,  y0 + 1), (x0,  y0 - 1);
+                              ON second hit
+                                   shipIdentified = true;        // prompts AI to move from 2D to 1D
+                                   aiHits = [
+                                        {hits: [(x0, y0), (x1, y1)]}
+                                        ]
+                         }
+
+                         WHILE shipIdentified = true {
+                              once ship is identified, playerTwo's shots will be only in same line:
+                              IF the hits have same x value
+                                   next shot is (x1 + 1)
+                                        if (x1 + 1) is a miss
+                                             register (x1 + 1):   // so AI knows to try in the other direction 
+                                                  aiHits = {
+                                                       hits: [(x0, y0), (x1, y1)], 
+                                                       miss: (x1 + 1)
+                                                       }
+                                             next shot is (x0 - 1)               
+                              IF the hits have same y value
+                                   next shot is (y1 + 1)
+                                        if (y1 + 1) is a miss
+                                             register (y1 + 1):    // so AI knows to try in the other direction 
+                                             next shot is (y0 - 1)
+                                                  aiHits = {
+                                                       hits: [(x0, y0), (x1, y1)], 
+                                                       miss: (y1 + 1)
+                                                  }
+                              if aiHits length > 3
+                                   proceed to hit in straight line until ship is sunk 
+                         }
+
+                         IF ship is sunk, playerTworeturn to taking random shots
+                              aiHits = {};
+                              playerTwoHit = 0;
+                              shipIdentified = false; 
+
+                    END MODULE
+
+
+
+
+
+          END PROGRAM Battleship 
     
