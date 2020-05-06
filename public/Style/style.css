@@ -464,7 +464,6 @@ Gameboard Styles
 
 .gameboard p {
     width: 300px;
-    /* justify-content: center; */
     margin: 15px auto; 
 }
 
@@ -524,6 +523,20 @@ Gameboard Styles
 .winner-colors {
     color: green; 
 }
+
+.battleship-monitor {
+    background-color: var(--main-minus-two);
+    height: 50vw; 
+    width: 50vw; 
+    margin: 0 auto; 
+    border-radius: 5px;
+}
+
+.battleship-monitor:last-child {
+    margin-top: 15px;
+}
+
+
 
 
 /* *************************************
@@ -622,5 +635,9 @@ Media Queries
     /* hidden until further dev opportunity */
     #sudoku-board {
         display: none;
+    }
+
+    .container {
+        width: auto;
     }
 }
