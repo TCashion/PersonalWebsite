@@ -37,13 +37,21 @@ const targetDisplay = document.getElementsByClassName("battleship-target-display
 
 // create gameboard on page load
 function createBoard(boardLength) {
-    for (let i = 0; i <= boardLength; i++) {
-        const div = document.createElement("div");
-        div.style.height = "20px";
-        div.style.width = "20px";
-        div.style.backgroundColor = "black";
-        playerOneRadar.append(div);
+    const board = document.createElement("div");
+    for (let c = 0; c <= boardLength; c++){
+        
+    
+        for (let r = 0; r <= boardLength; r++) {
+            const div = document.createElement("div");
+            div.style.height = "20px";
+            div.style.width = "20px";
+            div.style.backgroundColor = "var(--main-plus-one)";
+            div.setAttribute("class", `r${r}c${c}`);
+            board.appendChild(div);
+        }
+        
     }
+    playerOneRadar.append(board);
 }
 createBoard(boardLength);
 
