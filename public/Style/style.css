@@ -539,6 +539,18 @@ Gameboard Styles
     padding: 10px; 
 }
 
+.battleship-target-display > form > input{
+    width: 100%;
+}
+
+.battleship-target-display > form > button {
+    width: 50%;
+    margin: 10px auto 0 auto;
+    display: block;
+    padding: 0; 
+    text-align: center;
+}
+
 
 
 
