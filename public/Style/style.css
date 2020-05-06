@@ -541,9 +541,16 @@ Gameboard Styles
 
 .battleship-target-display > form > input{
     width: 100%;
+    font-size: 1.2rem;
 }
 
-.battleship-target-display > form > button {
+.battleship-target-display > form {
+    background-color: var(--main-minus-one);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.battleship-button {
     width: 50%;
     margin: 10px auto 0 auto;
     display: block;
@@ -657,4 +664,50 @@ Media Queries
     }
 }
 
-/* battleship designed mobile first */
+/* battleship done from mobile-frist design */
+@media (min-width: 768px) {
+
+    #battleship-board {
+        display: grid;
+        grid-template-columns: 5fr 3fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        " radar . "
+        " display target ";
+    }
+
+    .battleship-monitor {
+        max-width: 650px;
+        max-height: 650px;
+        grid-area: display;
+    }
+
+    .battleship-monitor:first-of-type {
+        grid-area: radar;
+    }
+
+
+    .battleship-target-display {
+        grid-area: target;
+        width: auto; 
+        max-height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .battleship-target-display > form {
+        margin: auto 0; 
+        width: 300px;
+        height: auto; 
+    }
+
+    .battleship-button {
+        margin: 15px 0 0 0; 
+    }
+    
+    .battleship-target-display > button {
+        margin: 0 0 0 40px;
+    }
+
+}
