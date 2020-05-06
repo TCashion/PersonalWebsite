@@ -100,6 +100,11 @@
 
     *  #### Battleship
 
+
+     Wireframe:
+
+     ![Battleship Wireframe](https://imgur.com/dswIWhb.jpg)
+            
      ``` 
      Psuedocode:
 
@@ -110,7 +115,8 @@
                /*----- constants -----*/
 
                     playerColors = {playerOne: 1, playerTwo: 2};
-                    boardSize = 10x10                  // can adjust this for smaller during development
+                    hitMissColors = {null: blue, miss: white, hit: orange, ship: gray}
+                    boardSize = 10x10                  // can adjust this for smaller board size during development
                     boardLength = 10                   //                  ""
 
                /*----- app's state (variables) -----*/
@@ -123,13 +129,10 @@
                     playerOneRadar
                     playerTwoBoard
                     playerTwoRadar
-                    playerOneCapturedShips
-                    playerTwoCapturedShips
-                    engageAi                 // for AI. Opens AI "session" if hit is detected, until hit ship sinks. starts at 0, goes to 1 until ship is sunk
+                    engageAi                 // for AI. Opens AI "session" if hit is      detected, and runs a different alogorithm for playerTwo's shots until the hit ship sinks. starts at 0, goes to 1 until ship is sunk
+
                     aiHits
                     shipIdentified
-                    playerOneHit                  // -1 for miss, 1 for hit
-                    playerTwoHit                  // -1 for miss, 1 for hit
 
 
                /*----- cached element references -----*/
@@ -167,7 +170,14 @@
 
 
                     MODULE render()
-
+                         IF board position = null
+                              DIV COLOR is hitMissColors(null)
+                         IF board poistion = -1
+                              DIV COLOR is hitMissColors(miss)
+                         IF board poistion = 1
+                              DIV COLOR is hitMissColors(hit)
+                         IF board position = 0
+                              DIV COLOR is hitMissColors(ship)
                     END MODULE 
 
 
@@ -375,4 +385,4 @@
 
 
           END PROGRAM Battleship 
-    
+     ```
