@@ -6,6 +6,9 @@
     --main-plus-two: #DCE6EC;   /* font */
 }
 
+* {
+  box-sizing: border-box;  
+}
 
 html {
     font-size: 10px;
@@ -361,7 +364,6 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
 .blog-preview {
     height: auto;
     min-height: 300px;
-    box-sizing: border-box;
     padding: 20px 0;
 }
 
@@ -524,16 +526,17 @@ Gameboard Styles
     color: green; 
 }
 
-.battleship-monitor {
+.battleship-monitor, .battleship-target-display {
     background-color: var(--main-minus-two);
     height: 50vw; 
     width: 50vw; 
-    margin: 0 auto; 
+    margin: 0 auto 10px auto; 
     border-radius: 5px;
 }
 
-.battleship-monitor:last-child {
-    margin-top: 15px;
+.battleship-target-display {
+    height: auto;
+    padding: 10px; 
 }
 
 
@@ -641,3 +644,5 @@ Media Queries
         width: auto;
     }
 }
+
+/* battleship designed mobile first */

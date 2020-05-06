@@ -251,8 +251,14 @@
         <div class="row">
             <!-- Battleship -->
             <div class="container gameboard" id="battleship-board">
-                <div class="battleship-monitor"></div>
-                <div class="battleship-monitor"></div>
+                <div class="battleship-monitor" id="playerOneRadar"></div>
+                <div class="battleship-monitor" id="playerOneDisplay"></div>
+                <div class="battleship-target-display">
+                    <form id="battleship-input-form">
+                        <input placeholder="Designate target">
+                        <button type="submit">Fire!</button>
+                    </form>
+                </div>
             </div>
         </div>
 
