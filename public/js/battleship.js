@@ -53,14 +53,14 @@ targetDisplay.addEventListener("click", function(e) {
 
 function initBs() {
     turnBs = 1; 
-    const boardArr = [
-        [null, null, null, null],
-        [null, 0, 0, 0],
-        [null, null, null, null],
-        [null, null, null, null]
-    ]; // for now, this is a set board. future dev will have random ship layout
+    // const boardArr = [
+    //     [null, null, null, null],
+    //     [null, 0, 0, 0],
+    //     [null, null, null, null],
+    //     [null, null, null, null]
+    // ]; // for now, this is a set board. future dev will have random ship layout
     createShips();
-    addShipsToBoard(boardArr);
+    addShipsToBoard();
     renderBs(playerOneShipLayout);
 }
 
@@ -104,8 +104,14 @@ function createShips() {
     playerTwoShips.push(carrier, battleship, cruiser, submarine, destroyer);
 };
 
-function addShipsToBoard(boardArr) {      
+function addShipsToBoard() {      
     const direction = randomNumber(1);
+    const boardArr = [
+        [null, null, null, null],
+        [null, 0, 0, 0],
+        [null, null, null, null],
+        [null, null, null, null]
+    ];
     boardArr[0][0] = "test";
     // pick up here. above demostrates how to access the board. need to now distinguish between playerboards. Maybe just pass playerOneBoard and playerTwoBoard as arguments?
 
@@ -123,9 +129,7 @@ function addShipsToBoard(boardArr) {
     // playerOneShips.locationCoordinates = locationCoordinates;
     // playerTwoShips.locationCoordinates = locationCoordinates;
     playerOneShipLayout = boardArr;
-    // playerOneRadar = boardArr;
     playerTwoShipLayout = boardArr; 
-    // playerTwoRadar = boardArr;
 };
 
 function randomNumber (max) {
