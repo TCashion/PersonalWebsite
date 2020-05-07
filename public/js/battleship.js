@@ -54,7 +54,7 @@ function initBs() {
     turnBs = 1; 
     const boardArr = [
         [null, null, null, null],
-        [null, 0, 0, 0],
+        [null, null, null, null],
         [null, null, null, null],
         [null, null, null, null]
     ]; // for now, this is a set board. future dev will have random ship layout
@@ -94,6 +94,9 @@ function createShips() {
 };
 
 function addShipsToBoard(boardArr) {      
+    const direction = randomNumber(1);
+    // pick up here
+    
     // const locationCoordinates = [
     //     {"x": 1,
     //     "y": 1},
@@ -109,3 +112,7 @@ function addShipsToBoard(boardArr) {
     playerTwoDisplay = boardArr; 
     playerTwoRadar = boardArr;
 };
+
+function randomNumber (max) {
+    return Math.round(Math.random()*Math.floor(max));
+}
