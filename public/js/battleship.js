@@ -75,15 +75,15 @@ function parseColors(shipLayout) {
 
 function generateBoardColors(shipLayout, rowIdx, colIdx) {
         // rowIdx and colIdx transposed on these two so that board matches array
-    let shipLayoutPostion = shipLayout[rowIdx][colIdx];
-    const divColor = boardColors[shipLayoutPostion];
+    let shipLayoutPosition = shipLayout[rowIdx][colIdx];
+    const divColor = boardColors[shipLayoutPosition];
     const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); 
     const displayDiv = document.getElementById(`X${colIdx}Y${rowIdx}`);
     // player one ship display
     displayDiv.setAttribute("style", `background-color: ${divColor}`); 
     
     // player one radar: hides enemy ship colors 
-    if (shipLayout === 0) {
+    if (shipLayoutPosition === 0) {
         radarDiv.setAttribute("style", `background-color: ${boardColors["null"]}`); 
     } else {
         radarDiv.setAttribute("style", `background-color: ${divColor}`); 
@@ -108,16 +108,16 @@ function addShipsToBoard() {
     const startingY = randomNumber(boardLength - 1);
     const boardArr = [
         [null, null, null, null],
-        [null, null, null, null],
+        [null, 0, 0, 0],
         [null, null, null, null],
         [null, null, null, null]
     ]; // for now, this is a set board. future dev will have random ship layout
     playerOneShipLayout = boardArr;
     playerTwoShipLayout = boardArr; 
-    // playerOneShipLayout[startingX][startingY];
     
     
-    // boardArr[0][0] = "test";
+    layoutCarrier(direction, startingX, startingY);
+    
     // pick up here. above demostrates how to access the board. need to now distinguish between playerboards. Maybe just pass playerOneBoard and playerTwoBoard as arguments?
 
 
@@ -135,6 +135,11 @@ function addShipsToBoard() {
     // playerTwoShips.locationCoordinates = locationCoordinates;
     
 };
+
+function layoutCarrier(direction, startingX, startingY) {
+    // to test
+    playerOneShipLayout[startingX][startingY] = 1;
+}
 
 function randomNumber (max) {
     return Math.round(Math.random()*Math.floor(max));
