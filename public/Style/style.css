@@ -537,7 +537,7 @@ Gameboard Styles
     display: flex; 
 }
 
-.battleship-gamerow {
+.battleship-gamecol {
     display: flex;
     flex-direction: column;
 }
