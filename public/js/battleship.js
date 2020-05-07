@@ -104,8 +104,12 @@ function createShips() {
 
 function addShipsToBoard(boardArr) {      
     const direction = randomNumber(1);
-    // pick up here
-    
+    boardArr[0][0] = "test";
+    // pick up here. above demostrates how to access the board. need to now distinguish between playerboards. Maybe just pass playerOneBoard and playerTwoBoard as arguments?
+
+
+
+
     // const locationCoordinates = [
     //     {"x": 1,
     //     "y": 1},
