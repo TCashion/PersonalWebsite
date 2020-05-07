@@ -18,8 +18,9 @@ let turnBs;
 let winnerBs;
 let playerOneShips;
 let playerTwoShips;
-let playerTwoDisplay;
-let playerTwoRadar;
+let playerOneShipLayout;
+let playerTwoShipLayout;
+// let playerTwoRadar; // doesn't do anything?? 
 let engageAi;                 
 let aiHits;
 let shipIdentified;
@@ -60,7 +61,7 @@ function initBs() {
     ]; // for now, this is a set board. future dev will have random ship layout
     createShips();
     addShipsToBoard(boardArr);
-    renderBs(boardArr); 
+    renderBs(playerOneShipLayout);
 }
 
 function renderBs(boardArr) {
@@ -69,6 +70,7 @@ function renderBs(boardArr) {
         for (let c = 0; c < boardArr[r].length; c++) {
             const colIdx = c; 
             generateBoardColors(boardArr, rowIdx, colIdx);
+            // generateBoardColors(playerOneShipLayout, rowIdx, colIdx)
         };
     };
 };
@@ -120,9 +122,9 @@ function addShipsToBoard(boardArr) {
     // ]
     // playerOneShips.locationCoordinates = locationCoordinates;
     // playerTwoShips.locationCoordinates = locationCoordinates;
-    playerOneDisplay = boardArr;
+    playerOneShipLayout = boardArr;
     // playerOneRadar = boardArr;
-    playerTwoDisplay = boardArr; 
+    playerTwoShipLayout = boardArr; 
     // playerTwoRadar = boardArr;
 };
 
