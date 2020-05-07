@@ -526,14 +526,18 @@ Gameboard Styles
     color: green; 
 }
 
+.battleship-monitor {
+    display: flex; 
+}
+
 .battleship-gamerow {
     display: flex;
-    margin: 0 25%;
+    flex-direction: column;
 }
 
 .battleship-panel {
-    height: 20px;
-    width: 20px;
+    height: 10vw;
+    width: 10vw;
     background-color: var(--main-plus-two);
     border-radius: 5px;
     margin: 1px; 

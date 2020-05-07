@@ -29,12 +29,6 @@ let shipIdentified;
 const playerOneRadarDivs = document.getElementById("playerOneRadar");
 const playerOneDisplayDivs = document.getElementById("playerOneDisplay");
 const targetDisplay = document.getElementsByClassName("battleship-target-display")[0];
-const boardArr = [
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null],
-    [null, null, null, null]
-];
 const ships = [
     {type: "cruiser", 
         length: 3, 
@@ -55,15 +49,35 @@ targetDisplay.addEventListener("click", function(e) {
 
 function initBs() {
     turnBs = 1; 
-    playerOneDisplay = boardArr;
-    playerOneRadar = boardArr;
-    playerTwoDisplay = boardArr; 
-    playerTwoRadar = boardArr;
     playerOneShips = ships;
     playerTwoShips = ships; 
+    addShips();
     renderBs(); 
 }
 
 function renderBs() {
-    console.log("Render")
+    console.log("Render");
+}
+
+function addShips() {       // for now, this is a set board. future dev will have random ship layout
+    const boardArr = [
+        [null, null, null, null],
+        [null, 1, 1, 1],
+        [null, null, null, null],
+        [null, null, null, null]
+    ];
+    const locationCoordinates = [
+        {"x": 1,
+        "y": 1},
+        {"x": 2,
+        "y": 1},
+        {"x": 3,
+        "y": 1},
+    ]
+    playerOneShips.locationCoordinates = locationCoordinates;
+    playerTwoShips.locationCoordinates = locationCoordinates;
+    playerOneDisplay = boardArr;
+    playerOneRadar = boardArr;
+    playerTwoDisplay = boardArr; 
+    playerTwoRadar = boardArr;
 }
