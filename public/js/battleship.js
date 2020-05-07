@@ -74,9 +74,8 @@ function renderBs(boardArr) {
 };
 
 function generateBoardColors(boardArr, rowIdx, colIdx) {
-    const radarDiv = document.getElementById(`x${rowIdx}y${colIdx}`);
-    const displayDiv = document.getElementById(`X${rowIdx}U${colIdx}`);
-    // console.log(boardArr[rowIdx][colIdx]);
+    const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); // rowIdx and colIdx transposed so that board matches array
+    const displayDiv = document.getElementById(`X${colIdx}U${rowIdx}`);
     radarDiv.setAttribute("style", `background-color: ${boardColors[boardArr[rowIdx][colIdx]]}`);
 }
 
