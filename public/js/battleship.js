@@ -53,27 +53,25 @@ targetDisplay.addEventListener("click", function(e) {
 
 function initBs() {
     turnBs = 1; 
-    // const boardArr = [
-    //     [null, null, null, null],
-    //     [null, 0, 0, 0],
-    //     [null, null, null, null],
-    //     [null, null, null, null]
-    // ]; // for now, this is a set board. future dev will have random ship layout
     createShips();
     addShipsToBoard();
-    renderBs(playerOneShipLayout);
+    renderBs(playerOneShipLayout, playerTwoShipLayout);
 }
 
-function renderBs(boardArr) {
-    for (let r = 0; r < boardArr.length; r++) {
+function renderBs(playerOneShipLayout, playerTwoShipLayout) {
+    parseColors(playerOneShipLayout);
+    parseColors(playerTwoShipLayout);
+};
+
+function parseColors(shipLayout) {
+    for (let r = 0; r < shipLayout.length; r++) {
         const rowIdx = r; 
-        for (let c = 0; c < boardArr[r].length; c++) {
+        for (let c = 0; c < shipLayout[r].length; c++) {
             const colIdx = c; 
-            generateBoardColors(boardArr, rowIdx, colIdx);
-            // generateBoardColors(playerOneShipLayout, rowIdx, colIdx)
+            generateBoardColors(shipLayout, rowIdx, colIdx);
         };
     };
-};
+}
 
 function generateBoardColors(boardArr, rowIdx, colIdx) {
         // rowIdx and colIdx transposed on these two so that board matches array
@@ -106,13 +104,20 @@ function createShips() {
 
 function addShipsToBoard() {      
     const direction = randomNumber(1);
+    const startingX = randomNumber(boardLength - 1);
+    const startingY = randomNumber(boardLength - 1);
     const boardArr = [
         [null, null, null, null],
-        [null, 0, 0, 0],
+        [null, null, null, null],
         [null, null, null, null],
         [null, null, null, null]
-    ];
-    boardArr[0][0] = "test";
+    ]; // for now, this is a set board. future dev will have random ship layout
+    playerOneShipLayout = boardArr;
+    playerTwoShipLayout = boardArr; 
+    // playerOneShipLayout[startingX][startingY];
+    
+    
+    // boardArr[0][0] = "test";
     // pick up here. above demostrates how to access the board. need to now distinguish between playerboards. Maybe just pass playerOneBoard and playerTwoBoard as arguments?
 
 
@@ -128,8 +133,7 @@ function addShipsToBoard() {
     // ]
     // playerOneShips.locationCoordinates = locationCoordinates;
     // playerTwoShips.locationCoordinates = locationCoordinates;
-    playerOneShipLayout = boardArr;
-    playerTwoShipLayout = boardArr; 
+    
 };
 
 function randomNumber (max) {
