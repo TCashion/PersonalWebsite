@@ -54,7 +54,7 @@ function initBs() {
     turnBs = 1; 
     const boardArr = [
         [null, null, null, null],
-        [null, null, null, null],
+        [null, 0, 0, 0],
         [null, null, null, null],
         [null, null, null, null]
     ]; // for now, this is a set board. future dev will have random ship layout
@@ -75,10 +75,19 @@ function renderBs(boardArr) {
 
 function generateBoardColors(boardArr, rowIdx, colIdx) {
         // rowIdx and colIdx transposed on these two so that board matches array
+    let boardArrPostion = boardArr[rowIdx][colIdx];
+    const divColor = boardColors[boardArrPostion];
     const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); 
     const displayDiv = document.getElementById(`X${colIdx}Y${rowIdx}`);
-    radarDiv.setAttribute("style", `background-color: ${boardColors[boardArr[rowIdx][colIdx]]}`); // player one radar
-    displayDiv.setAttribute("style", `background-color: ${boardColors[boardArr[rowIdx][colIdx]]}`); // player one ship display
+    // player one ship display
+    displayDiv.setAttribute("style", `background-color: ${divColor}`); 
+    
+    // player one radar: hides enemy ship colors 
+    if (boardArrPostion === 0) {
+        radarDiv.setAttribute("style", `background-color: ${boardColors["null"]}`); 
+    } else {
+        radarDiv.setAttribute("style", `background-color: ${divColor}`); 
+    }
 }
 
 function createShips() {
@@ -108,9 +117,9 @@ function addShipsToBoard(boardArr) {
     // playerOneShips.locationCoordinates = locationCoordinates;
     // playerTwoShips.locationCoordinates = locationCoordinates;
     playerOneDisplay = boardArr;
-    playerOneRadar = boardArr;
+    // playerOneRadar = boardArr;
     playerTwoDisplay = boardArr; 
-    playerTwoRadar = boardArr;
+    // playerTwoRadar = boardArr;
 };
 
 function randomNumber (max) {
