@@ -526,12 +526,21 @@ Gameboard Styles
     color: green; 
 }
 
+.battleship-panel {
+    height: 20px;
+    width: 20px;
+    background-color: var(--main-plus-two);
+    border-radius: 5px;
+    margin: 1px; 
+}
+
 .battleship-monitor, .battleship-target-display {
     background-color: var(--main-minus-two);
     height: 50vw; 
     width: 50vw; 
     margin: 0 auto 10px auto; 
     border-radius: 5px;
+    padding: 5px; 
 }
 
 .battleship-target-display {
