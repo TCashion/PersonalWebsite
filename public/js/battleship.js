@@ -4,7 +4,7 @@ const battleshipPlayerColors = {
     "1": "var(--main-minus-one)",         // player1
     "-1": "var(--main-color)"             // player2
 };
-const hitMissColors = {
+const boardColors = {
     "null": "var(--main-plus-one)",
     "miss": "var(--main-plus-two)",
     "hit": "orange",
@@ -54,17 +54,22 @@ function initBs() {
     turnBs = 1; 
     const boardArr = [
         [null, null, null, null],
-        [null, 1, 1, 1],
+        [null, "C", "C", "C"],
         [null, null, null, null],
         [null, null, null, null]
     ]; // for now, this is a set board. future dev will have random ship layout
     createShips();
     addShipsToBoard(boardArr);
-    renderBs(); 
+    renderBs(boardArr); 
 }
 
-function renderBs() {
-    console.log("Render");
+function renderBs(boardArr) {
+    for (let r = 0; r < boardArr.length; r++) {
+        const rowIdx = r; 
+        for (let c = 0; c < boardArr[r].length; c++) {
+            console.log(`row ${r} col ${c} is ${boardArr[r][c]}`);
+        };
+    };
 };
 
 function createShips() {
