@@ -74,9 +74,11 @@ function renderBs(boardArr) {
 };
 
 function generateBoardColors(boardArr, rowIdx, colIdx) {
-    const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); // rowIdx and colIdx transposed so that board matches array
-    const displayDiv = document.getElementById(`X${colIdx}U${rowIdx}`);
-    radarDiv.setAttribute("style", `background-color: ${boardColors[boardArr[rowIdx][colIdx]]}`);
+        // rowIdx and colIdx transposed on these two so that board matches array
+    const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); 
+    const displayDiv = document.getElementById(`X${colIdx}Y${rowIdx}`);
+    radarDiv.setAttribute("style", `background-color: ${boardColors[boardArr[rowIdx][colIdx]]}`); // player one radar
+    displayDiv.setAttribute("style", `background-color: ${boardColors[boardArr[rowIdx][colIdx]]}`); // player one ship display
 }
 
 function createShips() {
