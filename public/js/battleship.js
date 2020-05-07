@@ -6,8 +6,8 @@ const battleshipPlayerColors = {
 };
 const boardColors = {
     "null": "var(--main-plus-one)",
-    "miss": "var(--main-plus-two)",
-    "hit": "orange",
+    "-1": "var(--main-plus-two)",
+    "1": "orange",
     "0": "var(--main-minus-one)"
 };
 boardLength = 4;
