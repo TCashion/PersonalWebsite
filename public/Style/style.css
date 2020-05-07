@@ -537,6 +537,11 @@ Gameboard Styles
     display: flex; 
 }
 
+.battleship-label {
+    text-align: center;
+    color: var(--main-minus-one);
+}
+
 .battleship-gamecol {
     display: flex;
     flex-direction: column;
