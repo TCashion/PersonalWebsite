@@ -73,17 +73,17 @@ function parseColors(shipLayout) {
     };
 }
 
-function generateBoardColors(boardArr, rowIdx, colIdx) {
+function generateBoardColors(shipLayout, rowIdx, colIdx) {
         // rowIdx and colIdx transposed on these two so that board matches array
-    let boardArrPostion = boardArr[rowIdx][colIdx];
-    const divColor = boardColors[boardArrPostion];
+    let shipLayoutPostion = shipLayout[rowIdx][colIdx];
+    const divColor = boardColors[shipLayoutPostion];
     const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); 
     const displayDiv = document.getElementById(`X${colIdx}Y${rowIdx}`);
     // player one ship display
     displayDiv.setAttribute("style", `background-color: ${divColor}`); 
     
     // player one radar: hides enemy ship colors 
-    if (boardArrPostion === 0) {
+    if (shipLayout === 0) {
         radarDiv.setAttribute("style", `background-color: ${boardColors["null"]}`); 
     } else {
         radarDiv.setAttribute("style", `background-color: ${divColor}`); 
