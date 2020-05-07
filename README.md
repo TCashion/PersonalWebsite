@@ -248,6 +248,18 @@
                     END MODULE
 
 
+                    MODULE randomShipPlacement()
+                         for each ship, generate random number 0 or 1     
+                              this will determine whether ship will be vertical or horizontal 
+                         generate two more random numbers, one for the row coordinate and the column coordinate of the starting position
+                         IF the first number is 0, start parsing the ship from left to right
+                         IF the first number is 1, start parsing the ship from top to bottom
+                         While parsing the ship, check if any of the slots are already occupied (containe string identifier or 1, depending on development strategy TBD)
+                         If there's a conflict, try again
+                         Run the above until all ships are placed 
+                    END MODULE
+
+
                     MODULE randomShot() // generates random shot for playerTwo
                          IF engageAi = 1                    // meaning last shot was a hit
                               RUN opponentAi(aiHits[x], aiHits[y])
