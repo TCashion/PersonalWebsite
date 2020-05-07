@@ -14,8 +14,8 @@ boardLength = 4;
 
 /*----- app's state (variables) -----*/
 
-let bsTurn;
-let bsWinner;
+let turnBs;
+let winnerBs;
 let playerOneShips;
 let playerTwoShips;
 let playerTwoDisplay;
@@ -26,33 +26,44 @@ let shipIdentified;
 
 /*----- cached element references -----*/
 
-const playerOneRadar = document.getElementById("playerOneRadar");
-const playerOneDisplay = document.getElementById("playerOneDisplay");
-const targetDisplay = document.getElementsByClassName("battleship-target-display");
+const playerOneRadarDivs = document.getElementById("playerOneRadar");
+const playerOneDisplayDivs = document.getElementById("playerOneDisplay");
+const targetDisplay = document.getElementsByClassName("battleship-target-display")[0];
+const boardArr = [
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null],
+    [null, null, null, null]
+];
+const ships = [
+    {type: "cruiser", 
+        length: 3, 
+        hitSpaces: 0,
+        alive: true,
+        locationCoordinates: []
+    },
+];
 
 /*----- event listeners -----*/
 
+targetDisplay.addEventListener("click", function(e) {
+    e.preventDefault(); 
+    
+})
 
 /*----- functions -----*/
 
-// create gameboard on page load
-function createBoard(boardLength) {
-    const board = document.createElement("div");
-    for (let c = 0; c <= boardLength; c++){
-        
-    
-        for (let r = 0; r <= boardLength; r++) {
-            const div = document.createElement("div");
-            div.style.height = "20px";
-            div.style.width = "20px";
-            div.style.backgroundColor = "var(--main-plus-one)";
-            div.setAttribute("class", `r${r}c${c}`);
-            board.appendChild(div);
-        }
-        
-    }
-    playerOneRadar.append(board);
+function initBs() {
+    turnBs = 1; 
+    playerOneDisplay = boardArr;
+    playerOneRadar = boardArr;
+    playerTwoDisplay = boardArr; 
+    playerTwoRadar = boardArr;
+    playerOneShips = ships;
+    playerTwoShips = ships; 
+    renderBs(); 
 }
-createBoard(boardLength);
 
-// make a grid layout 
+function renderBs() {
+    console.log("Render")
+}
