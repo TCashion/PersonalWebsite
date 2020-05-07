@@ -53,6 +53,8 @@ targetDisplay.addEventListener("click", function(e) {
 
 function initBs() {
     turnBs = 1; 
+    playerOneShipLayout = defineBoard(playerOneShipLayout);
+    playerTwoShipLayout = defineBoard(playerTwoShipLayout);
     createShips();
     addShipsToBoard();
     renderBs(playerOneShipLayout, playerTwoShipLayout);
@@ -61,6 +63,16 @@ function initBs() {
 function renderBs(playerOneShipLayout, playerTwoShipLayout) {
     parseColors(playerOneShipLayout);
     parseColors(playerTwoShipLayout);
+};
+
+function defineBoard(playerXShipLayout) {
+    playerXShipLayout = [
+        [null, null, null, null],
+        [null, 0, 0, 0],
+        [null, null, null, null],
+        [null, null, null, null]
+    ];
+    return playerXShipLayout;
 };
 
 function parseColors(shipLayout) {
@@ -80,6 +92,7 @@ function generateBoardColors(shipLayout, rowIdx, colIdx) {
     const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); 
     const displayDiv = document.getElementById(`X${colIdx}Y${rowIdx}`);
     // player one ship display
+
     displayDiv.setAttribute("style", `background-color: ${divColor}`); 
     
     // player one radar: hides enemy ship colors 
@@ -106,39 +119,18 @@ function addShipsToBoard() {
     const direction = randomNumber(1);
     const startingX = randomNumber(boardLength - 1);
     const startingY = randomNumber(boardLength - 1);
-    const boardArr = [
-        [null, null, null, null],
-        [null, 0, 0, 0],
-        [null, null, null, null],
-        [null, null, null, null]
-    ]; // for now, this is a set board. future dev will have random ship layout
-    playerOneShipLayout = boardArr;
-    playerTwoShipLayout = boardArr; 
-    
-    
-    layoutCarrier(direction, startingX, startingY);
-    
-    // pick up here. above demostrates how to access the board. need to now distinguish between playerboards. Maybe just pass playerOneBoard and playerTwoBoard as arguments?
 
+    // pick up here. 
+    // layoutCarrier(direction, startingX, startingY);
 
-
-
-    // const locationCoordinates = [
-    //     {"x": 1,
-    //     "y": 1},
-    //     {"x": 2,
-    //     "y": 1},
-    //     {"x": 3,
-    //     "y": 1},
-    // ]
-    // playerOneShips.locationCoordinates = locationCoordinates;
-    // playerTwoShips.locationCoordinates = locationCoordinates;
-    
 };
 
+
+
 function layoutCarrier(direction, startingX, startingY) {
-    // to test
-    playerOneShipLayout[startingX][startingY] = 1;
+    // to test: currently the boards are still pointing to the same array... playerTwoShipLayout
+    // playerOneShipLayout[startingX][startingY] = 1;
+    playerTwoShipLayout[startingX][startingY] = -1;
 }
 
 function randomNumber (max) {
