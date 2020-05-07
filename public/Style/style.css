@@ -507,6 +507,13 @@ Gameboard Styles
     height: 35px; 
 }
 
+.sudoku-gamerow {
+    display: flex;
+    /* width: 300px; */
+    /* height: 100px; */
+    margin: 0 auto; 
+}
+
 .sudoku-panel {
     width: auto; 
     border: var(--main-minus-two) solid 1px;
