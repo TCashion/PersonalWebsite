@@ -69,6 +69,8 @@ function initBs() {
     playerOneShipLayout = defineBoard(playerOneShipLayout);
     playerTwoShipLayout = defineBoard(playerTwoShipLayout);
     addShipsToBoard();
+    updateShipObjects(1);
+    // updateShipObjects(-1);
     renderBs(playerOneShipLayout, playerTwoShipLayout);
 }
 
@@ -194,4 +196,24 @@ function parseShipVert(playerBoardToAddShip, startingColCoord, startingRowCoord,
         playerBoardToAddShip[startingColCoord + i][startingRowCoord] = ship.identifier;
     }
 };
+
+function updateShipObjects(player) {
+    let shipObjectToUpdate;
+    let shipLayoutToScan; 
+    if (player === 1) {
+        shipObjectToUpdate = playerOneShips;
+        shipLayoutToScan = playerOneShipLayout;
+    };
+    shipObjectToUpdate.forEach(function(ship) {
+        shipLayoutToScan.forEach(function(row) {
+            for (let col = 0; col < row.length; col++) {
+                if (row[col] === ship.identifier) {
+                    const rowIdx = shipLayoutToScan.indexOf(row);
+                    const colIdx = col; 
+                    console.log(rowIdx, colIdx, ship.identifier);
+                };
+            };
+        });
+    });
+}
 
