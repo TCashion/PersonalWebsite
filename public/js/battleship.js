@@ -9,10 +9,6 @@ const boardColors = {
     "-1": "var(--main-plus-two)",
     "1": "orange",
     "shipColor": "var(--main-minus-one)",
-    // "B": "var(--main-minus-one)",
-    // "C": "var(--main-minus-one)",
-    // "S": "var(--main-minus-one)",
-    // "D": "var(--main-minus-one)"
     shipFinder: function(cellValue) {
         if (typeof cellValue === "string") {
             return this.shipColor;
@@ -51,7 +47,6 @@ class Ship {
         this.alive = true;
     } 
 };
-
 
 
 /*----- event listeners -----*/
@@ -106,7 +101,6 @@ function matchArraysToDom(shipLayout) {
 function generateBoardColors(shipLayout, rowIdx, colIdx) {
     // rowIdx and colIdx transposed on these two so that board matches array
     let shipLayoutPositionValue = shipLayout[rowIdx][colIdx];
-    // const divColor = boardColors[shipLayoutPositionValue];
     const divColor = boardColors.shipFinder(shipLayoutPositionValue);
     const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); 
     const displayDiv = document.getElementById(`X${colIdx}Y${rowIdx}`);
