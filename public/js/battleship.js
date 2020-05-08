@@ -83,29 +83,29 @@ function matchArraysToDom(shipLayout) {
         const rowIdx = r; 
         for (let c = 0; c < shipLayout[r].length; c++) {
             const colIdx = c; 
-            // generateBoardColors(shipLayout, rowIdx, colIdx);
-            console.log(shipLayout) // this only returns playerTwoShipLayout
+            generateBoardColors(shipLayout, rowIdx, colIdx);
         };
     };
 }
 
 function generateBoardColors(shipLayout, rowIdx, colIdx) {
-        // rowIdx and colIdx transposed on these two so that board matches array
+    // rowIdx and colIdx transposed on these two so that board matches array
     let shipLayoutPosition = shipLayout[rowIdx][colIdx];
     const divColor = boardColors[shipLayoutPosition];
-    const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); // should point to playerTwoShipLayout. It does.
+    const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); 
     const displayDiv = document.getElementById(`X${colIdx}Y${rowIdx}`);
-    // should point to playerOneShipLayout ... currently points to playerTwo. Write and if statement that distinguishes this... ? 
-
-    displayDiv.setAttribute("style", `background-color: ${divColor}`); 
-    
-    // player one radar: hides enemy ship colors 
-    if (shipLayoutPosition === 0) {
-        radarDiv.setAttribute("style", `background-color: ${boardColors["null"]}`); 
-    } else {
-        radarDiv.setAttribute("style", `background-color: ${divColor}`); 
-    }
-}
+    if (shipLayout === playerOneShipLayout) {
+        displayDiv.setAttribute("style", `background-color: ${divColor}`); 
+    };
+    if (shipLayout === playerTwoShipLayout) {
+        // hides enemy ship colors from player one
+        if (shipLayoutPosition === 0) {
+            radarDiv.setAttribute("style", `background-color: ${boardColors["null"]}`); 
+        } else {
+            radarDiv.setAttribute("style", `background-color: ${divColor}`); 
+        };
+    };  
+};
 
 function createShips() {
     playerOneShips = [];
