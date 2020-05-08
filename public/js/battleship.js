@@ -232,7 +232,8 @@ function updateShipObjects(player) {
                     const colIdx = col; 
                     const coordObj = {
                         row: rowIdx,
-                        col: colIdx
+                        col: colIdx,
+                        hit: false
                     };
                     ship.boardLocation.push(coordObj);
                 };
@@ -257,7 +258,27 @@ function translateShot(shot) {
 
 function playerOneShot(shotArr) {
     console.log(shotArr);
+    let shotPlacement = playerTwoShipLayout[shotArr[0]][shotArr[1]];
+    if (typeof shotPlacement === "string") {
+        playerTwoShips.forEach(function(ship) {
+            ship.boardLocation.forEach(function(location) {
+                if (location.row === shotArr[0] && location.col === shotArr[1]) {
+                    location.row = shotArr[0];
+                    location.col = shotArr[1];
+                    location.hit = true; 
+                    ship.hitSpaces += 1;
+                };
+            });
+        });
+        playerTwoShipLayout[shotArr[0]][shotArr[1]] = 1;
+    };
+    turn *= -1;
+    render
 };
+
+function registerHit(player) {
+    
+}
 
 
 // MODULE takeShot(turn, xCoordinate, yCoordinate)      // (-1 = miss, 1 = hit)
