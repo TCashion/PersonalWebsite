@@ -54,12 +54,9 @@ targetDisplay.addEventListener("click", function(e) {
 function initBs() {
     turnBs = 1; 
     createShips();
-    // generate the layout array for each player
     playerOneShipLayout = defineBoard(playerOneShipLayout);
     playerTwoShipLayout = defineBoard(playerTwoShipLayout);
-    // adds ships in random layout to each - should this nest instead defineBoard?
     addShipsToBoard();
-    // renders board layouts on the screen
     renderBs(playerOneShipLayout, playerTwoShipLayout);
 }
 
@@ -70,10 +67,17 @@ function renderBs(playerOneShipLayout, playerTwoShipLayout) {
 
 function defineBoard(playerXShipLayout) {
     playerXShipLayout = [
-        [null, null, null, null],
-        [null, 0, 0, 0],
-        [null, null, null, null],
-        [null, null, null, null]
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null],
+        [null, null, null, null, null, null, null, null, null, null]
     ];
     return playerXShipLayout;
 };
@@ -120,18 +124,20 @@ function createShips() {
 };
 
 function addShipsToBoard() {      
-    const direction = randomNumber(1);
-    const startingX = randomNumber(boardLength - 1);
-    const startingY = randomNumber(boardLength - 1);
+    
 
     // pick up here. 
-    layoutCarrier(direction, startingX, startingY);
+    layoutCarrier(1);
+    layoutCarrier(-1);
 
 };
 
 
 
-function layoutCarrier(direction, startingX, startingY) {
+function layoutCarrier(player) {
+    const direction = randomNumber(1);
+    const startingX = randomNumber(boardLength - 1);
+    const startingY = randomNumber(boardLength - 1);
     // to test: currently the boards are still pointing to the same array... playerTwoShipLayout
     // playerOneShipLayout[startingX][startingY] = 1;
     // playerTwoShipLayout[startingX][startingY] = -1;

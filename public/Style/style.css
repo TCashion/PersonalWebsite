@@ -537,22 +537,25 @@ Gameboard Styles
     display: flex; 
 }
 
-.battleship-label {
-    text-align: center;
-    color: var(--main-minus-one);
-}
+
 
 .battleship-gamecol {
     display: flex;
     flex-direction: column;
 }
 
-.battleship-panel {
-    height: 10vw;
-    width: 10vw;
+.battleship-panel, .battleship-label {
+    height: 3.5vw;
+    width: 3.5vw;
     background-color: var(--main-plus-two);
     border-radius: 5px;
     margin: 1px; 
+}
+
+.battleship-label {
+    text-align: center;
+    color: var(--main-minus-one);
+    background-color: transparent;
 }
 
 .battleship-monitor, .battleship-target-display {
@@ -716,6 +719,15 @@ Media Queries
         grid-area: radar;
     }
 
+    .battleship-panel, .battleship-label {
+        height: 4vw;
+        width: 4vw;
+    }
+
+    .battleship-label {
+        padding: 1vw;
+        font-size: 1.8rem;
+    }
 
     .battleship-target-display {
         grid-area: target;
