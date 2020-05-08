@@ -8,7 +8,11 @@ const boardColors = {
     "null": "var(--main-plus-one)",
     "-1": "var(--main-plus-two)",
     "1": "orange",
-    "0": "var(--main-minus-one)"
+    "A": "var(--main-minus-one)",
+    "B": "var(--main-minus-one)",
+    "C": "var(--main-minus-one)",
+    "S": "var(--main-minus-one)",
+    "D": "var(--main-minus-one)"
 };
 boardLength = 10;
 
@@ -102,7 +106,7 @@ function generateBoardColors(shipLayout, rowIdx, colIdx) {
     };
     if (shipLayout === playerTwoShipLayout) {
         // hides enemy ship colors from player one
-        if (shipLayoutPosition === 0) {
+        if (typeof shipLayoutPosition === "string") {
             radarDiv.setAttribute("style", `background-color: ${boardColors["null"]}`); 
         } else {
             radarDiv.setAttribute("style", `background-color: ${divColor}`); 
@@ -124,45 +128,42 @@ function createShips() {
 
 function addShipsToBoard() {      
     playerOneShips.forEach(function(ship) {
-        layoutShip(1, ship.length)
+        layoutShip(1, ship)
     });
     playerOneShips.forEach(function(ship) {
-        layoutShip(-1, ship.length)
+        layoutShip(-1, ship)
     });
 };
 
-function layoutShip(player, shipLength) {
+function layoutShip(player, ship) {
     const direction = randomNumber(1);
-    const startingX = randomNumber(boardLength - shipLength);
-    const startingY = randomNumber(boardLength - shipLength);
+    const startingX = randomNumber(boardLength - ship.length);
+    const startingY = randomNumber(boardLength - ship.length);
     let playerBoardToAddShip;
     if (player === 1) playerBoardToAddShip = playerOneShipLayout;
     if (player === -1) playerBoardToAddShip = playerTwoShipLayout;
 
     if (direction === 1) {
-        parseShipVert(playerBoardToAddShip, startingX, startingY, shipLength);
+        parseShipVert(playerBoardToAddShip, startingX, startingY, ship);
     };
     if (direction === 0) {
-        parseShipHoriz(playerBoardToAddShip, startingX, startingY, shipLength);
+        parseShipHoriz(playerBoardToAddShip, startingX, startingY, ship);
     }
-
-    // to test: currently the boards are still pointing to the same array... playerTwoShipLayout
-    // playerBoardToAddShip[startingX][startingY] = 0;
 }
 
 function randomNumber (max) {
     return Math.round(Math.random()*Math.floor(max));
 }
 
-function parseShipVert(playerBoardToAddShip, startingX, startingY, shipLength) {
-    for (let i = 0; i < shipLength; i++) {
-        playerBoardToAddShip[startingX][startingY + i] = 0;
+function parseShipVert(playerBoardToAddShip, startingX, startingY, ship) {
+    for (let i = 0; i < ship.length; i++) {
+        playerBoardToAddShip[startingX][startingY + i] = ship.identifier;
     }
 };
 
-function parseShipHoriz(playerBoardToAddShip, startingX, startingY, shipLength) {
-    for (let i = 0; i < shipLength; i++) {
-        playerBoardToAddShip[startingX + i][startingY] = 0;
+function parseShipHoriz(playerBoardToAddShip, startingX, startingY, ship) {
+    for (let i = 0; i < ship.length; i++) {
+        playerBoardToAddShip[startingX + i][startingY] = ship.identifier;
     }
 };
 
