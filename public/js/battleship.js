@@ -33,8 +33,8 @@ let shipIdentified;
 
 /*----- cached element references -----*/
 
-const playerOneRadarDivs = document.getElementById("playerOneRadar");
-const playerOneDisplayDivs = document.getElementById("playerOneDisplay");
+const playerOneRadarDivEls = document.getElementById("playerOneRadar");
+const playerOneDisplayDivEls = document.getElementById("playerOneDisplay");
 const targetDisplay = document.getElementsByClassName("battleship-target-display")[0];
 const targetInput = document.getElementById("battleship-target-input");
 class Ship {
@@ -105,18 +105,18 @@ function matchArraysToDom(shipLayout) {
 function generateBoardColors(shipLayout, rowIdx, colIdx) {
     // rowIdx and colIdx transposed on these two so that board matches array
     let shipLayoutPositionValue = shipLayout[rowIdx][colIdx];
-    const divColor = boardColors.shipFinder(shipLayoutPositionValue);
-    const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); 
-    const displayDiv = document.getElementById(`X${colIdx}Y${rowIdx}`);
+    const divElColor = boardColors.shipFinder(shipLayoutPositionValue);
+    const radarDivEl = document.getElementById(`x${colIdx}y${rowIdx}`); 
+    const displayDivEl = document.getElementById(`X${colIdx}Y${rowIdx}`);
     if (shipLayout === playerOneShipLayout) {
-        displayDiv.setAttribute("style", `background-color: ${divColor}`); 
+        displayDivEl.setAttribute("style", `background-color: ${divElColor}`); 
     };
     if (shipLayout === playerTwoShipLayout) {
         // hides enemy ship colors from player one
         if (typeof shipLayoutPositionValue === "string") {
-            radarDiv.setAttribute("style", `background-color: ${boardColors["null"]}`); 
+            radarDivEl.setAttribute("style", `background-color: ${boardColors["null"]}`); 
         } else {
-            radarDiv.setAttribute("style", `background-color: ${divColor}`); 
+            radarDivEl.setAttribute("style", `background-color: ${divElColor}`); 
         };
     };  
 };
