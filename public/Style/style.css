@@ -533,11 +533,15 @@ Gameboard Styles
     color: green; 
 }
 
+#battleship-board {
+    font-family: 'Stardos Stencil', cursive;
+    font-weight: 300;
+    font-size: 1.6rem;
+}
+
 .battleship-monitor {
     display: flex; 
 }
-
-
 
 .battleship-gamecol {
     display: flex;
@@ -572,7 +576,7 @@ Gameboard Styles
     padding: 10px; 
 }
 
-.battleship-target-display > form > input{
+#battleship-target-input {
     width: 100%;
     font-size: 1.2rem;
 }
@@ -591,7 +595,10 @@ Gameboard Styles
     text-align: center;
 }
 
-
+#battleship-target-input, .battleship-button {
+    font-family: 'Stardos Stencil', cursive;
+    font-size: 1.4rem;
+}
 
 
 /* *************************************
