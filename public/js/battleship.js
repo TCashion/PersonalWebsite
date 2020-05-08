@@ -8,11 +8,19 @@ const boardColors = {
     "null": "var(--main-plus-one)",
     "-1": "var(--main-plus-two)",
     "1": "orange",
-    "A": "var(--main-minus-one)",
-    "B": "var(--main-minus-one)",
-    "C": "var(--main-minus-one)",
-    "S": "var(--main-minus-one)",
-    "D": "var(--main-minus-one)"
+    "shipColor": "var(--main-minus-one)",
+    // "B": "var(--main-minus-one)",
+    // "C": "var(--main-minus-one)",
+    // "S": "var(--main-minus-one)",
+    // "D": "var(--main-minus-one)"
+    shipFinder: function(cellValue) {
+        if (typeof cellValue === "string") {
+            return this.shipColor;
+        } else {
+            return this[cellValue];
+        }
+    }
+    
 };
 boardLength = 10;
 
@@ -97,8 +105,9 @@ function matchArraysToDom(shipLayout) {
 
 function generateBoardColors(shipLayout, rowIdx, colIdx) {
     // rowIdx and colIdx transposed on these two so that board matches array
-    let shipLayoutPosition = shipLayout[rowIdx][colIdx];
-    const divColor = boardColors[shipLayoutPosition];
+    let shipLayoutPositionValue = shipLayout[rowIdx][colIdx];
+    // const divColor = boardColors[shipLayoutPositionValue];
+    const divColor = boardColors.shipFinder(shipLayoutPositionValue);
     const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); 
     const displayDiv = document.getElementById(`X${colIdx}Y${rowIdx}`);
     if (shipLayout === playerOneShipLayout) {
@@ -106,7 +115,7 @@ function generateBoardColors(shipLayout, rowIdx, colIdx) {
     };
     if (shipLayout === playerTwoShipLayout) {
         // hides enemy ship colors from player one
-        if (typeof shipLayoutPosition === "string") {
+        if (typeof shipLayoutPositionValue === "string") {
             radarDiv.setAttribute("style", `background-color: ${boardColors["null"]}`); 
         } else {
             radarDiv.setAttribute("style", `background-color: ${divColor}`); 
