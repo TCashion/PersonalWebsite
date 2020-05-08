@@ -123,25 +123,46 @@ function createShips() {
 };
 
 function addShipsToBoard() {      
-    
-
-    // pick up here. 
-    layoutCarrier(1);
-    layoutCarrier(-1);
-
+    playerOneShips.forEach(function(ship) {
+        layoutShip(1, ship.length)
+    });
+    playerOneShips.forEach(function(ship) {
+        layoutShip(-1, ship.length)
+    });
 };
 
-
-
-function layoutCarrier(player) {
+function layoutShip(player, shipLength) {
     const direction = randomNumber(1);
-    const startingX = randomNumber(boardLength - 1);
-    const startingY = randomNumber(boardLength - 1);
+    const startingX = randomNumber(boardLength - shipLength);
+    const startingY = randomNumber(boardLength - shipLength);
+    let playerBoardToAddShip;
+    if (player === 1) playerBoardToAddShip = playerOneShipLayout;
+    if (player === -1) playerBoardToAddShip = playerTwoShipLayout;
+
+    if (direction === 1) {
+        parseShipVert(playerBoardToAddShip, startingX, startingY, shipLength);
+    };
+    if (direction === 0) {
+        parseShipHoriz(playerBoardToAddShip, startingX, startingY, shipLength);
+    }
+
     // to test: currently the boards are still pointing to the same array... playerTwoShipLayout
-    // playerOneShipLayout[startingX][startingY] = 1;
-    // playerTwoShipLayout[startingX][startingY] = -1;
+    // playerBoardToAddShip[startingX][startingY] = 0;
 }
 
 function randomNumber (max) {
     return Math.round(Math.random()*Math.floor(max));
 }
+
+function parseShipVert(playerBoardToAddShip, startingX, startingY, shipLength) {
+    for (let i = 0; i < shipLength; i++) {
+        playerBoardToAddShip[startingX][startingY + i] = 0;
+    }
+};
+
+function parseShipHoriz(playerBoardToAddShip, startingX, startingY, shipLength) {
+    for (let i = 0; i < shipLength; i++) {
+        playerBoardToAddShip[startingX + i][startingY] = 0;
+    }
+};
+
