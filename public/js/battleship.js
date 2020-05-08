@@ -164,17 +164,17 @@ function shipCountVerifier(playerXShipLayout) {
 
 function layoutShip(player, ship) {
     const direction = randomNumber(1);
-    const startingX = randomNumber(boardLength - ship.length);
-    const startingY = randomNumber(boardLength - ship.length);
+    let startingX = randomNumber(boardLength - ship.length);
+    let startingY = randomNumber(boardLength - ship.length);
     let playerBoardToAddShip;
     if (player === 1) playerBoardToAddShip = playerOneShipLayout;
     if (player === -1) playerBoardToAddShip = playerTwoShipLayout;
 
     if (direction === 1) {
-        parseShipVert(playerBoardToAddShip, startingX, startingY, ship);
+        parseShipHoriz(playerBoardToAddShip, startingX, startingY, ship);
     };
     if (direction === 0) {
-        parseShipHoriz(playerBoardToAddShip, startingX, startingY, ship);
+        parseShipVert(playerBoardToAddShip, startingX, startingY, ship);
     }
 }
 
@@ -182,13 +182,13 @@ function randomNumber (max) {
     return Math.round(Math.random()*Math.floor(max));
 }
 
-function parseShipVert(playerBoardToAddShip, startingX, startingY, ship) {
+function parseShipHoriz(playerBoardToAddShip, startingX, startingY, ship) {
     for (let i = 0; i < ship.length; i++) {
         playerBoardToAddShip[startingX][startingY + i] = ship.identifier;
     }
 };
 
-function parseShipHoriz(playerBoardToAddShip, startingX, startingY, ship) {
+function parseShipVert(playerBoardToAddShip, startingX, startingY, ship) {
     for (let i = 0; i < ship.length; i++) {
         playerBoardToAddShip[startingX + i][startingY] = ship.identifier;
     }
