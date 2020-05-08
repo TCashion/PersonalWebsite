@@ -10,7 +10,7 @@ const boardColors = {
     "1": "orange",
     "0": "var(--main-minus-one)"
 };
-boardLength = 4;
+boardLength = 10;
 
 /*----- app's state (variables) -----*/
 
@@ -67,7 +67,6 @@ function renderBs(playerOneShipLayout, playerTwoShipLayout) {
 
 function defineBoard(playerXShipLayout) {
     playerXShipLayout = [
-        [null, null, null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null, null, null],
         [null, null, null, null, null, null, null, null, null, null],
