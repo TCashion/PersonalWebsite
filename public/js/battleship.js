@@ -164,17 +164,17 @@ function shipCountVerifier(playerXShipLayout) {
 
 function layoutShip(player, ship) {
     const direction = randomNumber(1);
-    let startingX = randomNumber(boardLength - ship.length);
-    let startingY = randomNumber(boardLength - ship.length);
+    let startingColCoord = randomNumber(boardLength - ship.length);
+    let startingRowCoord = randomNumber(boardLength - ship.length);
     let playerBoardToAddShip;
     if (player === 1) playerBoardToAddShip = playerOneShipLayout;
     if (player === -1) playerBoardToAddShip = playerTwoShipLayout;
 
     if (direction === 1) {
-        parseShipHoriz(playerBoardToAddShip, startingX, startingY, ship);
+        parseShipHoriz(playerBoardToAddShip, startingColCoord, startingRowCoord, ship);
     };
     if (direction === 0) {
-        parseShipVert(playerBoardToAddShip, startingX, startingY, ship);
+        parseShipVert(playerBoardToAddShip, startingColCoord, startingRowCoord, ship);
     }
 }
 
@@ -182,15 +182,15 @@ function randomNumber (max) {
     return Math.round(Math.random()*Math.floor(max));
 }
 
-function parseShipHoriz(playerBoardToAddShip, startingX, startingY, ship) {
+function parseShipHoriz(playerBoardToAddShip, startingColCoord, startingRowCoord, ship) {
     for (let i = 0; i < ship.length; i++) {
-        playerBoardToAddShip[startingX][startingY + i] = ship.identifier;
+        playerBoardToAddShip[startingColCoord][startingRowCoord + i] = ship.identifier;
     }
 };
 
-function parseShipVert(playerBoardToAddShip, startingX, startingY, ship) {
+function parseShipVert(playerBoardToAddShip, startingColCoord, startingRowCoord, ship) {
     for (let i = 0; i < ship.length; i++) {
-        playerBoardToAddShip[startingX + i][startingY] = ship.identifier;
+        playerBoardToAddShip[startingColCoord + i][startingRowCoord] = ship.identifier;
     }
 };
 
