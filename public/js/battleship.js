@@ -132,8 +132,13 @@ function createShips() {
     const cruiser = new Ship("cruiser", "C", 3, 0 ,true);
     const submarine = new Ship("submarine", "S", 3, 0 ,true);
     const destroyer = new Ship("destroyer", "D", 2, 0 ,true);
+    const carrierTwo = new Ship("carrier", "A", 5, 0 ,true);
+    const battleshipTwo = new Ship("battleship", "B", 4, 0 ,true);
+    const cruiserTwo = new Ship("cruiser", "C", 3, 0 ,true);
+    const submarineTwo = new Ship("submarine", "S", 3, 0 ,true);
+    const destroyerTwo = new Ship("destroyer", "D", 2, 0 ,true);
     playerOneShips.push(carrier, battleship, cruiser, submarine, destroyer);
-    playerTwoShips.push(carrier, battleship, cruiser, submarine, destroyer);
+    playerTwoShips.push(carrierTwo, battleshipTwo, cruiserTwo, submarineTwo, destroyerTwo);
 };
 
 // adds ships to player board data objects
@@ -148,7 +153,7 @@ function addShipsToBoard() {
             playerOneShips.forEach((ship) => layoutShip(1, ship));
             playerTwoShips.forEach((ship) => layoutShip(-1, ship));
         }
-    } while (shipCountVerifier(playerOneShipLayout) < 17 || shipCountVerifier(playerTwoShipLayout) < 17)
+    } while (shipCountVerifier(playerOneShipLayout) < 17 || shipCountVerifier(playerTwoShipLayout) < 17);
 };
 
 function shipCountVerifier(playerXShipLayout) {
@@ -203,8 +208,7 @@ function updateShipObjects(player) {
     if (player === 1) {
         shipArrayToUpdate = playerOneShips;
         shipLayoutToScan = playerOneShipLayout;
-    };
-    if (player === -1) {
+    } else {
         shipArrayToUpdate = playerTwoShips;
         shipLayoutToScan = playerTwoShipLayout;
     };
@@ -214,7 +218,12 @@ function updateShipObjects(player) {
                 if (row[col] === ship.identifier) {
                     const rowIdx = shipLayoutToScan.indexOf(row);
                     const colIdx = col; 
-                    console.log(rowIdx, colIdx, ship.identifier);
+                    // console.log(rowIdx, colIdx, ship.identifier);
+                    const coordObj = {
+                        row: rowIdx,
+                        col: colIdx
+                    };
+                    ship.boardLocation.push(coordObj);
                 };
             };
         });
