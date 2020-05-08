@@ -158,18 +158,19 @@ function shipCountVerifier(playerXShipLayout) {
 
 function layoutShip(player, ship) {
     const direction = randomNumber(1);
-    let startingColCoord = randomNumber(boardLength - ship.length);
-    let startingRowCoord = randomNumber(boardLength - ship.length);
     let playerBoardToAddShip;
     if (player === 1) playerBoardToAddShip = playerOneShipLayout;
     if (player === -1) playerBoardToAddShip = playerTwoShipLayout;
-
     if (direction === 1) {
+        let startingColCoord = randomNumber(boardLength - 1);
+        let startingRowCoord = randomNumber(boardLength - ship.length - 1);
         parseShipHoriz(playerBoardToAddShip, startingColCoord, startingRowCoord, ship);
     };
     if (direction === 0) {
+        let startingColCoord = randomNumber(boardLength - ship.length - 1);
+        let startingRowCoord = randomNumber(boardLength - 1);
         parseShipVert(playerBoardToAddShip, startingColCoord, startingRowCoord, ship);
-    }
+    };
 }
 
 function randomNumber (max) {
