@@ -38,12 +38,13 @@ const playerOneDisplayDivEls = document.getElementById("playerOneDisplay");
 const targetDisplay = document.getElementsByClassName("battleship-target-display")[0];
 const targetInput = document.getElementById("battleship-target-input");
 class Ship {
-    constructor(type, identifier, length, hitSpaces, alive) {
+    constructor(type, identifier, length, hitSpaces) {
         this.type = type; 
         this.identifier = identifier;
         this.length = length; 
         this.hitSpaces = hitSpaces;
         this.alive = true;
+        this.boardLocation = [];
     } 
 };
 
@@ -185,6 +186,7 @@ function parseShipHoriz(playerBoardToAddShip, startingColCoord, startingRowCoord
     for (let i = 0; i < ship.length; i++) {
         playerBoardToAddShip[startingColCoord][startingRowCoord + i] = ship.identifier;
     }
+
 };
 
 function parseShipVert(playerBoardToAddShip, startingColCoord, startingRowCoord, ship) {
