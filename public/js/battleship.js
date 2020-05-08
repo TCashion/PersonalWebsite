@@ -80,7 +80,7 @@ function defineBoard(playerXShipLayout) {
     ];
     return playerXShipLayout;
 };
-
+ 
 function matchArraysToDom(shipLayout) {
     for (let r = 0; r < shipLayout.length; r++) {
         const rowIdx = r; 
