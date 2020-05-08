@@ -135,9 +135,19 @@ function createShips() {
     playerTwoShips.push(carrier, battleship, cruiser, submarine, destroyer);
 };
 
-function addShipsToBoard() {      
-    playerOneShips.forEach((ship) => layoutShip(1, ship));
-    playerTwoShips.forEach((ship) => layoutShip(-1, ship));
+// adds ships to player board data objects
+function addShipsToBoard() {     
+    do {
+        if (shipCountVerifier(playerOneShipLayout) === 0) {
+            playerOneShips.forEach((ship) => layoutShip(1, ship));
+            playerTwoShips.forEach((ship) => layoutShip(-1, ship));
+        } else {
+            playerOneShipLayout = defineBoard(playerOneShipLayout);
+            playerTwoShipLayout = defineBoard(playerTwoShipLayout);
+            playerOneShips.forEach((ship) => layoutShip(1, ship));
+            playerTwoShips.forEach((ship) => layoutShip(-1, ship));
+        }
+    } while (shipCountVerifier(playerOneShipLayout) < 17 || shipCountVerifier(playerTwoShipLayout) < 17)
 };
 
 function shipCountVerifier(playerXShipLayout) {
