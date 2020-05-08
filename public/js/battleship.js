@@ -18,7 +18,7 @@ const boardColors = {
     }
 };
 boardLength = 10;
-const inputRegEx = /[A-z][0-9]/;
+const inputRegEx = /[A-Ja-j][1][0]|[A-Ja-j][1-9]\b/g;
 
 /*----- app's state (variables) -----*/
 
@@ -58,8 +58,9 @@ targetDisplay.addEventListener("click", function(e) {
     if (eventTarget === "battleship-render-button") initBs();
     if (eventTarget === "battleship-fire-button") {
         if (turnBs === 1 && inputRegEx.test(targetInput.value)) {
+            const shot = targetInput.value; 
             console.log("valid shot");
-            targetInput.value = "";
+            targetInput.value = ""; 
         } else {
             alert("Not a valid shot");
         };
