@@ -18,6 +18,7 @@ const boardColors = {
     }
 };
 boardLength = 10;
+const inputRegEx = /[A-z][0-9]/;
 
 /*----- app's state (variables) -----*/
 
@@ -54,10 +55,14 @@ class Ship {
 targetDisplay.addEventListener("click", function(e) {
     e.preventDefault(); 
     const eventTarget = e.target.id;
-    console.log(eventTarget);
     if (eventTarget === "battleship-render-button") initBs();
     if (eventTarget === "battleship-fire-button") {
-        console.log(targetInput.value);
+        if (turnBs === 1 && inputRegEx.test(targetInput.value)) {
+            console.log("valid shot");
+            targetInput.value = "";
+        } else {
+            alert("Not a valid shot");
+        };
     };
 });
 
@@ -232,5 +237,46 @@ function updateShipObjects(player) {
             };
         });
     });
+};
+
+function playerOneShot(shotCoordinates) {
+
 }
 
+
+// MODULE takeShot(turn, xCoordinate, yCoordinate)      // (-1 = miss, 1 = hit)
+//         IF turn = 1
+//             update playerTwoBoard at position (xCoordinate, yCoordinate)
+//                 If playerTwoBoard(xCoordinate, yCoordinate) = null
+//                     UPDATE to -1 (miss)     
+//                     RENDER() board 
+//                     checkWinner()
+//                     CHANGE turn (turn *= -1)     
+//                 If playerTwoBoard(xCoordinate, yCoordinate) = 0
+//                     UPDATE to 1 (hit)     
+//                     trackHits(-1)      
+//                     RENDER() board
+//                     checkWinner()
+//                     CHANGE turn
+//                 If playerTwoBoard(xCoordinate, yCoordinate) = 1 or -1
+//                     ALERT "You've already tried to shoot there!"
+//                     CLEAR input form and wait for playerOne to try again        
+//         ELSE IF turn = -1
+//                 If playerOneBoard(xCoordinate, yCoordinate) = null
+//                     UPDATE to -1 (miss)   
+//                     RENDER() board        
+//                     CHANGE turn
+//                 If playerOneBoard(xCoordinate, yCoordinate) = 0
+//                     UPDATE to 1 (hit)    
+//                     trackHits(1)       
+//                     RENDER() board
+//                     playerTwoHit = 1 
+//                     engageAi = 1
+//                     aiHits = {
+//                             hits: (xCoordinate, yCoordinate)
+//                     }
+//                     CHANGE turn
+//                 If playerOneBoard(xCoordinate, yCoordinate) = 1 or -1
+//                     no change to board
+//                     RUN randomShot() again 
+// END MODULE
