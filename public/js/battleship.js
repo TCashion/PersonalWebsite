@@ -16,7 +16,6 @@ const boardColors = {
             return this[cellValue];
         }
     }
-    
 };
 boardLength = 10;
 
@@ -37,6 +36,7 @@ let shipIdentified;
 const playerOneRadarDivs = document.getElementById("playerOneRadar");
 const playerOneDisplayDivs = document.getElementById("playerOneDisplay");
 const targetDisplay = document.getElementsByClassName("battleship-target-display")[0];
+const targetInput = document.getElementById("battleship-target-input");
 class Ship {
     constructor(type, identifier, length, hitSpaces, alive) {
         this.type = type; 
@@ -53,7 +53,11 @@ class Ship {
 targetDisplay.addEventListener("click", function(e) {
     e.preventDefault(); 
     const eventTarget = e.target.id;
+    console.log(eventTarget);
     if (eventTarget === "battleship-render-button") initBs();
+    if (eventTarget === "battleship-fire-button") {
+        console.log(targetInput.value);
+    };
 });
 
 /*----- functions -----*/
