@@ -70,7 +70,7 @@ function initBs() {
     playerTwoShipLayout = defineBoard(playerTwoShipLayout);
     addShipsToBoard();
     updateShipObjects(1);
-    // updateShipObjects(-1);
+    updateShipObjects(-1);
     renderBs(playerOneShipLayout, playerTwoShipLayout);
 }
 
@@ -198,13 +198,17 @@ function parseShipVert(playerBoardToAddShip, startingColCoord, startingRowCoord,
 };
 
 function updateShipObjects(player) {
-    let shipObjectToUpdate;
+    let shipArrayToUpdate;
     let shipLayoutToScan; 
     if (player === 1) {
-        shipObjectToUpdate = playerOneShips;
+        shipArrayToUpdate = playerOneShips;
         shipLayoutToScan = playerOneShipLayout;
     };
-    shipObjectToUpdate.forEach(function(ship) {
+    if (player === -1) {
+        shipArrayToUpdate = playerTwoShips;
+        shipLayoutToScan = playerTwoShipLayout;
+    };
+    shipArrayToUpdate.forEach(function(ship) {
         shipLayoutToScan.forEach(function(row) {
             for (let col = 0; col < row.length; col++) {
                 if (row[col] === ship.identifier) {
