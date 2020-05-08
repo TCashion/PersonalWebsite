@@ -18,6 +18,7 @@ const boardColors = {
     }
 };
 boardLength = 10;
+const alphabet = ["A","B","C","D","E","F","G","H","I","J"];
 const inputRegEx = /[A-Ja-j][1][0]|[A-Ja-j][1-9]\b/g;
 
 /*----- app's state (variables) -----*/
@@ -59,8 +60,9 @@ targetDisplay.addEventListener("click", function(e) {
     if (eventTarget === "battleship-fire-button") {
         if (turnBs === 1 && inputRegEx.test(targetInput.value)) {
             const shot = targetInput.value; 
-            console.log("valid shot");
             targetInput.value = ""; 
+            translateShot(shot);
+            playerOneShot(shot);
         } else {
             alert("Not a valid shot");
         };
@@ -240,7 +242,21 @@ function updateShipObjects(player) {
     });
 };
 
-function playerOneShot(shotCoordinates) {
+function translateShot(shot) {
+    let shotArr = shot.split("");
+    const shotRowIdx = alphabet.indexOf(shotArr[0].toUpperCase()); 
+    let shotColIdx;
+    if (shotArr.length === 3) {
+        const numberArr = [shotArr[1],shotArr[2]];
+        shotColIdx = parseInt(numberArr.join("")) - 1;
+    } else {
+        shotColIdx = parseInt(shotArr[1]) - 1;
+    };
+    shotArr = [shotRowIdx, shotColIdx];
+    return shotArr; 
+};  
+
+function playerOneShot(shotArr) {
 
 }
 
