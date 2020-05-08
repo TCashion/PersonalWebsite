@@ -28,7 +28,6 @@ let playerOneShips;
 let playerTwoShips;
 let playerOneShipLayout;
 let playerTwoShipLayout;
-// let playerTwoRadar; // doesn't do anything?? 
 let engageAi;                 
 let aiHits;
 let shipIdentified;
@@ -53,8 +52,9 @@ class Ship {
 
 targetDisplay.addEventListener("click", function(e) {
     e.preventDefault(); 
-    
-})
+    const eventTarget = e.target.id;
+    if (eventTarget === "battleship-render-button") initBs();
+});
 
 /*----- functions -----*/
 
