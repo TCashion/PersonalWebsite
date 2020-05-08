@@ -729,6 +729,8 @@ Media Queries
     .battleship-panel, .battleship-label {
         height: 4vw;
         width: 4vw;
+        max-width: 55px;
+        max-height: 55px;
     }
 
     .battleship-label {

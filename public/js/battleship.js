@@ -61,8 +61,7 @@ targetDisplay.addEventListener("click", function(e) {
         if (turnBs === 1 && inputRegEx.test(targetInput.value)) {
             const shot = targetInput.value; 
             targetInput.value = ""; 
-            translateShot(shot);
-            playerOneShot(shot);
+            playerOneShot(translateShot(shot));
         } else {
             alert("Not a valid shot");
         };
@@ -257,8 +256,8 @@ function translateShot(shot) {
 };  
 
 function playerOneShot(shotArr) {
-
-}
+    console.log(shotArr);
+};
 
 
 // MODULE takeShot(turn, xCoordinate, yCoordinate)      // (-1 = miss, 1 = hit)
