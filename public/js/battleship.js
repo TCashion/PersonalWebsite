@@ -136,13 +136,21 @@ function createShips() {
 };
 
 function addShipsToBoard() {      
-    playerOneShips.forEach(function(ship) {
-        layoutShip(1, ship)
-    });
-    playerOneShips.forEach(function(ship) {
-        layoutShip(-1, ship)
-    });
+    playerOneShips.forEach((ship) => layoutShip(1, ship));
+    playerTwoShips.forEach((ship) => layoutShip(-1, ship));
 };
+
+function shipCountVerifier(playerXShipLayout) {
+    let shipCounter = 0;  
+    playerXShipLayout.forEach(function(row) {
+        row.forEach(function(cellValue) {
+            if (typeof cellValue === "string") {
+                shipCounter += 1;
+            }; 
+        });
+    });
+    return shipCounter;
+}
 
 function layoutShip(player, ship) {
     const direction = randomNumber(1);
