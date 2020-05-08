@@ -53,16 +53,19 @@ targetDisplay.addEventListener("click", function(e) {
 
 function initBs() {
     turnBs = 1; 
+    createShips();
+    // generate the layout array for each player
     playerOneShipLayout = defineBoard(playerOneShipLayout);
     playerTwoShipLayout = defineBoard(playerTwoShipLayout);
-    createShips();
+    // adds ships in random layout to each - should this nest instead defineBoard?
     addShipsToBoard();
+    // renders board layouts on the screen
     renderBs(playerOneShipLayout, playerTwoShipLayout);
 }
 
 function renderBs(playerOneShipLayout, playerTwoShipLayout) {
-    parseColors(playerOneShipLayout);
-    parseColors(playerTwoShipLayout);
+    matchArraysToDom(playerOneShipLayout);
+    matchArraysToDom(playerTwoShipLayout);
 };
 
 function defineBoard(playerXShipLayout) {
@@ -75,12 +78,13 @@ function defineBoard(playerXShipLayout) {
     return playerXShipLayout;
 };
 
-function parseColors(shipLayout) {
+function matchArraysToDom(shipLayout) {
     for (let r = 0; r < shipLayout.length; r++) {
         const rowIdx = r; 
         for (let c = 0; c < shipLayout[r].length; c++) {
             const colIdx = c; 
-            generateBoardColors(shipLayout, rowIdx, colIdx);
+            // generateBoardColors(shipLayout, rowIdx, colIdx);
+            console.log(shipLayout) // this only returns playerTwoShipLayout
         };
     };
 }
@@ -89,9 +93,9 @@ function generateBoardColors(shipLayout, rowIdx, colIdx) {
         // rowIdx and colIdx transposed on these two so that board matches array
     let shipLayoutPosition = shipLayout[rowIdx][colIdx];
     const divColor = boardColors[shipLayoutPosition];
-    const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); 
+    const radarDiv = document.getElementById(`x${colIdx}y${rowIdx}`); // should point to playerTwoShipLayout. It does.
     const displayDiv = document.getElementById(`X${colIdx}Y${rowIdx}`);
-    // player one ship display
+    // should point to playerOneShipLayout ... currently points to playerTwo. Write and if statement that distinguishes this... ? 
 
     displayDiv.setAttribute("style", `background-color: ${divColor}`); 
     
@@ -121,7 +125,7 @@ function addShipsToBoard() {
     const startingY = randomNumber(boardLength - 1);
 
     // pick up here. 
-    // layoutCarrier(direction, startingX, startingY);
+    layoutCarrier(direction, startingX, startingY);
 
 };
 
@@ -130,7 +134,7 @@ function addShipsToBoard() {
 function layoutCarrier(direction, startingX, startingY) {
     // to test: currently the boards are still pointing to the same array... playerTwoShipLayout
     // playerOneShipLayout[startingX][startingY] = 1;
-    playerTwoShipLayout[startingX][startingY] = -1;
+    // playerTwoShipLayout[startingX][startingY] = -1;
 }
 
 function randomNumber (max) {
