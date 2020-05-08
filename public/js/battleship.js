@@ -94,7 +94,8 @@ function defineBoard(playerXShipLayout) {
     ];
     return playerXShipLayout;
 };
- 
+
+// iterates through each cell in the DOM and renders the colors of the board based on current data
 function matchArraysToDom(shipLayout) {
     for (let r = 0; r < shipLayout.length; r++) {
         const rowIdx = r; 
@@ -124,6 +125,7 @@ function generateBoardColors(shipLayout, rowIdx, colIdx) {
     };  
 };
 
+// creates each player's ship data objects
 function createShips() {
     playerOneShips = [];
     playerTwoShips= [];
@@ -156,6 +158,7 @@ function addShipsToBoard() {
     } while (shipCountVerifier(playerOneShipLayout) < 17 || shipCountVerifier(playerTwoShipLayout) < 17);
 };
 
+// ensures that ships do not overlap on board
 function shipCountVerifier(playerXShipLayout) {
     let shipCounter = 0;  
     playerXShipLayout.forEach(function(row) {
@@ -168,6 +171,7 @@ function shipCountVerifier(playerXShipLayout) {
     return shipCounter;
 }
 
+// randomly lays ships out on board 
 function layoutShip(player, ship) {
     const direction = randomNumber(1);
     let playerBoardToAddShip;
@@ -202,6 +206,7 @@ function parseShipVert(playerBoardToAddShip, startingColCoord, startingRowCoord,
     }
 };
 
+// updates the data in each player's ship objects, according to ship placements
 function updateShipObjects(player) {
     let shipArrayToUpdate;
     let shipLayoutToScan; 
@@ -218,7 +223,6 @@ function updateShipObjects(player) {
                 if (row[col] === ship.identifier) {
                     const rowIdx = shipLayoutToScan.indexOf(row);
                     const colIdx = col; 
-                    // console.log(rowIdx, colIdx, ship.identifier);
                     const coordObj = {
                         row: rowIdx,
                         col: colIdx
