@@ -509,8 +509,6 @@ Gameboard Styles
 
 .sudoku-gamerow {
     display: flex;
-    /* width: 300px; */
-    /* height: 100px; */
     margin: 0 auto; 
 }
 
@@ -537,10 +535,24 @@ Gameboard Styles
     font-family: 'Stardos Stencil', cursive;
     font-weight: 300;
     font-size: 1.6rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.battleship-row {
+    display: flex; 
+}
+
+.battleship-row:last-of-type {
+    flex-direction: column;
 }
 
 .battleship-monitor {
     display: flex; 
+}
+
+#player-one-radar .battleship-panel:hover {
+    border: solid 1px var(--main-plus-two); 
 }
 
 .battleship-gamecol {
@@ -549,11 +561,20 @@ Gameboard Styles
 }
 
 .battleship-panel, .battleship-label {
-    height: 3.5vw;
-    width: 3.5vw;
+    height: 4.5vw;
+    width: 4.5vw;
     background-color: var(--main-plus-two);
     border-radius: 5px;
     margin: 1px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.battleship-panel {
+    text-align: center;
+    font-size: 0.8rem;
+    padding-top: 20%;
 }
 
 .battleship-label {
@@ -562,18 +583,75 @@ Gameboard Styles
     background-color: transparent;
 }
 
-.battleship-monitor, .battleship-target-display {
+.battleship-monitor, .battleship-target-display, .battleship-monitor-label, .battleship-status-display, .audio-toggle {
     background-color: var(--main-minus-two);
-    height: 50vw; 
-    width: 50vw; 
+    height: 60vw; 
+    width: 60vw; 
     margin: 0 auto 10px auto; 
     border-radius: 5px;
     padding: 5px; 
 }
 
-.battleship-target-display {
+.battleship-status-display {
+    display: flex;   
+    flex-direction: column; 
+}
+
+.battleship-status-display h4, .audio-toggle h4 {
+    display: inline-block;
+}
+
+.ship-status-indicator {
+    background-color: var(--main-plus-two);
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    display: inline-block;
+    float: right; 
+    margin: 2px; 
+}
+
+.audio-toggle {
+    display: flex;
+    justify-content: center;
+}
+
+.audio-toggle-radio {
+    height: 20px;
+    margin: 10px;
+    width: 20px; 
+}
+
+.battleship-monitor-label {
     height: auto;
+    width: 15vw;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.battleship-monitor-label > h2 {
+    font-size: 5vw; 
+    margin: 0;
+}
+
+.battleship-target-display, .battleship-status-display, .audio-toggle {
+    height: auto;
+    width: 78vw;
     padding: 10px; 
+}
+
+.audio-toggle-label {
+    height: 20px;
+    margin: 8px;
+    line-height: 20px;
+}
+
+#battleship-input-form > label {
+    display: none; 
+    color: red; 
 }
 
 #battleship-target-input {
@@ -599,6 +677,87 @@ Gameboard Styles
     font-family: 'Stardos Stencil', cursive;
     font-size: 1rem;
 }
+
+
+/* *************************************
+Battleship Animations
+**************************************** */
+
+.fade-to-miss {
+    animation-duration: 0.35s;
+    animation-name: fade-to-miss;
+    background-color: var(--main-plus-two); 
+}
+
+.fade-to-water {
+    animation-duration: 0.35s;
+    animation-name: fade-to-water;
+    background-color: var(--main-plus-one); 
+}
+  
+.fade-to-ship {
+    animation-duration: 0.35s;
+    animation-name: fade-to-water;
+    background-color: var(--main-minus-one); 
+}
+  
+.fade-to-orange {
+    animation-duration: 0.35s;
+    animation-name: fade-to-orange;
+    background-color: orange; 
+}
+  
+.fade-to-red {
+    animation-duration: 0.35s;
+    animation-name: fade-to-red;
+    background-color: red; 
+}
+  
+@keyframes fade-to-orange {
+    from {
+        background-color: var(--main-plus-one);
+    }
+    to {
+        background-color: orange; 
+    }
+}
+  
+@keyframes fade-to-red {
+    from {
+        background-color: orange;
+    }
+    to {
+        background-color: red; 
+    }
+}
+  
+@keyframes fade-to-water {
+    from {
+        background-color: var(--main-plus-two);
+    }
+    to {
+        background-color: var(--main-plus-one); 
+    }
+}
+  
+@keyframes fade-to-ship {
+    from {
+        background-color: var(--main-plus-two);
+    }
+    to {
+        background-color: var(--main-minus-one); 
+    }
+}
+
+@keyframes fade-to-miss {
+    from {
+        background-color: var(--main-plus-one);
+    }
+    to {
+        background-color: var(--main-plus-two); 
+    }
+}
+
 
 
 /* *************************************
@@ -704,65 +863,139 @@ Media Queries
     }
 }
 
-/* battleship done from mobile-frist design */
+/* for medium screens */
 @media (min-width: 768px) {
 
-    #battleship-board {
-        display: grid;
-        grid-template-columns: 5fr 3fr;
-        grid-template-rows: 1fr 1fr;
-        grid-template-areas: 
-        " radar . "
-        " display target ";
-    }
-
     .battleship-monitor {
-        max-width: 650px;
-        max-height: 650px;
-        grid-area: display;
+        height: 450px;
+        width: 450px;
     }
 
-    .battleship-monitor:first-of-type {
-        grid-area: radar;
+    .battleship-monitor-label {
+        width: 10vw;
+        margin-right: 5px;
     }
 
-    .battleship-panel, .battleship-label {
-        height: 4vw;
-        width: 4vw;
-        max-width: 55px;
-        max-height: 55px;
+    .battleship-monitor-label > h2 {
+        font-size: 4rem;
     }
 
     .battleship-label {
-        padding: 1vw;
         font-size: 1.8rem;
     }
 
     .battleship-target-display {
         grid-area: target;
-        width: auto; 
-        max-height: 150px;
+        max-height: 250px;
+        min-width: 250px;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: left;
     }
 
     .battleship-target-display > form {
         margin: auto 0; 
-        width: 300px;
         height: auto; 
     }
 
     .battleship-button {
         margin: 15px 0 0 0; 
     }
-    
-    .battleship-target-display > button {
-        margin: 0 0 0 40px;
-    }
 
     #battleship-target-input, .battleship-button {
         font-size: 1.4rem;
+        margin: 5px auto;
     }
 
+    .battleship-panel {
+        text-align: center;
+        padding: 25%;
+        font-size: 1.6rem;
+    }
+
+    .battleship-panel, .battleship-label {
+        height: 35px;
+        width: 35px;
+    }
+
+    .battleship-target-display > form {
+        width: 100%;
+    }
+
+    .battleship-status-display h4 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+}
+
+/* for desktop screens */
+@media (min-width: 1024px) {
+
+    #battleship-board {
+        margin: 15px auto;
+        display: grid;
+        grid-template-columns: 5fr 2fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        " radar target "
+        " display status ";
+    }
+
+    .battleship-monitor, .battleship-monitor-label {
+        height: 600px;
+        width: 600px;
+        margin-right: 15px;
+    }
+
+    .battleship-monitor-label {
+        width: 100px;
+    }
+
+    .battleship-monitor-label > h2 {
+        font-size: 5.5rem;
+    }
+
+    .battleship-row:first-of-type {
+        grid-area: radar;
+    }
+
+    .battleship-row:nth-of-type(2) {
+        grid-area: display;
+    }
+
+    .battleship-row:nth-of-type(3) {
+        grid-area: target;
+    }
+
+    .battleship-row:last-of-type {
+        grid-area: status;
+    }
+
+    .battleship-panel, .battleship-label {
+        height: 50px;
+        width: 50px;
+    }
+
+    .battleship-target-display, .battleship-status-display {
+        width: 100%;
+        height: auto;
+        margin-top: 60%;
+    }
+
+    .battleship-status-display h4, .audio-toggle h4 {
+        font-size: 2rem;
+        line-height: 1.5;
+    }
+
+    .ship-status-indicator {
+        height: 6px;
+        width: 6px;
+        margin: 10px 2px;
+    }
+
+    .audio-toggle {
+        width: 100%;
+    }
 }

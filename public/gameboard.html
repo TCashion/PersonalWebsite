@@ -252,9 +252,12 @@
             </div>
         </div>
         <div class="row">
-            <!-- Battleship -->
-            <div class="container gameboard" id="battleship-board">
-                <div class="battleship-monitor" id="playerOneRadar">
+
+        <!-- BATTLESHIP -->
+        <div class="container gameboard" id="battleship-board">
+            <div class="battleship-row">
+                <div class="battleship-monitor-label"><h2 class="battleship-label-heading">RADAR</h2></div>
+                <div class="battleship-monitor" id="player-one-radar">
                     <div class="battleship-gamecol">
                         <div class="battleship-label"> </div>
                         <div class="battleship-label">A</div>
@@ -399,7 +402,10 @@
                         <div class="battleship-panel" id="x9y9"></div>
                     </div>
                 </div>
-                <div class="battleship-monitor" id="playerOneDisplay">
+            </div>
+            <div class="battleship-row">
+                <div class="battleship-monitor-label"><h2 class="battleship-label-heading">DISPLAY</h2></div>
+                <div class="battleship-monitor" id="player-one-display">
                     <div class="battleship-gamecol">
                         <div class="battleship-label"> </div>
                         <div class="battleship-label">A</div>
@@ -544,12 +550,58 @@
                         <div class="battleship-panel" id="X9Y9"></div>
                     </div>
                 </div>
+            </div>
+            <div class="battleship-row">
                 <div class="battleship-target-display">
                     <form id="battleship-input-form">
+                        <label for="battleship-target-input">You've already taken that shot!</label>
                         <input id="battleship-target-input" placeholder="Designate target">
                         <button type="submit" class="battleship-button" id="battleship-fire-button">Fire!</button>
                     </form>
                     <button class="battleship-button" id="battleship-render-button">Reset</button>
+                </div>
+            </div>
+            <div class="battleship-row">
+                <div class="battleship-status-display">
+                    <div>
+                        <h4>Aircraft Carrier ("A")</h4>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                    </div>
+                    <div>
+                        <h4>Battleship ("B")</h4>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                    </div>
+                    <div>
+                        <h4>Cruiser ("C")</h4>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                    </div>
+                    <div>
+                        <h4>Submarine ("S")</h4>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                    </div>
+                    <div>
+                        <h4>Destroyer ("D")</h4>
+                        <div class="ship-status-indicator"></div>
+                        <div class="ship-status-indicator"></div>
+                    </div>
+                </div>
+                <div class="audio-toggle">
+                    <h4>Audio Controls:</h4>
+                    <input class="audio-toggle-radio" type="radio" id="audio-on" name="audio" value="on" checked> 
+                    <label class="audio-toggle-label" for="audio-on">On</label>
+                    <input class="audio-toggle-radio" type="radio" id="audio-off" value="off" name="audio"> 
+                    <label class="audio-toggle-label" for="audio-off">Off</label>
                 </div>
             </div>
         </div>
