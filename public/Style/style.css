@@ -258,6 +258,7 @@ p, li {
     height: 250px;
     position: relative;
     overflow: hidden;
+    border: solid 3px var(--main-plus-one);
     border-radius: 50%;
     margin: 0 auto;
 }
