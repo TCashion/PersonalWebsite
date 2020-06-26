@@ -362,6 +362,10 @@ blog class tags used on portfolio page for simplicity. Outlined in same format
     text-align: center;
 }
 
+.year {
+    font-size: 60%;
+}
+
 .blog-preview {
     height: auto;
     min-height: 300px;
