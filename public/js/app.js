@@ -89,6 +89,29 @@ document.addEventListener("DOMContentLoaded", function() {
         };
     });
 
+    // wake up Heroku projects 
+    const projectsArray = [
+        {
+            name: 'obNoxious',
+            url: 'https://obnoxious.herokuapp.com/'
+        },
+        {
+            name: 'GASapp',
+            url: 'https://gear-acquisition-syndrome.herokuapp.com/'
+        },
+        {
+            name: 'Finch Finder',
+            url: 'http://finch-finder.herokuapp.com/'
+        },
+        {
+            name: 'Outdoor Journal',
+            url: 'https://outdoor-journal.herokuapp.com/'
+        },
+    ];
 
+    projectsArray.forEach((project) => {
+        fetch(project.url, {mode: 'no-cors'})
+        .then(res => console.log(`Woke up ${project.name}`))
+    });
     
 });
