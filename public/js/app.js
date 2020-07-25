@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         {
             name: 'Finch Finder',
-            url: 'http://finch-finder.herokuapp.com/'
+            url: 'https://finch-finder.herokuapp.com/'
         },
         {
             name: 'Outdoor Journal',
